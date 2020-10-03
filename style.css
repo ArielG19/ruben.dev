@@ -1,0 +1,650 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'helvetica';
+  font-size: 16px;
+}
+/*logo de la izquierda*/
+.logo{
+  position: fixed;
+  z-index:1;
+  float: left;
+  color: #fff;
+  margin: 16px 36px;
+  font-weight: bold;
+  font-size: 24px;
+}
+.logo img{
+    width: 40px;
+ }
+
+/*menu*/
+nav{
+  position: fixed;
+  z-index:1;
+  width: 100%;
+}
+/*estilos a ul*/
+nav ul{
+  list-style: none;
+  background: rgba(0,0,0,0) ;
+  overflow: hidden;
+  color: #fff;
+  padding: 0;
+  text-align: right;
+  margin: 0;
+  transition: 1s;
+}
+nav.black ul{
+  
+  background: linear-gradient(to right, rgb(233, 30, 189), #071affcf);
+  /*background: linear-gradient(to right, rgb(233, 30, 189), #ffc107cf);*/
+
+}
+/*estilos al li*/
+nav ul li{
+  display: inline-block;
+  padding-bottom:20px;
+  padding-top: 20px;
+
+}
+nav ul li a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;/*despegamos un poco las paginas*/
+  font-weight: bold;
+
+}
+
+/*estilos de btn hamburguesa, para cuando este en movil*/
+.menu-icon{
+  width: 100%;
+  /*background: #000;*/
+  background: linear-gradient(to right, rgb(233, 30, 189), #071affcf);
+  text-align: right;
+  box-sizing: border-box;
+  padding: 15px 24px;
+  cursor: pointer;
+  color: #fff;
+  display: none;
+}
+
+
+/*estilo al header*/
+header {
+    width: 100%;
+    height: 650px;
+    background-image: url(img/Skewed.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+}
+
+/*estilo al titulo principal*/
+header .textos {
+    margin-top: 152px;
+}
+
+/*estilo al titulo*/
+header .titulo {
+    font-size: 85px;
+    margin-top: 150px;
+}
+/*estilo al subtitulo*/
+header .subtitulo {
+    font-size: 42px;
+    font-weight: 300;
+    margin-bottom: 32px;
+}
+
+/*estilo a btn suscribte*/
+header .btn {
+    display: inline-block; /*Agranda el div*/
+    padding: 6px;
+    width: 128px;
+background: linear-gradient(to right, rgb(233, 30, 189), #071affcf);
+    color: #fff;
+    font-size: 19px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 16px; /*redondeamos el contenedor*/
+}
+/*hover btn*/
+header .btn:hover {
+    display: inline-block; /*Agranda el div*/
+    padding: 6px;
+    width: 128px;
+    color: #fff;
+    background: linear-gradient(to right, rgb(233, 30, 142), #07e8ffcf);
+    font-size: 19px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 16px; /*redondeamos el contenedor*/
+}
+/*creamos nuestro diseño triangular a mostrar abajo*/
+.secAbajo{
+  /*z-index: 10; para que no nos oculte el menu*/
+  position: absolute; /*para modificar la posicion*/
+  bottom: 0; /*lo ubicamos abajo del contendor padre*/
+  left: 0;
+  border-width:0 0 45vh 100vw;/*aplica el tamaño a utilar 35% al contenedor en este caso, a su vez estamos creando un rectanglo*/
+  border-style: solid; /*aplica el color al contenedor*/
+  border-color: transparent transparent #fff transparent; /*aplicamos color al rectangulo para dejar solo un triangulo*/
+}
+
+/*contendor sobre nosotros*/
+.contenedor {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    padding: 52px 0;
+}
+
+/*main*/
+.sobre-nosotros {
+    text-align: center;
+    font-size: 56px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.eslogan {
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.parrafo {
+    margin-bottom: 13px;
+    font-weight: 300;
+    text-align: justify;
+    line-height: 24px;
+    color: rgb(24, 16, 16);
+}
+.acerca-de .btn {
+    display: inline-block;
+    padding: 6px;
+    width: 128px;
+    font-weight: 300;
+    background: linear-gradient(to right, rgb(233, 30, 189), #071affcf);
+    /*border: 1px solid rgba(24, 16, 16, .7);*/
+    color: #FFF;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 16px;
+    margin-top: 24px;
+}
+.acerca-de .btn:hover {
+    display: inline-block;
+    padding: 6px;
+    width: 128px;
+    font-weight: 300;
+background: linear-gradient(to right, rgb(233, 30, 142), #07e8ffcf);
+    /*border: 1px solid rgba(24, 16, 16, .7);*/
+    color: #FFF;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 16px;
+    margin-top: 24px;
+}
+
+
+
+/*creamos nuestro diseño triangular a mostrar arriba*/
+.secArriba {
+    /*z-index: 10;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-width: 35vh 100vw 0 0;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+/*aqui modificamos las imagenes para que no se salgan del contenedor en el que estan*/
+.galeria {
+    width: 100%;
+    height: 500px;
+    overflow: hidden; /*oculta el scroll horizontal*/
+    display: flex; /*termina de quitar el spacio sobrante del scroll*/
+
+    /*toma la posicion del section galeria sino lo aplicaria en el header el triangulo arriba,
+     termina de quitar el spacio sobrante del scroll*/
+    position: relative;
+    flex-wrap: wrap; /*termina de quitar el spacio sobrante del scroll*/
+}
+
+
+/*imagenes de la galeria, posicionamos las 5 imgenes en el mismo contenedor*/
+.imagenes {
+    width: 20%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+.imagenes img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*para que las imagenes no se vean borrosas*/
+}
+/*aplicamos un bg al contenedor donde esta nuestro titulo*/
+.encima {
+    position: absolute; /*para que se aplique en todo*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(52, 73, 94, 0.815);
+}
+/*aplicamos estilo y mostramos titulo donde esta nuestra imagen con bg*/
+.encima h2 {
+    position: relative;
+    top: 45%;
+    text-align: center;
+    color: #fff;
+}
+/*aaplicamos estilo al div vacio para hacer forma de una linea*/
+.encima div {
+    position: relative;
+    display: block;
+    top: 46%;
+    width: 40px;
+    height: 5px;
+    background: #fff;
+    margin: auto/*para centrar*/
+}
+
+/*section miembros*/
+.cards {
+    width: 100%;
+    margin: auto;
+    display: flex;/*centra lo que hay dentro del contendor*/
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/*damos forma al card*/
+.card {
+    margin: 20px 0;
+    width: 30%;
+    height: 250px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 0px 4px 0 rgba(52, 73, 94, 0.849); /*margenes de las card con sombra*/
+}
+/*damos width y height a las imagenes*/
+.cards img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover; /*para que las imagenes no se vean borrosas*/
+    border-radius: 100%;
+}
+.fondo {
+    height: 900px;
+    position: relative;
+    background-image: url(img/fondo.png);
+    overflow: hidden;
+    background-attachment: fixed;
+    background-position: center;
+    padding-top: 130px;
+}
+.secAbajo-unico {
+    /*z-index: 10;*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 35vh 100vw;
+    border-style: solid;
+    border-color: transparent transparent #2c3e50 transparent;
+}
+
+/*-----------------------------------------Galeria---------------------------------------------------------*/
+.container{
+    width: 1280px;
+    margin:70px auto 0;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+.container .box{
+    position: relative;
+    width: 300px;
+    height:265px;
+    background:#000;
+    margin:10px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 10px rgba(0,0,0,8);
+    display: inline-block;
+}
+.container .box .imgBox{
+    position: relative;
+    overflow: hidden;
+}
+/*-----------------------------------css de las imagenes---------------------------------*/
+.container .box .imgBox img{
+    width: 100%;
+    height: 265px;
+    background-position:center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 2s;
+}
+/*-----------------------------------animacion al hacer hover---------------------------------*/
+.container .box:hover .imgBox img{
+ transform: scale(1.2);
+}
+
+/*-----------------------------------texto---------------------------------*/
+.container .box .details{
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    background: linear-gradient(to right, rgb(233, 30, 189), #071affcf);
+    transform: scaleY(0);
+    transition: transform .5s;
+}
+.container .box:hover .details{
+   transform: scaleY(1);
+}
+.container .box .details .content{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 15px;
+    color: #fff;
+}
+.container .box .details .content h2{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+.container .box .details .content p{
+    margin: 10px 0;
+    padding: 0;
+    
+}
+.titulo-galeria{
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    font-size: 56px;
+    margin-top: 45px;
+    margin-bottom: -58px;
+}
+
+/*-----------------------------------------Galeria---------------------------------------------------------*/
+
+/* ----------------------------------------Footer ---------------------------------------------------------*/
+
+footer {
+    background: #2c3e50;
+    height: auto;
+}
+
+.titulo-footer,
+.subtitulo-footer {
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    font-size: 56px;
+}
+
+.subtitulo-footer {
+    font-size: 16px;
+    margin-bottom: 64px;
+}
+
+form {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+input[type="text"],
+input[type="email"] {
+    display: inline-block;
+    width: 48%;
+    padding: 13px;
+    border: none;
+    color: #000;
+    font-family: 'open sans';
+    /*background: rgba(37, 37, 33, .7);*/
+    margin-bottom: 16px;
+    /*border-top: 5px solid rgba(37, 37, 33, .7);*/
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-top: 5px solid rgba(255, 255, 255, 0.7);
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 200px;
+    min-height: 200px;
+    /*background: rgba(37, 37, 33, .7);*/
+    padding: 13px;
+    border: none;
+    color: #000;
+    font-family: 'open sans';
+    margin-bottom: 16px;
+}
+
+input[type="submit"] {
+    display: inline-block;
+    padding: 13px;
+    border: none;
+    color: #000;
+    background:#fff; /*rgba(37, 37, 33, .7);*/
+    width: 96px;
+}
+input[type="submit"]:hover {
+    display: inline-block;
+    padding: 13px;
+    border: none;
+    color: #fff;
+    background:#3742fa; /*rgba(37, 37, 33, .7);*/
+    width: 96px;
+}
+
+/*------------------------------responsive cuando estemos en movil menu--------------------------------------*/
+@media(max-width:580px){
+  .logo{
+    position: fixed;
+    top: 0;
+    margin-top: 16px;
+  }
+  nav ul{
+    max-height: 0px;/*nuestra barra de menu permanece pequeña*/
+    /*background: #000;*/
+    background: linear-gradient(to right, rgb(233, 30, 189), #071affcf);
+  }
+  nav.black ul{
+    /*background: #000;*/
+    background: linear-gradient(to right, rgb(233, 30, 189), #071affcf);
+  }
+  .showing{
+    max-height: 20em;
+  }
+  nav ul li{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 0; /*espacio entre las paginas en movil*/
+    text-align: center;
+  }
+  /*mostramos el btn del menu*/
+  .menu-icon{
+    display: block;
+  }
+  .cliente img {
+    width: 72%;
+    margin-left: 50px;
+  }
+  .container {
+    width: 280px;
+    margin: 70px auto 0;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+  }
+
+
+
+/* Responsive */
+@media (min-width: 400px) and (max-width: 900px)
+ {
+    .card {
+        width: 48%;
+    }
+ }
+@media (min-width: 901px)  and (max-width:1200px) {
+    .container {
+    width: 95%;
+    /* margin: 70px auto 0; */
+    background: #fff;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    }
+   
+    .container .box {
+    /* position: relative; */
+    width: 46%;
+    /* height: 265px; */
+    height: 141px;
+    background: #000;
+    margin: 10px;
+    /* box-sizing: border-box; */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 1);
+    /* display: inline-block; */
+   }
+   .container .box .imgBox img {
+    width: 100%;
+    height: 149px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 2s;
+    }
+}
+
+
+@media (min-width: 610px) and (max-width:1200px) {
+    .container {
+    width: 900px;
+    margin: 70px auto 0;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+ .container .box {
+    /* position: relative; */
+    width: 430px;
+    height: 255px;
+    background: #000;
+    margin: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 1);
+    display: inline-block;
+}
+.container .box .imgBox img {
+    width: 100%;
+    height: 255px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 2s;
+}
+
+    header .textos {
+        margin-top: 130px;
+    }
+
+    header .titulo {
+        font-size: 75px;
+    }
+
+    .none {
+        display: none
+    }
+
+    .imagenes {
+        flex-grow: 1;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .fondo {
+        height: auto;
+    }
+
+    .especial {
+        display: none;
+    }
+
+    .cliente {
+        width: 90%;
+        height: 200px;
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    header .textos {
+        margin-top: 100px;
+    }
+
+    header .titulo {
+        font-size: 65px;
+    }
+
+    header .subtitulo {
+        font-size: 25px;
+        margin-bottom: 32px;
+    }
+
+    .sobre-nosotros {
+        font-size: 46px;
+    }
+
+    .eslogan {
+        font-size: 20px;
+    }
+
+    .titulo-patrocinadores {
+        font-size: 46px;
+    }
+
+    .subtitulo-patrocinadores {
+        font-size: 20px;
+    }
+}
