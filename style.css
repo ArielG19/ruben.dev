@@ -407,10 +407,10 @@ footer {
     font-weight: 400;
     font-size: 56px;
 }
-
 .subtitulo-footer {
     font-size: 16px;
-    margin-bottom: 64px;
+    /* margin-bottom: 0px; */
+    margin-top: -20px;
 }
 
 form {
@@ -470,6 +470,12 @@ input[type="submit"]:hover {
     color: #fff;
     background:#3742fa; /*rgba(37, 37, 33, .7);*/
     width: 96px;
+}
+
+.contenedor-icon {
+    color: #fff;
+    text-align: center;
+    margin-right: 220px;
 }
 
 /*------------------------------responsive cuando estemos en movil menu--------------------------------------*/
