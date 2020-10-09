@@ -1,4 +1,4 @@
-*{
+  *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -34,6 +34,7 @@ nav ul{
   overflow: hidden;
   color: #fff;
   padding: 0;
+  padding-right: 60px;
   text-align: right;
   margin: 0;
   transition: 1s;
@@ -173,7 +174,7 @@ header .btn:hover {
 }
 .acerca-de .btn {
     display: inline-block;
-    padding: 6px;
+    padding: 8px;
     width: 128px;
     font-weight: 300;
     background: linear-gradient(to right, rgb(233, 30, 189), #071affcf);
@@ -184,6 +185,7 @@ header .btn:hover {
     text-decoration: none;
     border-radius: 16px;
     margin-top: 24px;
+    box-shadow: 4px 4px 6px 0 rgba(52, 73, 94, 0.849);
 }
 .acerca-de .btn:hover {
     display: inline-block;
@@ -517,13 +519,7 @@ input[type="submit"]:hover {
 
 
 /* Responsive */
-@media (min-width: 400px) and (max-width: 900px)
- {
-    .card {
-        width: 48%;
-    }
- }
-@media (min-width: 901px)  and (max-width:1200px) {
+@media (min-width: 300px)  and (max-width:640px) {
     .container {
     width: 95%;
     /* margin: 70px auto 0; */
@@ -532,91 +528,164 @@ input[type="submit"]:hover {
     /* flex-direction: row; */
     /* flex-wrap: wrap; */
     }
-   
-    .container .box {
-    /* position: relative; */
-    width: 46%;
-    /* height: 265px; */
-    height: 141px;
-    background: #000;
-    margin: 10px;
-    /* box-sizing: border-box; */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 1);
-    /* display: inline-block; */
-   }
-   .container .box .imgBox img {
+    .card {
+    margin: 20px 0;
     width: 100%;
-    height: 149px;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: transform 2s;
+    height: 265px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 0px 4px 0 rgba(52, 73, 94, 0.849);
     }
+    .cards {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        
+    }
+    .container .box {
+        /* position: relative; */
+        width: 95%;
+        /* height: 265px; */
+        height: 180px;
+        background: #000;
+        margin: 10px;
+        /* box-sizing: border-box; */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 1);
+        /* display: inline-block; */
+    }
+    .container .box .imgBox img {
+        width: 100%;
+        height: 185px;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: transform 2s;
+    }
+    .fondo {
+        height: 1870px;
+        position: relative;
+        background-image: url(img/fondo.png);
+        overflow: hidden;
+        background-attachment: fixed;
+        background-position: center;
+        padding-top: 130px;
+    }
+
 }
-
-
-@media (min-width: 610px) and (max-width:1200px) {
+@media (min-width: 641px)  and (max-width:981px) {
     .container {
-    width: 900px;
-    margin: 70px auto 0;
+    width: 95%;
+    /* margin: 70px auto 0; */
     background: #fff;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
- .container .box {
-    /* position: relative; */
-    width: 430px;
-    height: 255px;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    }
+    .card {
+    margin: 20px 0;
+    width: 100%;
+    height: 265px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 0px 4px 0 rgba(52, 73, 94, 0.849);
+    }
+    .cards {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        
+    }
+      .container .box {
+    position: relative;
+    width: 21%;
+    height: 180px;
     background: #000;
-    margin: 10px;
+    margin: 14px;
     box-sizing: border-box;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 1);
-    display: inline-block;
-}
-.container .box .imgBox img {
-    width: 100%;
-    height: 255px;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: transform 2s;
-}
-
-    header .textos {
-        margin-top: 130px;
+    /* display: inline-block; */
     }
-
-    header .titulo {
-        font-size: 75px;
+   
+    .container .box .imgBox img {
+        width: 100%;
+        height: 185px;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: transform 2s;
     }
-
-    .none {
-        display: none
-    }
-
-    .imagenes {
-        flex-grow: 1;
-    }
-
-    .card {
-        width: 90%;
-    }
-
     .fondo {
-        height: auto;
+        height: 1870px;
+        position: relative;
+        background-image: url(img/fondo.png);
+        overflow: hidden;
+        background-attachment: fixed;
+        background-position: center;
+        padding-top: 130px;
     }
 
-    .especial {
-        display: none;
-    }
-
-    .cliente {
-        width: 90%;
-        height: 200px;
-        margin-bottom: 50px;
-    }
 }
+@media (min-width: 982px)  and (max-width:1200px) {
+    .container {
+    width: 95%;
+    /* margin: 70px auto 0; */
+    background: #fff;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    }
+    .card {
+    margin: 20px 0;
+    width: 100%;
+    height: 265px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 0px 4px 0 rgba(52, 73, 94, 0.849);
+    }
+    .cards {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        
+    }
+    .container .box {
+    position: relative;
+    width: 22%;
+    height: 180px;
+    background: #000;
+    margin: 14px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 1);
+    /* display: inline-block; */
+    }
+   
+    .container .box .imgBox img {
+        width: 100%;
+        height: 185px;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: transform 2s;
+    }
+    .fondo {
+        height: 1870px;
+        position: relative;
+        background-image: url(img/fondo.png);
+        overflow: hidden;
+        background-attachment: fixed;
+        background-position: center;
+        padding-top: 130px;
+    }
+
+}
+
+
 
 @media screen and (max-width:380px) {
     header .textos {
