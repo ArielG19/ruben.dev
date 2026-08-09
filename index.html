@@ -1,263 +1,776 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/f2c18c4c2b.js" crossorigin="anonymous"></script>
   
-  <title>Inicio</title>
+  <!-- SEO & Open Graph Meta Tags -->
+  <title>Rubén Pérez | Desarrollador Front-End & Web Specialist en Bilbao</title>
+  <meta name="description" content="Portafolio profesional de Rubén Pérez, Desarrollador Front-End especializado en Angular, WordPress, SASS, JavaScript y Laravel. Ubicado en Bilbao, España.">
+  <meta name="keywords" content="Rubén Pérez, Desarrollador Front-End, Angular, WordPress, Web Developer, Bilbao, Masmovil, Yoigo, Frontend Developer España">
+  <meta name="author" content="Rubén Pérez">
+  
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rubén Pérez | Desarrollador Front-End">
+  <meta property="og:description" content="Desarrollador Front-End apasionado por la creación de experiencias web modernas, responsivas y de alto rendimiento.">
+  <meta property="og:url" content="https://arielg19.github.io/ruben.dev/">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- FontAwesome 6 (Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <header class="texto">
-    <nav>
-      
-      <div class="menu-icon">
-          <i class="fa fa-bars fa-2x"></i>
-      </div>
 
-      <div class="logo"><img src="img/coding.png" alt=""></div>
-      <div class="menu">
-        <ul>
-          <li><a href=""></a></li>
-          <li><a href="#sobre-mi">Sobre mí</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#galeria">Galeria</a></li>
+  <!-- Background Ambient Glowing Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Header & Navigation Bar -->
+  <header>
+    <nav class="navbar" id="navbar">
+      <div class="container navbar-container">
+        <a href="#inicio" class="logo">
+          <span class="logo-code">&lt;</span>RubénPérez<span class="logo-code">/&gt;</span>
+        </a>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+          <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+          <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+          <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+          <li><a href="#servicios" class="nav-link">Servicios</a></li>
+          <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
         </ul>
+
+        <div class="nav-actions">
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar tema">
+            <i class="fas fa-sun"></i>
+          </button>
+          <a href="#contacto" class="btn btn-primary btn-sm">Contrátame</a>
+          <button class="mobile-toggle" id="mobile-toggle" aria-label="Menú navegación">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
       </div>
     </nav>
-
-    <div class="header">
-      <h1 class="titulo">Ruben Perez</h1>
-      <h3 class="subtitulo">Desarrollador web</h3>
-       <!--a href="https://github.com/ArielG19" class="btn">Github</a-->
-    </div>
-
-      <!--Diseño triangular del header-->
-      <div class="secAbajo"></div>
-      <!--Diseño triangular del header-->
   </header>
-  <main>
-      <section class="acerca-de" id="sobre-mi">
-          <div class="contenedor">
-            <h2 class="sobre-nosotros">
-              Sobre mí
-            </h2>
-            <br>
-            <!--h3 class="eslogan">Web dev</h3-->
-            <p>Soy un joven programador, pero muy capaz, al que le encanta el Desarrollo y la programación web. Muchas veces muy autodidacta ya que me encanta aprender, ya sea sobre mi área de desarrollo como cultura general.
-            
-            </p> <br>
 
-            <p>Mis principales habilidades como <b>Web developer </b> son: Laravel(PHP), WordPress, BOOTSTRAP, HTML, CSS, JQUERY, AJAX, VUE JS.
-            <br>
-            <br><br>
-            Creamos juntos un nuevo espacio lleno de posibilidades, donde mi habilidad y mis conocimientos sirvan para ayudarte en este mundo del Internet.
+  <main>
+    <!-- ==========================================================================
+         Hero Section
+         ========================================================================== -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="badge-location">
+              <span class="badge-dot"></span>
+              <span>Bilbao, España • Disponible para nuevos proyectos</span>
+            </div>
+
+            <h1 class="hero-title">
+              Hola, soy <br>
+              <span class="text-gradient">Rubén Pérez</span>
+            </h1>
+
+            <div class="typewriter-wrapper">
+              <span class="typewriter-prefix">&gt; </span>
+              <span id="typewriter-text"></span>
+              <span class="cursor-blink"></span>
+            </div>
+
+            <p class="hero-description">
+              Desarrollador Web y Front-End apasionado por construir interfaces atractivas, rápidas e intuitivas. Trabajo con Angular, WordPress, Laravel e integración de Inteligencia Artificial (Claude, ChatGPT, conectores y custom skills).
             </p>
 
-            <a href="https://github.com/ArielG19" class="btn">Github</a>
-          </div>
-      </section>
-
-      <section class="galeria">
-        <!--Diseño triangular galeria-->
-         <div class="secArriba"></div>
-         <!--Diseño triangular galeria-->
-         <div class="imagenes">
-             <img src="img/1.jpg" alt="">
-         </div>
-         <div class="imagenes">
-             <img src="img/3.jpg" alt="">
-         </div>
-         <div class="imagenes">
-             <img src="img/2.jpg" alt="">
-             <div class="encima">
-                 <h2>Rubén Perez <br> Web Design</h2>
-                 <div></div>
-             </div>
-         </div>
-         <div class="imagenes">
-             <img src="img/4.jpeg" alt="">
-
-         </div>
-         <div class="imagenes">
-             <img src="img/5.jpeg" alt="">
-         </div>
-
-        <!--Diseño triangular galeria-->
-         <div class="secAbajo"></div>
-         <!--Diseño triangular galeria-->
-     </section>
-
-      <!--Nuestro equipo-->
-          <div class="contenedor" id="servicios">
-            <h2 class="sobre-nosotros">Servicios</h2>
-            <h3 class="eslogan">Puedo ayudarte en</h3>
-            <div class="cards">
-                <div class="card">
-                  <img src="img/coding.png" alt="">
-                  <h4>Web development</h4>
-                  <p>Diseñar y crear tu sitio web</p>
-                </div>
-                <div class="card">
-                  <img src="img/seo.png" alt="">
-                  <h4>SEO</h4>
-                    <p>Analizar tu sitio y darte asesoría para mejor tu posicionamiento en buscadores</p>
-                </div>
-                <div class="card">
-                  <img src="img/email.png" alt="">
-                  <h4>Email marketing</h4>
-                    <p>Implementar formulario de suscripción, diseño y envió de campaña de email </p>
-                </div>
+            <div class="hero-cta">
+              <a href="#proyectos" class="btn btn-primary">
+                <span>Ver Proyectos</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="#contacto" class="btn btn-secondary">
+                <i class="fas fa-paper-plane"></i>
+                <span>Contactar</span>
+              </a>
+              <a href="https://github.com/ArielG19" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" title="Perfil de GitHub">
+                <i class="fab fa-github"></i>
+              </a>
             </div>
-          </div>
-      </section>
 
-      <!--Clientes-->
-      <section class="fondo">
-        <!--estilo triangular-->
-        <div class="secArriba"></div>
-        <!--estilo triangular-->
-        <h2 class="titulo-galeria" id="galeria">Galeria</h2>
-              <div class="container">
-
-                    <div class="box">
-                        <div class="imgBox">
-                            <img src="img/v1.png" alt="">
-                        </div>
-                        <div class="details">
-                            <div class="content">
-                              <h2>Adobe XD</h2>
-                              <p>Idea para theme wordpress</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--div class="box">
-                       <div class="imgBox">
-                            <img src="img/rub1.png" alt="">
-                        </div>
-                        <div class="details">
-                            <div class="content">
-                              <h2>Github Page</h2>
-                              <p>Mi pagina personal de Github</p>
-                            </div>
-                        </div>
-                    </div-->
-                    <!--div class="box">
-                       <div class="imgBox">
-                            <img src="img/rub2.png" alt="">
-                        </div>
-                        <div class="details">
-                            <div class="content">
-                              <h2>Github Page</h2>
-                              <p>Mi pagina personal de Github</p>
-                            </div>
-                        </div>
-                    </div-->
-                    <div class="box">
-                       <div class="imgBox">
-                            <img src="img/farma.png" alt="">
-                        </div>
-                        <div class="details">
-                            <div class="content">
-                              <h2>FarmaPlus Estelí - 2019</h2>
-                              <p>Farmaplus sitio web programdo en laravel 5.7 (PHP)</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box">
-                       <div class="imgBox">
-                            <img src="img/ciiemp.png" alt="">
-                        </div>
-                        <div class="details">
-                            <div class="content">
-                              <h2>Plataforma CIIEMP</h2>
-                              <p>Proyecto universitario, programado en Laravel 5.4 (PHP)</p>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="box">
-                       <div class="imgBox">
-                            <img src="img/w1.png" alt="">
-                        </div>
-                        <div class="details">
-                            <div class="content">
-                              <h2>Clonando diseño de otro sitio en wordpress</h2>
-                              <p>Clone de sitio web </p>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="box">
-                       <div class="imgBox">
-                            <img src="img/w2.png" alt="">
-                        </div>
-                        <div class="details">
-                            <div class="content">
-                              <h2>Clonando diseño de otro sitio en wordpress</h2>
-                              <p>Clone de sitio web </p>
-                            </div>
-                        </div>
-                    </div>
-                      <div class="box">
-                          <div class="imgBox">
-                              <img src="img/w3.png" alt="">
-                          </div>
-                          <div class="details">
-                              <div class="content">
-                                <h2>Clonando diseño de otro sitio en wordpress</h2>
-                                <p>Clone de sitio web </p>
-                              </div>
-                          </div>
-                    </div>
-
-
-
-
-
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-number" data-target="5" data-suffix="+">0</span>
+                <span class="stat-label">Años Experiencia</span>
               </div>
-          <!--estilo triangular-->
-          <!--div class="secAbajo-unico"></div-->
-          <!--estilo triangular-->
-      </section>
-  </main>
-  <footer>
-        <div class="contenedor">
-            <h2 class="titulo-footer">Contacto</h2>
-            <div class="contenedor-icon">
-            <i class="far fa-envelope"></i>
+              <div class="stat-item">
+                <span class="stat-number" data-target="20" data-suffix="+">0</span>
+                <span class="stat-label">Proyectos Realizados</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" data-target="100" data-suffix="%">0</span>
+                <span class="stat-label">Compromiso & Calidad</span>
+              </div>
             </div>
-            <h3 class="subtitulo-footer">gotze19ariel@gmail.com</h3>
-            <div class="footer">
-                <!--form action="">
-                    <input type="text" name="" id="" placeholder="Nombre">
-                    <input type="email" name="" id="" placeholder="Email">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Ingrese su mensaje..."></textarea>
-                    <input type="submit" value="Enviar">
-                </form-->
+          </div>
+
+          <div class="hero-visual">
+            <div class="avatar-card">
+              <div class="avatar-img-wrapper">
+                <img src="img/workspace_setup.png" alt="Desarrollo Web & Programación - Rubén Pérez" class="avatar-img">
+              </div>
+
+              <!-- Floating Tech Pills -->
+              <div class="floating-pill pill-1">
+                <i class="fab fa-angular" style="color: #dd0031;"></i>
+                <span>Angular & Laravel</span>
+              </div>
+              <div class="floating-pill pill-2">
+                <i class="fab fa-wordpress" style="color: #21759b;"></i>
+                <span>WordPress & Plugins</span>
+              </div>
+              <div class="floating-pill pill-3">
+                <i class="fas fa-brain" style="color: #06b6d4;"></i>
+                <span>IA (Claude & ChatGPT)</span>
+              </div>
             </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
+    <!-- ==========================================================================
+         About Me Section
+         ========================================================================== -->
+    <section class="section" id="sobre-mi">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Conóceme</span>
+          <h2 class="section-title">Sobre <span class="text-gradient">mí</span></h2>
+          <p class="section-subtitle">Programador dinámico, curioso y apasionado por la innovación tecnológica</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-text">
+              <p>
+                Soy un <strong>Desarrollador Web apasionado</strong>, enfocado en transformar ideas complejas en productos digitales de alto rendimiento. Me defino como una persona <strong>altamente curiosa y autodidacta</strong>, en constante evolución técnica para dominar las herramientas más avanzadas del mercado.
+              </p>
+              <p>
+                Mi trabajo abarca el <strong>Desarrollo Front-End</strong>, la creación de <strong>plugins personalizados de WordPress a medida</strong>, desarrollo web en <strong>Angular y Laravel</strong>, e integración de <strong>Inteligencia Artificial (Claude, ChatGPT, conectores y custom skills)</strong>. Cada proyecto combina una estética <em>premium</em>, accesibilidad y una arquitectura optimizada bajo el enfoque <em>Mobile First Design</em>.
+              </p>
+            </div>
+
+            <div class="about-highlights">
+              <div class="highlight-box">
+                <div class="highlight-icon">
+                  <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="highlight-content">
+                  <h4>Autodidacta</h4>
+                  <p>Pasión por aprender tecnologías continuas</p>
+                </div>
+              </div>
+
+              <div class="highlight-box">
+                <div class="highlight-icon">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="highlight-content">
+                  <h4>Mobile First</h4>
+                  <p>Maquetación perfecta en cualquier pantalla</p>
+                </div>
+              </div>
+
+              <div class="highlight-box">
+                <div class="highlight-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="highlight-content">
+                  <h4>Buenas Prácticas</h4>
+                  <p>Código limpio, modular y mantenible</p>
+                </div>
+              </div>
+
+              <div class="highlight-box">
+                <div class="highlight-icon">
+                  <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <div class="highlight-content">
+                  <h4>SEO & Performance</h4>
+                  <p>Optimización para motores de búsqueda</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <h3 class="role-title" style="margin-bottom: 1.5rem;">Información Rápida</h3>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Ubicación</h4>
+                <p>48004 Bilbao, España</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Correo Electrónico</h4>
+                <p>perez10ariel@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fab fa-github"></i>
+              </div>
+              <div class="contact-details">
+                <h4>GitHub</h4>
+                <p><a href="https://github.com/ArielG19" target="_blank" rel="noopener noreferrer" style="color: var(--accent-secondary);">github.com/ArielG19</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Experience Section (Timeline)
+         ========================================================================== -->
+    <section class="section" id="experiencia">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Trayectoria</span>
+          <h2 class="section-title">Experiencia <span class="text-gradient">Laboral</span></h2>
+          <p class="section-subtitle">Mi recorrido profesional en empresas tecnológicas y proyectos freelance</p>
+        </div>
+
+        <div class="timeline">
+          <!-- Experience 1: Hodeicloud -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="role-title">Desarrollador Front-End</h3>
+                  <span class="company-badge"><i class="fas fa-building"></i> HODEICLOUD — Media Jornada</span>
+                </div>
+                <span class="timeline-date">Marzo 2023 – Actualidad 2026</span>
+              </div>
+              
+              <ul class="timeline-list">
+                <li>Creación y maquetación de sitios web con constructores WordPress (Elementor / Divi) y Advanced Custom Fields (ACF).</li>
+                <li>Actualización, rediseños completos e integración de nuevas funcionalidades y páginas.</li>
+                <li>Migraciones completas de dominios, bases de datos y alojamiento web (Hosting).</li>
+                <li>Optimización constante de Landing Pages enfocadas en velocidad de carga y conversión.</li>
+                <li>Gestión e implementación de SEO On-Page, Google Analytics y Google Search Console.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience 2: Workoholics -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="role-title">Desarrollador Front-End</h3>
+                  <span class="company-badge"><i class="fas fa-building"></i> WORKOHOLICS — Jornada Completa</span>
+                </div>
+                <span class="timeline-date">Marzo 2022 – Septiembre 2022</span>
+              </div>
+
+              <ul class="timeline-list">
+                <li>Creación y maquetación de componentes web modernos en Angular.</li>
+                <li>Desarrollo, ajuste y mantenimiento de componentes de landing pages para marcas líderes de telecomunicaciones.</li>
+                <li>Optimización de sitios web bajo el enfoque estratégico <em>Mobile First Design</em>.</li>
+                <li>Aplicación de buenas prácticas de desarrollo, rendimiento de componentes y arquitectura limpia.</li>
+              </ul>
+
+              <div class="clients-tag">
+                <i class="fas fa-users"></i> Proyectos destacados para clientes: <strong>Grupo MásMóvil, Yoigo, Virgin Telco, Guuk</strong>.
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 3: Elim5 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="role-title">Desarrollador Front-End</h3>
+                  <span class="company-badge"><i class="fas fa-laptop-code"></i> ELIM5 — Freelance</span>
+                </div>
+                <span class="timeline-date">Septiembre 2019 – Noviembre 2019</span>
+              </div>
+
+              <ul class="timeline-list">
+                <li>Diseño y maquetación de sitios web y Landing Pages interactivas para la empresa ADP.</li>
+                <li>Implementación con JavaScript, HTML5, CSS3, Bootstrap y animaciones CSS fluídas.</li>
+                <li>Optimización de páginas web con enfoque Mobile First y cumplimiento de buenas prácticas de codificación.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Skills Section
+         ========================================================================== -->
+    <section class="section" id="habilidades">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Capacidades</span>
+          <h2 class="section-title">Habilidades <span class="text-gradient">Técnicas</span></h2>
+          <p class="section-subtitle">Herramientas, lenguajes y frameworks que domino en el desarrollo web</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill 1: Angular -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fab fa-angular skill-icon" style="color: #dd0031;"></i>
+              <h3 class="skill-title">Angular</h3>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Desarrollo de componentes estructurados, SPA y arquitectura modulada para clientes de gran escala.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Components</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Routing</span>
+            </div>
+          </div>
+
+          <!-- Skill 2: JavaScript -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fab fa-js-square skill-icon" style="color: #f7df1e;"></i>
+              <h3 class="skill-title">JavaScript / ES6+</h3>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Lógica interactiva, manipulación del DOM, eventos, consumo de APIs REST y jQuery.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">ES6+</span>
+              <span class="skill-tag">Fetch API</span>
+              <span class="skill-tag">jQuery</span>
+            </div>
+          </div>
+
+          <!-- Skill 3: HTML & CSS / SASS -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fab fa-sass skill-icon" style="color: #cc6699;"></i>
+              <h3 class="skill-title">CSS / SASS & HTML5</h3>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Maquetación moderna con Flexbox, CSS Grid, animaciones fluídas, SASS y preprocesadores.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">SASS/SCSS</span>
+              <span class="skill-tag">Flexbox / Grid</span>
+              <span class="skill-tag">Animations</span>
+            </div>
+          </div>
+
+          <!-- Skill 4: WordPress -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fab fa-wordpress skill-icon" style="color: #21759b;"></i>
+              <h3 class="skill-title">WordPress & Plugins</h3>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Creación de plugins personalizados a medida, maquetación con Elementor/Divi, ACF, rediseños y migraciones.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Custom Plugins</span>
+              <span class="skill-tag">Elementor/Divi</span>
+              <span class="skill-tag">ACF</span>
+            </div>
+          </div>
+
+          <!-- Skill 4.1: AI Connectors & Skills -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fas fa-robot skill-icon" style="color: #06b6d4;"></i>
+              <h3 class="skill-title">Conectores & IA Skills</h3>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Desarrollo de conectores personalizados, APIs y Custom Skills / Agentes para Claude y ChatGPT.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Claude Skills</span>
+              <span class="skill-tag">ChatGPT</span>
+              <span class="skill-tag">API Connectors</span>
+            </div>
+          </div>
+
+          <!-- Skill 5: Laravel -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fab fa-laravel skill-icon" style="color: #ff2d20;"></i>
+              <h3 class="skill-title">Laravel (PHP)</h3>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Desarrollo backend y sitios dinámicos MVC en PHP con integración de bases de datos.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">MVC</span>
+              <span class="skill-tag">Blade</span>
+            </div>
+          </div>
+
+          <!-- Skill 6: Bootstrap & Responsive -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fab fa-bootstrap skill-icon" style="color: #7952b3;"></i>
+              <h3 class="skill-title">Bootstrap & UI</h3>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Diseño ágil y estructurado enfocado en resoluciones adaptables (Mobile First Design).</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Bootstrap 4/5</span>
+              <span class="skill-tag">Mobile First</span>
+            </div>
+          </div>
+
+          <!-- Skill 7: Git & Version Control -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fab fa-git-alt skill-icon" style="color: #f05032;"></i>
+              <h3 class="skill-title">Git / GitLab / GitHub</h3>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Control de versiones, flujos de trabajo colaborativos en repositorio y despliegues.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">GitLab</span>
+            </div>
+          </div>
+
+          <!-- Skill 8: SEO & Analytics -->
+          <div class="skill-card">
+            <div class="skill-header">
+              <i class="fas fa-chart-line skill-icon" style="color: #10b981;"></i>
+              <h3 class="skill-title">SEO & Analytics</h3>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Optimización en buscadores, métricas con Google Analytics y Search Console.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Search Console</span>
+              <span class="skill-tag">Analytics</span>
+              <span class="skill-tag">Core Web Vitals</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Services Section
+         ========================================================================== -->
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Soluciones</span>
+          <h2 class="section-title">Mis <span class="text-gradient">Servicios</span></h2>
+          <p class="section-subtitle">Servicios de desarrollo web adaptados a tus necesidades de negocio</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="service-title">Desarrollo Front-End</h3>
+            <p class="service-desc">Maquetación y creación de interfaces interactivas con Angular, JavaScript, HTML5 y CSS3/SASS bajo el enfoque Mobile First Design.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fab fa-wordpress-simple"></i>
+            </div>
+            <h3 class="service-title">Desarrollo WordPress & Plugins</h3>
+            <p class="service-desc">Desarrollo de sitios web dinámicos, creación de plugins personalizados a medida, maquetación avanzada con Elementor/Divi, integración de ACF, rediseños y migraciones.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3 class="service-title">Conectores & Skills de IA</h3>
+            <p class="service-desc">Desarrollo e integración de conectores personalizados, APIs y Custom Skills / Agentes para Claude y ChatGPT, automatizando flujos de trabajo e impulsando plataformas web.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fas fa-search-dollar"></i>
+            </div>
+            <h3 class="service-title">SEO & Optimización</h3>
+            <p class="service-desc">Auditoría y optimización de velocidad de carga, mejora de posición en buscadores, configuración de Google Search Console y Google Analytics.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3 class="service-title">Rediseño & Mantenimiento</h3>
+            <p class="service-desc">Actualización completa de páginas web existentes, integración de nuevas páginas, corrección de errores y mantenimiento técnico preventivo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Projects Gallery Section
+         ========================================================================== -->
+    <section class="section" id="proyectos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Portafolio</span>
+          <h2 class="section-title">Galería de <span class="text-gradient">Proyectos</span></h2>
+          <p class="section-subtitle">Una selección de proyectos web desarrollados y maquetados</p>
+        </div>
+
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="laravel">Laravel (PHP)</button>
+          <button class="filter-btn" data-filter="wordpress">WordPress</button>
+          <button class="filter-btn" data-filter="frontend">Front-End & UI</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 0: iHodei Agencia Marketing -->
+          <div class="project-card" data-category="wordpress" data-description="Desarrollo y maquetación web completa para iHodei, agencia de marketing digital en Bilbao. Construida con WordPress y Elementor, maquetación responsive Mobile First, integración de video background en el hero banner, animaciones SVG y optimización SEO On-Page." data-tech="WordPress, Elementor, SASS/CSS3, SEO, JavaScript" data-live="https://ihodei.es/">
+            <div class="project-img-wrapper">
+              <img src="img/ihodei.jpg" alt="iHodei - Agencia de Marketing Digital" class="project-img">
+              <div class="project-overlay">
+                <button class="btn btn-secondary btn-preview"><i class="fas fa-eye"></i> Detalle</button>
+                <a href="https://ihodei.es/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Visitar</a>
+              </div>
+            </div>
+            <div class="project-content">
+              <span class="project-category">WordPress / Web Dev</span>
+              <h3 class="project-title">iHodei — Agencia Marketing</h3>
+              <p class="project-excerpt">Sitio web corporativo en WordPress para agencia de marketing digital con diseño moderno, video banner y SEO.</p>
+              <div class="project-tech">
+                <span class="tech-badge">WordPress</span>
+                <span class="tech-badge">Elementor</span>
+                <span class="tech-badge">SEO</span>
+                <span class="tech-badge">SASS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 0.1: José Luis Breva -->
+          <div class="project-card" data-category="wordpress" data-description="Diseño y desarrollo web corporativo para el estudio de arquitectura José Luis Breva. Maquetación estructurada con WordPress, navegación personalizada, galerías de proyectos de alto impacto visual y optimización responsive para dispositivos móviles." data-tech="WordPress, Elementor, CSS3/SASS, UI/UX, Responsive" data-live="https://joseluisbreva.com/">
+            <div class="project-img-wrapper">
+              <img src="img/joseluisbreva.jpg" alt="José Luis Breva - Arquitectura" class="project-img">
+              <div class="project-overlay">
+                <button class="btn btn-secondary btn-preview"><i class="fas fa-eye"></i> Detalle</button>
+                <a href="https://joseluisbreva.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Visitar</a>
+              </div>
+            </div>
+            <div class="project-content">
+              <span class="project-category">WordPress / Arquitectura</span>
+              <h3 class="project-title">José Luis Breva</h3>
+              <p class="project-excerpt">Sitio web corporativo para estudio de arquitectura y diseño con galerías interactivas.</p>
+              <div class="project-tech">
+                <span class="tech-badge">WordPress</span>
+                <span class="tech-badge">Elementor</span>
+                <span class="tech-badge">UI/UX</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 0.2: Zenthia Capital -->
+          <div class="project-card" data-category="wordpress" data-description="Desarrollo web corporativo para la firma de inversión Zenthia Capital. Implementación en WordPress con widgets personalizados, maquetación de servicios financieros, interfaz elegante y diseño responsive." data-tech="WordPress, Elementor, Custom Widgets, CSS3, Responsive" data-live="https://zenthiacapital.es/inicio/">
+            <div class="project-img-wrapper">
+              <img src="img/zenthiacapital.png" alt="Zenthia Capital - Inversión & Finanzas" class="project-img">
+              <div class="project-overlay">
+                <button class="btn btn-secondary btn-preview"><i class="fas fa-eye"></i> Detalle</button>
+                <a href="https://zenthiacapital.es/inicio/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Visitar</a>
+              </div>
+            </div>
+            <div class="project-content">
+              <span class="project-category">WordPress / Finanzas</span>
+              <h3 class="project-title">Zenthia Capital</h3>
+              <p class="project-excerpt">Plataforma web corporativa para firma de inversión con interfaz refinada y widgets a medida.</p>
+              <div class="project-tech">
+                <span class="tech-badge">WordPress</span>
+                <span class="tech-badge">Elementor</span>
+                <span class="tech-badge">Custom Widgets</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 0.3: Sopela Beach Home -->
+          <div class="project-card" data-category="wordpress" data-description="Sitio web de alquiler vacacional de lujo en Sopela (País Vasco). Desarrollado con WordPress, motor de reserva de alojamientos, galerías de fotografías en alta resolución, interfaz moderna e intuitiva y optimización responsive." data-tech="WordPress, Elementor, Booking Engine, CSS3, Responsive" data-live="https://sopelabeachhome.com/">
+            <div class="project-img-wrapper">
+              <img src="img/sopelabeachhome.webp" alt="Sopela Beach Home - Vacation Rental" class="project-img">
+              <div class="project-overlay">
+                <button class="btn btn-secondary btn-preview"><i class="fas fa-eye"></i> Detalle</button>
+                <a href="https://sopelabeachhome.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Visitar</a>
+              </div>
+            </div>
+            <div class="project-content">
+              <span class="project-category">WordPress / Turismo</span>
+              <h3 class="project-title">Sopela Beach Home</h3>
+              <p class="project-excerpt">Sitio web de alquiler vacacional de lujo en Sopela con motor de reservas y diseño elegante.</p>
+              <div class="project-tech">
+                <span class="tech-badge">WordPress</span>
+                <span class="tech-badge">Elementor</span>
+                <span class="tech-badge">Reservas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Contact Section
+         ========================================================================== -->
+    <section class="section" id="contacto">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Hablemos</span>
+          <h2 class="section-title">Contacto <span class="text-gradient">Directo</span></h2>
+          <p class="section-subtitle">¿Tienes un proyecto en mente o quieres sumar un Desarrollador Front-End a tu equipo?</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-card">
+            <h3 class="role-title" style="margin-bottom: 1.5rem;">Información de Contacto</h3>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Correo Electrónico</h4>
+                <p>
+                  perez10ariel@gmail.com
+                  <button class="copy-btn" id="copy-email-btn" data-email="perez10ariel@gmail.com" title="Copiar correo">
+                    <i class="far fa-copy"></i>
+                  </button>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Ubicación</h4>
+                <p>48004 Bilbao, España</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fab fa-github"></i>
+              </div>
+              <div class="contact-details">
+                <h4>GitHub Repositorios</h4>
+                <p><a href="https://github.com/ArielG19" target="_blank" rel="noopener noreferrer" style="color: var(--accent-secondary);">https://github.com/ArielG19</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-card">
+            <h3 class="role-title" style="margin-bottom: 1.5rem;">Envíame un mensaje</h3>
+
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="form-name" class="form-label">Tu Nombre</label>
+                <input type="text" id="form-name" class="form-input" placeholder="Ej. Carlos García" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email" class="form-label">Tu Correo Electrónico</label>
+                <input type="email" id="form-email" class="form-input" placeholder="ejemplo@correo.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-message" class="form-label">Mensaje</label>
+                <textarea id="form-message" class="form-textarea" placeholder="Cuéntame sobre tu proyecto o propuesta..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <span>Enviar Mensaje</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+
+              <div id="form-status" class="form-status"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project Lightbox Modal -->
+  <div class="modal-backdrop" id="project-modal">
+    <div class="modal-container">
+      <button class="modal-close" id="modal-close" aria-label="Cerrar modal">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="modal-img-box">
+        <img id="modal-image" src="" alt="Vista previa del proyecto">
+      </div>
+
+      <span class="project-category" id="modal-category">Categoría</span>
+      <h3 class="modal-title" id="modal-title">Título del Proyecto</h3>
+      <p class="modal-description" id="modal-description">Descripción detallada...</p>
+
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="font-size: 0.9rem; font-family: var(--font-heading); color: var(--text-muted); margin-bottom: 0.5rem;">TECNOLOGÍAS UTILIZADAS</h4>
+        <div class="project-tech" id="modal-tech"></div>
+      </div>
+
+      <div style="display: flex; gap: 1rem;">
+        <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          <span>Ver Sitio Web</span>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle" style="color: var(--accent-secondary);"></i>
+    <span class="toast-message">Notificación</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <a href="#inicio" class="logo">
+        <span class="logo-code">&lt;</span>RubénPérez<span class="logo-code">/&gt;</span>
+      </a>
+
+      <div class="social-links">
+        <a href="https://github.com/ArielG19" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:perez10ariel@gmail.com" class="social-icon" title="Correo Electrónico">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+
+      <p class="footer-text">
+        © 2026 Rubén Pérez. Todos los derechos reservados. Desarrollado para GitHub Pages.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Modular Vanilla JS -->
+  <script src="js/app.js"></script>
 </body>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript">
-  //menu toggle
-  $(document).ready(function(){
-      $(".menu-icon").on("click",function(){
-        //agregamos la clase
-        $("nav ul").toggleClass("showing");
-      });
-  });
-
-  //scroll effect
-  $(window).on("scroll",function(){
-      if($(window).scrollTop()>200){
-        $('nav').addClass('black')
-      }
-      else{
-        $('nav').removeClass('black')
-      }
-  })
-</script>
 </html>
