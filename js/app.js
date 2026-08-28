@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initCopyEmail();
   initContactForm();
   initScrollAnimations();
+  initBackToTop();
+  initCardTilt();
 });
 
 /* ==========================================================================
@@ -415,7 +417,68 @@ function initScrollAnimations() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
 
   animatedElements.forEach(el => observer.observe(el));
 }
+
+/* ==========================================================================
+   10. Floating Back to Top Button
+   ========================================================================== */
+function initBackToTop() {
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (!backToTopBtn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 350) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+/* ==========================================================================
+   11. Interactive 3D Card Tilt Effect (Vanilla JS)
+   ========================================================================== */
+function initCardTilt() {
+  // Only activate on devices that support hover (prevents interfering with touch devices)
+  if (window.matchMedia('(hover: none)').matches) return;
+
+  const tiltElements = document.querySelectorAll('.project-card, .avatar-card');
+
+  tiltElements.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Subtle dynamic tilt degrees (max 6deg)
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      setTimeout(() => {
+        card.style.transform = '';
+      }, 180);
+    });
+  });
+}
+

@@ -156,6 +156,19 @@ img {
   margin: 0 auto;
 }
 
+/* --- Scroll Reveal Animations --- */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* --- Ambient Glowing Orbs --- */
 .orb {
   position: absolute;
@@ -483,7 +496,9 @@ img {
   padding: 1.2rem;
   backdrop-filter: blur(20px);
   box-shadow: var(--shadow-main);
-  transition: transform var(--transition-normal);
+  transition: transform 0.15s ease-out, border-color var(--transition-normal);
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .avatar-card:hover {
@@ -916,9 +931,11 @@ img {
   border-radius: var(--radius-lg);
   overflow: hidden;
   backdrop-filter: blur(16px);
-  transition: all var(--transition-normal);
+  transition: transform 0.15s ease-out, border-color var(--transition-normal), box-shadow var(--transition-normal);
   display: flex;
   flex-direction: column;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .project-card:hover {
@@ -1241,6 +1258,50 @@ img {
 .toast.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Floating Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2.2rem;
+  right: 2.2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.9);
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-4px) scale(1.08);
+}
+
+.back-to-top:active {
+  transform: translateY(-2px) scale(0.98);
 }
 
 /* ==========================================================================
