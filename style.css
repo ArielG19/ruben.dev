@@ -76,6 +76,7 @@ html {
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
+  scroll-padding-top: 85px;
 }
 
 body {
@@ -307,6 +308,10 @@ img {
   display: flex;
   align-items: center;
   gap: 2rem;
+}
+
+.mobile-nav-cta {
+  display: none;
 }
 
 .nav-link {
@@ -1427,14 +1432,43 @@ img {
     transform: translateY(0);
   }
 
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+    white-space: nowrap;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+  }
+
+  .nav-actions .btn,
+  .nav-actions .btn-sm {
+    display: none !important; /* Strictly hidden in top navbar on mobile */
+  }
+
+  .mobile-nav-cta {
+    display: block;
+    width: 100%;
+    margin-top: 0.6rem;
+  }
+
   .mobile-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .nav-actions .btn {
-    display: none; /* Keep header clean and prevent wrap */
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-size: 1.15rem;
   }
 
   .section {
