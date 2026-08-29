@@ -2400,27 +2400,30 @@ html, body {
     word-break: keep-all;
   }
 
-  .featured-meta-bar {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: space-between;
+  .featured-meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
   }
 
-  .featured-cat-tag, .featured-meta-period {
-    font-size: 0.72rem;
+  .featured-cat-badge, .featured-date-badge {
+    font-size: 0.78rem;
     white-space: nowrap;
   }
 
-  .featured-title {
-    font-size: clamp(1.2rem, 5.2vw, 1.5rem);
+  .featured-proj-title {
+    font-size: clamp(1.25rem, 5.2vw, 1.55rem);
+    line-height: 1.25;
+    margin-bottom: 0.85rem;
   }
 
-  .featured-buttons-group {
+  .featured-action-buttons {
     flex-wrap: wrap;
     gap: 0.6rem;
   }
 
-  .featured-buttons-group .btn {
+  .featured-action-buttons .btn {
     white-space: nowrap;
     font-size: 0.8rem;
     padding: 0.65rem 1.1rem;
