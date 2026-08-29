@@ -2136,11 +2136,17 @@ button, input, textarea {
    Responsive Breakpoints & Media Queries
    ========================================================================== */
 
+/* Global Mobile/Viewport Containment */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 /* Tablets & Small Desktops (<= 1024px) */
 @media (max-width: 1024px) {
   .hero-light-container {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 3rem;
     text-align: center;
   }
 
@@ -2166,22 +2172,31 @@ button, input, textarea {
   }
 
   .hero-img-backdrop {
-    max-width: 340px;
+    max-width: 320px;
     margin: 0 auto;
   }
 
   .frontier-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
+    text-align: center;
+  }
+
+  .tech-pills-row {
+    justify-content: center;
+  }
+
+  .frontier-actions {
+    justify-content: center;
   }
 
   .cyber-portrait-frame {
-    max-width: 440px;
+    max-width: 420px;
     margin: 0 auto;
   }
 
   .services-modern-grid {
-    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 1.2rem;
   }
 
   .featured-showcase-box {
@@ -2220,14 +2235,14 @@ button, input, textarea {
   }
 }
 
-/* Mobile Devices (<= 768px) */
+/* Tablets / Medium Mobile (<= 768px) */
 @media (max-width: 768px) {
   .container {
     padding: 0 1.25rem;
   }
 
   .section {
-    padding: 5rem 0;
+    padding: 4.5rem 0;
   }
 
   .header-container {
@@ -2236,16 +2251,17 @@ button, input, textarea {
 
   .nav-menu {
     position: fixed;
-    top: 75px;
+    top: 70px;
     left: 1.25rem;
     right: 1.25rem;
-    background: rgba(14, 17, 24, 0.96);
+    background: rgba(14, 17, 24, 0.98);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     padding: 1.5rem;
     display: none;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
   }
 
   .nav-menu.mobile-active {
@@ -2274,30 +2290,217 @@ button, input, textarea {
     display: none;
   }
 
+  /* Hero Mobile */
   .hero-light-layer {
-    padding-top: 7.5rem;
-    padding-bottom: 5.5rem;
+    padding-top: 6.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-right-visual {
+    order: 2;
+    margin-top: 1.5rem;
+  }
+
+  .hero-img-backdrop {
+    max-width: 280px;
+    border-radius: var(--radius-lg);
+  }
+
+  .hero-portrait-img {
+    aspect-ratio: 16/10;
+    max-height: 200px;
   }
 
   .hero-headline {
-    font-size: 2.8rem;
+    font-size: clamp(2rem, 9.5vw, 2.75rem);
+    line-height: 1.08;
+    margin-bottom: 1.8rem;
+    word-break: break-word;
   }
 
+  .hl-line {
+    white-space: normal;
+  }
+
+  .hero-action-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .hero-action-row .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .hero-metric-connector {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.8rem;
+  }
+
+  .connector-line-wrapper {
+    display: none;
+  }
+
+  .hero-social-proof {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+    padding-top: 1.2rem;
+  }
+
+  .proof-caption {
+    max-width: 100%;
+  }
+
+  /* Sobre Mí */
+  .frontier-title {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+    line-height: 1.12;
+    word-break: break-word;
+  }
+
+  .frontier-bio {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    text-align: left;
+  }
+
+  .frontier-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .frontier-actions .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  /* Services Carousel Mobile */
   .service-cyber-card {
     flex: 0 0 88%;
     min-width: 260px;
+    padding: 2rem 1.5rem;
   }
 
+  /* Projects Grid Mobile */
   .projects-cards-grid {
     grid-template-columns: 1fr;
   }
 
-  .panoramic-cta-box {
-    padding: 3.5rem 1.8rem;
+  .projects-filter-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
   }
 
+  .filter-pill-btn {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.85rem;
+  }
+
+  /* Trayectoria Mobile */
+  .timeline-main-title {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+    line-height: 1.12;
+    word-break: break-word;
+  }
+
+  .timeline-intro-text {
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .timeline-stats-box {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .stat-bubble {
+    padding: 1rem 0.35rem;
+  }
+
+  .stat-number-count {
+    font-size: 1.45rem;
+  }
+
+  .stat-label-text {
+    font-size: 0.65rem;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  .timeline-floating-card {
+    padding: 1.4rem 1.1rem;
+    gap: 0.9rem;
+  }
+
+  .card-avatar-indicator {
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+
+  .floating-company-title {
+    font-size: 1.05rem;
+  }
+
+  .floating-period {
+    font-size: 0.72rem;
+  }
+
+  .floating-tags {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .floating-tags span {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  /* Panoramic CTA Banner Mobile */
+  .panoramic-cta-box {
+    padding: 3rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .cta-monumental-title {
+    font-size: clamp(1.8rem, 7.5vw, 2.4rem);
+    line-height: 1.12;
+    word-break: break-word;
+  }
+
+  .cta-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .cta-buttons-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+  }
+
+  .cta-buttons-row .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  /* Contact Mobile */
   .contact-info-panel, .contact-form-panel {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .panel-title {
+    font-size: 1.35rem;
   }
 
   .footer-columns-grid {
@@ -2309,5 +2512,29 @@ button, input, textarea {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
+  }
+}
+
+/* Small Smartphone (<= 480px) */
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: clamp(1.75rem, 8.5vw, 2.3rem);
+  }
+
+  .stat-bubble {
+    padding: 0.8rem 0.25rem;
+  }
+
+  .stat-number-count {
+    font-size: 1.3rem;
+  }
+
+  .stat-label-text {
+    font-size: 0.6rem;
+  }
+
+  .timeline-floating-card {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
