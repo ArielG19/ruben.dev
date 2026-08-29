@@ -2242,7 +2242,7 @@ html, body {
   }
 
   .section {
-    padding: 4.5rem 0;
+    padding: 4rem 0;
   }
 
   .header-container {
@@ -2293,7 +2293,7 @@ html, body {
   /* Hero Mobile */
   .hero-light-layer {
     padding-top: 6.5rem;
-    padding-bottom: 4rem;
+    padding-bottom: 3.5rem;
   }
 
   .hero-right-visual {
@@ -2302,20 +2302,21 @@ html, body {
   }
 
   .hero-img-backdrop {
-    max-width: 280px;
+    max-width: 260px;
     border-radius: var(--radius-lg);
   }
 
   .hero-portrait-img {
     aspect-ratio: 16/10;
-    max-height: 200px;
+    max-height: 180px;
   }
 
   .hero-headline {
-    font-size: clamp(1.65rem, 6.8vw, 2.2rem);
-    line-height: 1.08;
-    margin-bottom: 1.8rem;
-    word-break: break-word;
+    font-size: clamp(1.4rem, 6.2vw, 1.95rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    word-break: keep-all;
+    hyphens: none;
   }
 
   .hl-line {
@@ -2358,13 +2359,14 @@ html, body {
 
   /* Sobre Mí */
   .frontier-title {
-    font-size: clamp(1.8rem, 8vw, 2.4rem);
+    font-size: clamp(1.35rem, 5.8vw, 1.85rem);
     line-height: 1.12;
-    word-break: break-word;
+    word-break: keep-all;
+    hyphens: none;
   }
 
   .frontier-bio {
-    font-size: 0.96rem;
+    font-size: 0.94rem;
     line-height: 1.65;
     text-align: left;
   }
@@ -2381,13 +2383,49 @@ html, body {
   }
 
   /* Services Carousel Mobile */
+  .section-heading-editorial {
+    font-size: clamp(1.35rem, 5.8vw, 1.85rem);
+    word-break: keep-all;
+  }
+
   .service-cyber-card {
     flex: 0 0 88%;
     min-width: 260px;
-    padding: 2rem 1.5rem;
+    padding: 1.8rem 1.4rem;
   }
 
-  /* Projects Grid Mobile */
+  /* Projects Showcase Mobile */
+  .showcase-main-title {
+    font-size: clamp(1.35rem, 5.8vw, 1.85rem);
+    word-break: keep-all;
+  }
+
+  .featured-meta-bar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
+  }
+
+  .featured-cat-tag, .featured-meta-period {
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .featured-title {
+    font-size: clamp(1.2rem, 5.2vw, 1.5rem);
+  }
+
+  .featured-buttons-group {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .featured-buttons-group .btn {
+    white-space: nowrap;
+    font-size: 0.8rem;
+    padding: 0.65rem 1.1rem;
+  }
+
   .projects-cards-grid {
     grid-template-columns: 1fr;
   }
@@ -2405,34 +2443,35 @@ html, body {
 
   /* Trayectoria Mobile */
   .timeline-main-title {
-    font-size: clamp(1.8rem, 8vw, 2.4rem);
+    font-size: clamp(1.35rem, 5.8vw, 1.85rem);
     line-height: 1.12;
-    word-break: break-word;
+    word-break: keep-all;
+    hyphens: none;
   }
 
   .timeline-intro-text {
-    font-size: 0.96rem;
+    font-size: 0.94rem;
     line-height: 1.65;
   }
 
   .timeline-stats-box {
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
+    gap: 0.4rem;
     width: 100%;
     margin-bottom: 2rem;
   }
 
   .stat-bubble {
-    padding: 1rem 0.35rem;
+    padding: 0.85rem 0.25rem;
   }
 
   .stat-number-count {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
   }
 
   .stat-label-text {
-    font-size: 0.65rem;
-    line-height: 1.2;
+    font-size: 0.62rem;
+    line-height: 1.18;
     letter-spacing: 0;
   }
 
@@ -2467,18 +2506,18 @@ html, body {
 
   /* Panoramic CTA Banner Mobile */
   .panoramic-cta-box {
-    padding: 3rem 1.25rem;
+    padding: 2.5rem 1.25rem;
     border-radius: var(--radius-lg);
   }
 
   .cta-monumental-title {
-    font-size: clamp(1.8rem, 7.5vw, 2.4rem);
+    font-size: clamp(1.35rem, 5.8vw, 1.85rem);
     line-height: 1.12;
-    word-break: break-word;
+    word-break: keep-all;
   }
 
   .cta-description {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.6;
   }
 
@@ -2496,12 +2535,12 @@ html, body {
 
   /* Contact Mobile */
   .contact-info-panel, .contact-form-panel {
-    padding: 2rem 1.25rem;
+    padding: 1.8rem 1.25rem;
     border-radius: var(--radius-lg);
   }
 
   .panel-title {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
   }
 
   .footer-columns-grid {
@@ -2519,7 +2558,7 @@ html, body {
 /* Small Smartphone (<= 480px) */
 @media (max-width: 480px) {
   .hero-headline {
-    font-size: clamp(1.45rem, 6.2vw, 1.9rem);
+    font-size: clamp(1.35rem, 5.8vw, 1.75rem);
   }
 
   .hl-line {
@@ -2528,15 +2567,15 @@ html, body {
   }
 
   .stat-bubble {
-    padding: 0.8rem 0.25rem;
+    padding: 0.75rem 0.2rem;
   }
 
   .stat-number-count {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 
   .stat-label-text {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
   }
 
   .timeline-floating-card {
