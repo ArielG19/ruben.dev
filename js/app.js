@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initBackToTop();
   initCardTilt();
+  initCopyrightYear();
 });
 
 /* ==========================================================================
@@ -27,7 +28,7 @@ function initThemeSwitcher() {
 
   const savedTheme = localStorage.getItem('ruben_portfolio_theme');
   const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  let currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'dark');
+  let currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
 
   document.documentElement.setAttribute('data-theme', currentTheme);
   updateThemeIcon(currentTheme);
@@ -84,6 +85,7 @@ function initNavigation() {
     links.forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('mobile-active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
         mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
       });
     });
@@ -255,6 +257,10 @@ function initProjectModal() {
       if (data.live && data.live !== '#') {
         modalLiveLink.href = data.live;
         modalLiveLink.style.display = 'inline-flex';
+        const isGithub = data.live.includes('github.com');
+        modalLiveLink.innerHTML = isGithub
+          ? '<span>Ver en GitHub</span> <i class="fab fa-github"></i>'
+          : '<span>Visitar Sitio Web</span> <i class="fas fa-external-link-alt"></i>';
       } else {
         modalLiveLink.style.display = 'none';
       }
@@ -272,11 +278,13 @@ function initProjectModal() {
       }
     }
 
+    modal.setAttribute('aria-hidden', 'false');
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
+    modal.setAttribute('aria-hidden', 'true');
     modal.classList.remove('active');
     document.body.style.overflow = '';
   }
@@ -289,7 +297,7 @@ function initProjectModal() {
       
       const data = {
         title: parentCard.getAttribute('data-title'),
-        category: parentCard.getAttribute('data-category') || parentCard.getAttribute('data-cat-label'),
+        category: parentCard.getAttribute('data-cat-label') || parentCard.getAttribute('data-category'),
         desc: parentCard.getAttribute('data-desc'),
         tech: parentCard.getAttribute('data-tech'),
         image: parentCard.getAttribute('data-image'),
@@ -357,8 +365,14 @@ function initContactForm() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('form-name').value;
-    
-    showToast(`¡Gracias ${name}! Tu mensaje ha sido enviado.`);
+    const email = document.getElementById('form-email').value;
+    const message = document.getElementById('form-message').value;
+
+    const subject = encodeURIComponent(`Nuevo mensaje de contacto: ${name}`);
+    const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`);
+    window.location.href = `mailto:perez10ariel@gmail.com?subject=${subject}&body=${body}`;
+
+    showToast(`¡Gracias ${name}! Abriendo tu cliente de correo...`);
     form.reset();
   });
 }
@@ -471,3 +485,14 @@ function initServicesCarousel() {
   track.addEventListener('touchstart', () => clearInterval(autoSlideTimer), { passive: true });
   track.addEventListener('touchend', () => resetAutoSlide(), { passive: true });
 }
+
+/* ==========================================================================
+   12. Dynamic Copyright Year
+   ========================================================================== */
+function initCopyrightYear() {
+  const yearEl = document.getElementById('copyright-year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+}
+

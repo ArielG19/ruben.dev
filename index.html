@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
@@ -273,7 +273,7 @@
             <div class="section-tag-label">MIS SERVICIOS</div>
             <h2 class="section-heading-editorial">SOLUCIONES <span class="font-accent">DIGITALES</span></h2>
           </div>
-          <div class="services-nav-controls" aria-hidden="true">
+          <div class="services-nav-controls">
             <button class="nav-circle-btn prev-btn" id="srv-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
             <button class="nav-circle-btn next-btn" id="srv-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
           </div>
@@ -460,8 +460,8 @@
           <div class="category-filter-nav" id="project-filters">
             <button class="filter-tab-btn active" data-filter="all">Todos (6)</button>
             <button class="filter-tab-btn" data-filter="wordpress">WordPress (4)</button>
-            <button class="filter-tab-btn" data-filter="frontend">Front-End &amp; Angular</button>
-            <button class="filter-tab-btn" data-filter="ai-dev">IA &amp; Laravel</button>
+            <button class="filter-tab-btn" data-filter="frontend">Front-End &amp; Angular (1)</button>
+            <button class="filter-tab-btn" data-filter="ai-dev">IA &amp; Automatización (1)</button>
           </div>
         </div>
 
@@ -896,7 +896,7 @@
   <!-- ==========================================================================
        Project Detail Lightbox Modal
        ========================================================================== -->
-  <div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog">
+  <div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-window">
       <button class="modal-close-btn" id="modal-close" aria-label="Cerrar ventana">
         <i class="fas fa-times"></i>
@@ -1017,7 +1017,7 @@
       <!-- Bottom Bar -->
       <div class="footer-bottom-bar">
         <p class="footer-copyright">
-          © 2026 Rubén Pérez. Desarrollador Front-End &amp; Especialista Web. Todos los derechos reservados.
+          © <span id="copyright-year">2026</span> Rubén Pérez. Desarrollador Front-End &amp; Especialista Web. Todos los derechos reservados.
         </p>
         <div class="footer-bottom-badges">
           <span>HTML5 / SASS / ES6+</span>
@@ -1030,6 +1030,6 @@
   </footer>
 
   <!-- Modular Interactive JS -->
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=2"></script>
 </body>
 </html>
