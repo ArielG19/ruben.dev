@@ -249,7 +249,7 @@ function initProjectModal() {
   function openModal(data) {
     modalTitle.textContent = data.title || 'Proyecto';
     modalCat.textContent = data.category || '';
-    modalDesc.textContent = data.desc || '';
+    modalDesc.innerHTML = data.desc || '';
     modalImg.src = data.image || 'img/workspace_setup.png';
     modalImg.alt = data.title || 'Detalle del Proyecto';
 
