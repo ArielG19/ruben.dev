@@ -215,9 +215,10 @@ button, input, textarea {
 }
 
 .header-container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  gap: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -233,6 +234,8 @@ button, input, textarea {
   font-size: 1.15rem;
   letter-spacing: -0.01em;
   color: var(--text-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: transform var(--trans-fast), color var(--trans-fast);
 }
 
@@ -290,9 +293,9 @@ button, input, textarea {
 }
 
 .nav-link {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 500;
-  padding: 0.45rem 0.7rem;
+  padding: 0.45rem 0.6rem;
   white-space: nowrap;
   border-radius: var(--radius-full);
   color: var(--text-secondary);
@@ -2757,8 +2760,8 @@ html, body {
   max-width: 100vw;
 }
 
-/* Collapsed Navigation (< 1280px): 9 nav links don't fit in one row */
-@media (max-width: 1279px) {
+/* Collapsed Navigation (< 1366px): 9 nav links don't fit in one row */
+@media (max-width: 1365px) {
   .nav-menu {
     position: fixed;
     top: 70px;
