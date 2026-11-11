@@ -74,20 +74,41 @@ function initNavigation() {
 
   // Mobile menu toggle
   if (mobileToggle && navMenu) {
+    const setMenuOpen = (open) => {
+      navMenu.classList.toggle('mobile-active', open);
+      document.documentElement.classList.toggle('menu-open', open);
+      mobileToggle.setAttribute('aria-expanded', open);
+      mobileToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      mobileToggle.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    };
+
     mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('mobile-active');
-      const isExpanded = navMenu.classList.contains('mobile-active');
-      mobileToggle.setAttribute('aria-expanded', isExpanded);
-      mobileToggle.innerHTML = isExpanded ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      setMenuOpen(!navMenu.classList.contains('mobile-active'));
     });
 
     // Close mobile menu on nav link click
     links.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('mobile-active');
-        mobileToggle.setAttribute('aria-expanded', 'false');
-        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-      });
+      link.addEventListener('click', () => setMenuOpen(false));
+    });
+
+    // Close on outside click or Escape
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('mobile-active') &&
+          !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('mobile-active')) {
+        setMenuOpen(false);
+        mobileToggle.focus();
+      }
+    });
+
+    // Reset when resizing back to the desktop layout
+    window.matchMedia('(min-width: 1280px)').addEventListener('change', (e) => {
+      if (e.matches) setMenuOpen(false);
     });
   }
 
