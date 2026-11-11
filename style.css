@@ -588,69 +588,6 @@ button, input, textarea {
   letter-spacing: 0.05em;
 }
 
-/* Social Proof Stack */
-.hero-social-proof {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.avatar-stack {
-  display: flex;
-  align-items: center;
-}
-
-.avatar-circle {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 2px solid var(--bg-primary);
-  margin-left: -10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
-  color: #ffffff;
-}
-
-.avatar-circle:first-child {
-  margin-left: 0;
-}
-
-.av-1 { background: #dd0031; }
-.av-2 { background: #21759b; }
-.av-3 { background: #0284c7; }
-.av-count {
-  background: #1e293b;
-  font-family: var(--font-heading);
-  font-size: 0.75rem;
-  font-weight: 700;
-  border: 1px solid var(--border-subtle);
-}
-
-.proof-divider-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  color: var(--accent-cyan);
-  flex-shrink: 0;
-}
-
-.proof-caption {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.45;
-  max-width: 320px;
-}
-
 /* Right Visual in Hero */
 .hero-right-visual {
   position: relative;
@@ -2899,11 +2836,6 @@ html, body {
     justify-content: center;
   }
 
-  .hero-social-proof {
-    justify-content: center;
-    text-align: left;
-  }
-
   .hero-right-visual {
     order: -1;
   }
@@ -3063,17 +2995,6 @@ html, body {
 
   .connector-line-wrapper {
     display: none;
-  }
-
-  .hero-social-proof {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.8rem;
-    padding-top: 1.2rem;
-  }
-
-  .proof-caption {
-    max-width: 100%;
   }
 
   /* Sobre Mí */
