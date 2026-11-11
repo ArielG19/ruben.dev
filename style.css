@@ -988,122 +988,6 @@ button, input, textarea {
   max-width: 680px;
 }
 
-/* Featured Showcase Box (Reference Image Inspired) */
-.featured-showcase-box {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  margin-bottom: 4rem;
-  box-shadow: var(--shadow-main);
-}
-
-.featured-visual-pane {
-  position: relative;
-  overflow: hidden;
-  background: #000;
-  min-height: 380px;
-}
-
-.featured-cover-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s ease;
-}
-
-.featured-showcase-box:hover .featured-cover-img {
-  transform: scale(1.04);
-}
-
-.featured-visual-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, transparent 60%, rgba(14, 17, 24, 0.95) 100%);
-}
-
-.featured-tag-pill {
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
-  background: rgba(8, 9, 13, 0.85);
-  backdrop-filter: blur(12px);
-  padding: 0.4rem 0.9rem;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-subtle);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent-cyan);
-}
-
-.featured-info-pane {
-  padding: 3.5rem 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.featured-meta-row {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.2rem;
-}
-
-.featured-cat-badge {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--accent-cyan);
-  text-transform: uppercase;
-}
-
-.featured-date-badge {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.featured-proj-title {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-}
-
-.featured-proj-desc {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 1.8rem;
-}
-
-.featured-tech-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2.2rem;
-}
-
-.featured-tech-chips span {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 0.3rem 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  color: var(--text-secondary);
-}
-
-.featured-action-buttons {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
 /* Category Filter Tabs */
 .gallery-controls-wrapper {
   margin-bottom: 2.5rem;
@@ -2524,106 +2408,6 @@ button, input, textarea {
   line-height: 1.6;
 }
 
-/* Skills vs MCP Differentiation Panel */
-.skills-diff-panel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: 2.8rem;
-}
-
-.skills-diff-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 2.8rem 2.2rem;
-  position: relative;
-  transition: all var(--trans-smooth);
-}
-
-.skills-diff-card:hover {
-  border-color: var(--border-hover);
-}
-
-.skills-diff-card.diff-mcp {
-  border-top: 4px solid var(--accent-cyan);
-}
-
-.skills-diff-card.diff-skills {
-  border-top: 4px solid #818cf8;
-}
-
-.skills-diff-pill {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.3rem 0.8rem;
-  border-radius: var(--radius-full);
-  margin-bottom: 1.2rem;
-}
-
-.diff-mcp .skills-diff-pill {
-  background: rgba(56, 189, 248, 0.12);
-  color: var(--accent-cyan);
-  border: 1px solid rgba(56, 189, 248, 0.35);
-}
-
-.diff-skills .skills-diff-pill {
-  background: rgba(99, 102, 241, 0.12);
-  color: #a5b4fc;
-  border: 1px solid rgba(99, 102, 241, 0.35);
-}
-
-.skills-diff-title {
-  font-family: var(--font-heading);
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.9rem;
-}
-
-.skills-diff-desc {
-  font-size: 0.94rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 1.6rem;
-}
-
-.skills-diff-bullets {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.skills-diff-bullets li {
-  position: relative;
-  padding-left: 1.5rem;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
-}
-
-.skills-diff-bullets li::before {
-  content: '✦';
-  position: absolute;
-  left: 0;
-  font-size: 0.8rem;
-}
-
-.diff-mcp .skills-diff-bullets li::before {
-  color: var(--accent-cyan);
-}
-
-.diff-skills .skills-diff-bullets li::before {
-  color: #a5b4fc;
-}
-
 /* Categorized Tech Stack Grid */
 .tech-stack-categorized-grid {
   display: grid;
@@ -2760,8 +2544,8 @@ html, body {
   max-width: 100vw;
 }
 
-/* Collapsed Navigation (< 1366px): 9 nav links don't fit in one row */
-@media (max-width: 1365px) {
+/* Collapsed Navigation (< 1280px): nav links don't fit in one row */
+@media (max-width: 1279px) {
   .nav-menu {
     position: fixed;
     top: 70px;
@@ -2871,18 +2655,6 @@ html, body {
     padding-bottom: 1.2rem;
   }
 
-  .featured-showcase-box {
-    grid-template-columns: 1fr;
-  }
-
-  .featured-visual-overlay {
-    background: linear-gradient(to top, rgba(14, 17, 24, 0.95) 0%, transparent 60%);
-  }
-
-  .featured-info-pane {
-    padding: 2.5rem 2rem;
-  }
-
   .projects-cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2905,10 +2677,6 @@ html, body {
   .mcp-pipe-arrow {
     transform: rotate(90deg);
     margin: 0.5rem 0;
-  }
-
-  .skills-diff-panel {
-    grid-template-columns: 1fr;
   }
 
   .mcp-architecture-panel {
@@ -3041,35 +2809,6 @@ html, body {
   .showcase-main-title {
     font-size: clamp(1.35rem, 5.8vw, 1.85rem);
     word-break: keep-all;
-  }
-
-  .featured-meta-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
-    margin-bottom: 1rem;
-  }
-
-  .featured-cat-badge, .featured-date-badge {
-    font-size: 0.78rem;
-    white-space: nowrap;
-  }
-
-  .featured-proj-title {
-    font-size: clamp(1.25rem, 5.2vw, 1.55rem);
-    line-height: 1.25;
-    margin-bottom: 0.85rem;
-  }
-
-  .featured-action-buttons {
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-
-  .featured-action-buttons .btn {
-    white-space: nowrap;
-    font-size: 0.8rem;
-    padding: 0.65rem 1.1rem;
   }
 
   .projects-cards-grid {
