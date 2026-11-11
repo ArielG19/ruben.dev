@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
@@ -233,128 +233,56 @@
             <div class="section-tag-label">MODEL CONTEXT PROTOCOL (MCP)</div>
             <h2 class="section-heading-editorial">CONECTORES PERSONALIZADOS <span class="font-accent">&amp; INTEGRACIONES</span></h2>
             <p class="section-subtext-lead" style="max-width: 860px; color: var(--text-secondary); margin-top: 0.8rem; font-size: 1.05rem; line-height: 1.7;">
-              Desarrollo conectores MCP personalizados que permiten a asistentes de inteligencia artificial interactuar con herramientas y servicios externos, consultar información y ejecutar tareas mediante funcionalidades específicas. El objetivo es ampliar las capacidades de los asistentes y permitirles participar en flujos de trabajo reales.
+              Desarrollo conectores MCP: servidores que conectan asistentes como <strong>Claude</strong>, <strong>ChatGPT</strong> o <strong>Google Antigravity</strong> con servicios externos para consultar datos y ejecutar acciones directamente desde el chat. Estos son los que he construido:
             </p>
           </div>
         </div>
 
-        <!-- MCP Visual Architecture Pipeline -->
-        <div class="mcp-architecture-panel animate-on-scroll">
-          <div class="mcp-panel-header">
-            <h3>Arquitectura de Conexión MCP</h3>
-            <p>Esquema de comunicación estandarizado para conectar modelos conversacionales con servicios externos y ejecutar acciones en sistemas reales.</p>
+        <div class="mcp-cases-grid animate-on-scroll">
+
+          <div class="mcp-case-item">
+            <div class="mcp-case-header">
+              <div class="mcp-case-icon"><i class="far fa-calendar-alt"></i></div>
+              <span class="mcp-case-badge">Calendly</span>
+            </div>
+            <h4 class="mcp-case-title">Citas y Reuniones</h4>
+            <p class="mcp-case-desc">Consultar disponibilidad y agendar reuniones desde el chat.</p>
           </div>
 
-          <div class="mcp-pipeline-wrapper">
-            
-            <!-- Step 1: Assistants -->
-            <div class="mcp-pipe-card">
-              <div class="pipe-step-badge">
-                <i class="fas fa-desktop"></i>
-                <span>01. Entorno de Usuario</span>
-              </div>
-              <h4 class="pipe-title">Asistentes de IA</h4>
-              <ul class="pipe-items-list">
-                <li><i class="fas fa-check"></i> Claude Desktop</li>
-                <li><i class="fas fa-check"></i> Claude Code CLI</li>
-                <li><i class="fas fa-check"></i> ChatGPT</li>
-                <li><i class="fas fa-check"></i> Google Antigravity</li>
-              </ul>
+          <div class="mcp-case-item">
+            <div class="mcp-case-header">
+              <div class="mcp-case-icon"><i class="fas fa-file-alt"></i></div>
+              <span class="mcp-case-badge">tl;dv</span>
             </div>
-
-            <!-- Arrow 1 -->
-            <div class="mcp-pipe-arrow">
-              <i class="fas fa-arrow-right"></i>
-              <span>JSON-RPC</span>
-            </div>
-
-            <!-- Step 2: Custom MCP Server (Highlighted) -->
-            <div class="mcp-pipe-card pipe-highlight">
-              <div class="pipe-step-badge">
-                <i class="fas fa-server"></i>
-                <span>02. Núcleo MCP Desarrollado</span>
-              </div>
-              <h4 class="pipe-title">Servidor MCP Personalizado</h4>
-              <ul class="pipe-items-list">
-                <li><i class="fas fa-tools"></i> Definición de Tools &amp; Schemas</li>
-                <li><i class="fas fa-shield-alt"></i> Control y Validación de Parámetros</li>
-                <li><i class="fas fa-code-branch"></i> Mapeo de Acciones a APIs REST</li>
-                <li><i class="fas fa-file-invoice"></i> Estructuración de Respuestas</li>
-              </ul>
-            </div>
-
-            <!-- Arrow 2 -->
-            <div class="mcp-pipe-arrow">
-              <i class="fas fa-arrow-right"></i>
-              <span>APIs REST</span>
-            </div>
-
-            <!-- Step 3: Connected Services -->
-            <div class="mcp-pipe-card">
-              <div class="pipe-step-badge">
-                <i class="fas fa-network-wired"></i>
-                <span>03. Servicios &amp; Plataformas</span>
-              </div>
-              <h4 class="pipe-title">Sistemas Conectados</h4>
-              <ul class="pipe-items-list">
-                <li><i class="far fa-calendar-alt"></i> Calendly (Citas y Reuniones)</li>
-                <li><i class="fas fa-file-alt"></i> tl;dv (Actas y Transcripciones)</li>
-                <li><i class="far fa-envelope"></i> Correo Electrónico (Email)</li>
-                <li><i class="fas fa-cloud"></i> Hostinger Cloud (Webs &amp; Hosting)</li>
-                <li><i class="fas fa-chart-line"></i> GA4 &amp; Google Search Console</li>
-              </ul>
-            </div>
-
+            <h4 class="mcp-case-title">Actas de Reuniones</h4>
+            <p class="mcp-case-desc">Convertir transcripciones de videollamadas en actas, acuerdos y tareas.</p>
           </div>
 
-          <!-- Real Use Cases Grid -->
-          <div class="mcp-cases-grid">
-            
-            <div class="mcp-case-item">
-              <div class="mcp-case-header">
-                <div class="mcp-case-icon"><i class="far fa-calendar-alt"></i></div>
-                <span class="mcp-case-badge">Calendly</span>
-              </div>
-              <h4 class="mcp-case-title">Gestión de Citas y Reuniones</h4>
-              <p class="mcp-case-desc">Conectores e integración con Calendly para consultar disponibilidad y agendar reuniones interactivamente desde asistentes de IA, acercando la gestión de agendas a una interfaz conversacional.</p>
+          <div class="mcp-case-item">
+            <div class="mcp-case-header">
+              <div class="mcp-case-icon"><i class="far fa-envelope"></i></div>
+              <span class="mcp-case-badge">Email</span>
             </div>
+            <h4 class="mcp-case-title">Correo Electrónico</h4>
+            <p class="mcp-case-desc">Interactuar con servicios de correo desde el asistente de IA.</p>
+          </div>
 
-            <div class="mcp-case-item">
-              <div class="mcp-case-header">
-                <div class="mcp-case-icon"><i class="fas fa-file-alt"></i></div>
-                <span class="mcp-case-badge">tl;dv</span>
-              </div>
-              <h4 class="mcp-case-title">Actas y Síntesis de Reuniones</h4>
-              <p class="mcp-case-desc">Integración con tl;dv para procesar transcripciones extensas de videollamadas y transformarlas automáticamente en actas estructuradas, acuerdos clave y tareas pendientes accionables.</p>
+          <div class="mcp-case-item">
+            <div class="mcp-case-header">
+              <div class="mcp-case-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+              <span class="mcp-case-badge">Hostinger</span>
             </div>
+            <h4 class="mcp-case-title">Despliegue Web</h4>
+            <p class="mcp-case-desc">Publicar y gestionar proyectos web (WordPress, React, Astro).</p>
+          </div>
 
-            <div class="mcp-case-item">
-              <div class="mcp-case-header">
-                <div class="mcp-case-icon"><i class="far fa-envelope"></i></div>
-                <span class="mcp-case-badge">Email</span>
-              </div>
-              <h4 class="mcp-case-title">Integraciones de Correo</h4>
-              <p class="mcp-case-desc">Conectores relacionados con herramientas de email para facilitar la interacción con servicios de correo desde asistentes de IA, conectando la comunicación con flujos de trabajo conversacionales.</p>
+          <div class="mcp-case-item">
+            <div class="mcp-case-header">
+              <div class="mcp-case-icon"><i class="fas fa-chart-line"></i></div>
+              <span class="mcp-case-badge">GA4 &amp; SEO</span>
             </div>
-
-            <div class="mcp-case-item">
-              <div class="mcp-case-header">
-                <div class="mcp-case-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                <span class="mcp-case-badge">Hostinger</span>
-              </div>
-              <h4 class="mcp-case-title">Despliegue y Gestión Web</h4>
-              <p class="mcp-case-desc">Integraciones con Hostinger para conectar asistentes de IA con procesos de publicación, aprovisionamiento y gestión de proyectos web (WordPress, React, Astro), agilizando el ciclo de despliegue.</p>
-            </div>
-
-            <div class="mcp-case-item">
-              <div class="mcp-case-header">
-                <div class="mcp-case-icon"><i class="fas fa-chart-line"></i></div>
-                <span class="mcp-case-badge">GA4 &amp; SEO</span>
-              </div>
-              <h4 class="mcp-case-title">Analítica y Search Console</h4>
-              <p class="mcp-case-desc">Conectores para consultar métricas, analizar el rendimiento de páginas web y generar informes ejecutivos sobre tráfico orgánico, impresiones e indexación de forma conversacional.</p>
-            </div>
-
+            <h4 class="mcp-case-title">Analítica y SEO</h4>
+            <p class="mcp-case-desc">Consultar tráfico, impresiones e indexación y generar informes.</p>
           </div>
 
         </div>

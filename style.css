@@ -2053,142 +2053,15 @@ button, input, textarea {
   color: #475569;
 }
 
-/* MCP Architecture Panel & Pipeline */
-.mcp-architecture-panel {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
-  padding: 3.2rem 2.8rem;
-  margin: 2.8rem 0 3.5rem 0;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
-}
-
-.mcp-panel-header {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 2.8rem auto;
-}
-
-.mcp-panel-header h3 {
-  font-family: var(--font-heading);
-  font-size: 1.7rem;
-  font-weight: 800;
-  margin-bottom: 0.75rem;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-}
-
-.mcp-panel-header p {
-  font-size: 0.96rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
-
-.mcp-pipeline-wrapper {
-  display: grid;
-  grid-template-columns: 1fr auto 1.15fr auto 1.35fr;
-  align-items: center;
-  gap: 1.2rem;
-  margin-bottom: 3.5rem;
-  padding: 1.5rem 0;
-}
-
-.mcp-pipe-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1.6rem 1.4rem;
-  position: relative;
-  transition: all var(--trans-fast);
-}
-
-.mcp-pipe-card:hover {
-  border-color: rgba(56, 189, 248, 0.45);
-}
-
-.mcp-pipe-card.pipe-highlight {
-  border-color: rgba(56, 189, 248, 0.6);
-  box-shadow: 0 0 35px rgba(56, 189, 248, 0.15);
-  background: rgba(16, 24, 38, 0.95);
-}
-
-[data-theme="light"] .mcp-pipe-card.pipe-highlight {
-  background: #f0fdf4;
-  border-color: rgba(16, 185, 129, 0.4);
-}
-
-.pipe-step-badge {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--accent-cyan);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.6rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-weight: 600;
-}
-
-.pipe-title {
-  font-family: var(--font-heading);
-  font-size: 1.12rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.9rem;
-}
-
-.pipe-items-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.pipe-items-list li {
-  font-size: 0.84rem;
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-}
-
-.pipe-items-list li i {
-  color: var(--accent-cyan);
-  font-size: 0.75rem;
-}
-
-.mcp-pipe-arrow {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-cyan);
-  font-size: 1.35rem;
-}
-
-.mcp-pipe-arrow span {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  margin-top: 0.35rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
 /* MCP Cases Grid */
 .mcp-cases-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
   gap: 1.5rem;
 }
 
 .mcp-case-item {
-  background: var(--bg-secondary);
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 1.8rem 1.6rem;
@@ -2503,21 +2376,6 @@ html, body {
 
   .timeline-stats-box {
     max-width: 500px;
-  }
-
-  /* Responsive MCP & AI Maker */
-  .mcp-pipeline-wrapper {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .mcp-pipe-arrow {
-    transform: rotate(90deg);
-    margin: 0.5rem 0;
-  }
-
-  .mcp-architecture-panel {
-    padding: 2.2rem 1.5rem;
   }
 
   .contact-dual-grid {
