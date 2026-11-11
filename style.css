@@ -175,6 +175,10 @@ button, input, textarea {
   margin-bottom: 3.5rem;
 }
 
+.section-top-bar:last-child {
+  margin-bottom: 0;
+}
+
 .section-header-center {
   text-align: center;
   max-width: 680px;
@@ -628,71 +632,6 @@ button, input, textarea {
   inset: 0;
   background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 70%);
   pointer-events: none;
-}
-
-/* ==========================================================================
-   Marquee Ticker (Monochrome Infinite Horizontal Scroll)
-   ========================================================================== */
-.marquee-ticker-section {
-  background: var(--bg-primary);
-  padding: 1.5rem 0;
-  overflow: hidden;
-  border-bottom: 1px solid var(--border-subtle);
-  position: relative;
-  z-index: 10;
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marqueeScroll 28s linear infinite;
-}
-
-.marquee-track:hover {
-  animation-play-state: paused;
-}
-
-.marquee-content {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  padding-right: 2.5rem;
-}
-
-.marquee-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--text-secondary);
-  white-space: nowrap;
-  transition: color var(--trans-fast);
-}
-
-.marquee-item i {
-  font-size: 1.1rem;
-  color: var(--text-muted);
-}
-
-.marquee-item:hover {
-  color: #ffffff;
-}
-
-.marquee-item:hover i {
-  color: var(--accent-cyan);
-}
-
-.marquee-dot {
-  color: var(--text-muted);
-  font-size: 1.1rem;
-}
-
-@keyframes marqueeScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
 
 /* ==========================================================================
@@ -2112,108 +2051,6 @@ button, input, textarea {
 
 [data-theme="dark"] .hero-tagline {
   color: #475569;
-}
-
-/* AI Tools Grid (Claude Code, ChatGPT, Antigravity) */
-.ai-tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-  gap: 2rem;
-  margin-top: 2.5rem;
-}
-
-.ai-tool-card {
-  position: relative;
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  transition: all var(--trans-smooth);
-}
-
-.ai-tool-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--border-hover);
-  background: var(--bg-card-hover);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(56, 189, 248, 0.08);
-}
-
-.ai-tool-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-}
-
-.ai-tool-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.35rem;
-  color: var(--accent-cyan);
-}
-
-.ai-tool-tag {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-}
-
-[data-theme="light"] .ai-tool-tag {
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.ai-tool-title {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.85rem;
-}
-
-.ai-tool-desc {
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-  margin-bottom: 1.5rem;
-}
-
-.ai-tool-features {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.ai-tool-features li {
-  position: relative;
-  padding-left: 1.4rem;
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
-}
-
-.ai-tool-features li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--accent-cyan);
-  font-family: var(--font-mono);
-  font-weight: 600;
 }
 
 /* MCP Architecture Panel & Pipeline */
