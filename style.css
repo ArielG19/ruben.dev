@@ -2159,19 +2159,24 @@ html, body {
     padding-bottom: 3.5rem;
   }
 
+  /* Same side gutter as the header and the rest of the sections */
+  .hero-light-container {
+    padding: 0 1.25rem;
+  }
+
   .hero-right-visual {
     order: 2;
     margin-top: 1.5rem;
   }
 
+  /* Full width image (minus the side gutter) */
   .hero-img-backdrop {
-    max-width: 260px;
+    max-width: none;
     border-radius: var(--radius-lg);
   }
 
   .hero-portrait-img {
     aspect-ratio: 16/10;
-    max-height: 180px;
   }
 
   .hero-headline {
