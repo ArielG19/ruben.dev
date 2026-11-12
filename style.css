@@ -2164,19 +2164,9 @@ html, body {
     padding: 0 1.25rem;
   }
 
+  /* The hero image is not shown on mobile */
   .hero-right-visual {
-    order: 2;
-    margin-top: 1.5rem;
-  }
-
-  /* Full width image (minus the side gutter) */
-  .hero-img-backdrop {
-    max-width: none;
-    border-radius: var(--radius-lg);
-  }
-
-  .hero-portrait-img {
-    aspect-ratio: 16/10;
+    display: none;
   }
 
   .hero-headline {
