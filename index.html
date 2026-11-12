@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <!-- Apply the saved/system theme before first paint to avoid a dark/light flash on reload -->
   <script>
@@ -32,18 +31,25 @@
   <meta property="og:url" content="https://arielg19.github.io/ruben.dev/">
   <meta property="og:title" content="Rubén Pérez | Desarrollador Web &amp; AI Maker">
   <meta property="og:description" content="Desarrollo webs y aplicaciones, y construyo integraciones y automatizaciones con IA para resolver tareas reales.">
-  <meta property="og:image" content="img/hero_dev.jpg">
+  <meta property="og:image" content="https://arielg19.github.io/ruben.dev/img/hero_dev.jpg">
+  <meta property="og:image:alt" content="Entorno de desarrollo web de Rubén Pérez">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Rubén Pérez">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rubén Pérez | Desarrollador Web &amp; AI Maker">
+  <meta name="twitter:description" content="Desarrollo webs y aplicaciones, y construyo integraciones y automatizaciones con IA para resolver tareas reales.">
+  <meta name="twitter:image" content="https://arielg19.github.io/ruben.dev/img/hero_dev.jpg">
   
-  <!-- Google Fonts: Syne (Futuristic geometric), Cormorant Garamond (Editorial italic script), Inter & JetBrains Mono -->
+  <!-- Google Fonts: Syne, Cormorant Garamond (italic accent), Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@400;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=11">
+  <link rel="stylesheet" href="style.css?v=12">
 </head>
 <body>
 
@@ -77,17 +83,17 @@
 
       <!-- Right Action Area -->
       <div class="header-actions">
-        <button class="btn btn-pill-cta" id="cta-contact-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">
+        <a href="#contacto" class="btn btn-pill-cta" id="cta-contact-btn">
           <span>Hablemos</span>
-          <i class="fas fa-arrow-right"></i>
-        </button>
+          <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
 
         <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema claro/oscuro">
-          <i class="fas fa-moon" id="theme-icon"></i>
+          <i class="fas fa-moon" id="theme-icon" aria-hidden="true"></i>
         </button>
 
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú" aria-expanded="false">
-          <i class="fas fa-bars"></i>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+          <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
       </div>
     </div>
@@ -139,7 +145,7 @@
           <!-- Hero Right Visual (Modern Web Development Desk) -->
           <div class="hero-right-visual">
             <div class="hero-img-backdrop">
-              <img src="img/hero_dev.jpg" alt="Entorno de Desarrollo Web y Programación — Rubén Pérez" class="hero-portrait-img">
+              <img src="img/hero_dev.webp" width="896" height="1200" fetchpriority="high" alt="Entorno de Desarrollo Web y Programación — Rubén Pérez" class="hero-portrait-img">
               <div class="hero-img-glow"></div>
             </div>
           </div>
@@ -149,7 +155,7 @@
     </section>
 
     <!-- ==========================================================================
-         Section 2: The Digital Frontier (Sobre Mí)
+         Sección 2: Sobre Mí
          ========================================================================== -->
     <section class="section frontier-section" id="sobre-mi">
       <div class="container">
@@ -158,7 +164,7 @@
           <!-- Left Cinematic Dev Workspace Card -->
           <div class="frontier-visual-col animate-on-scroll">
             <div class="cyber-portrait-frame">
-              <img src="img/about_dev.jpg" alt="Desarrollo Web y Agencia Digital — Rubén Pérez" class="cyber-portrait-img">
+              <img src="img/about_dev.webp" width="896" height="1200" loading="lazy" decoding="async" alt="Desarrollo Web y Agencia Digital — Rubén Pérez" class="cyber-portrait-img">
               <div class="frame-edge-light"></div>
               <div class="frame-badge">
                 <span class="badge-status-dot"></span>
@@ -210,7 +216,7 @@
     </section>
 
     <!-- ==========================================================================
-         Section 3: IA Aplicada & Conectores MCP
+         Sección 3: IA Aplicada & Conectores MCP
          ========================================================================== -->
     <section class="section mcp-section" id="mcp-connectors" style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle);">
       <div class="container">
@@ -278,7 +284,7 @@
     </section>
 
     <!-- ==========================================================================
-         Section 6: Desarrollo Web & Experiencia Técnica
+         Sección 4: Desarrollo Web & Experiencia Técnica
          ========================================================================== -->
     <section class="section web-dev-section" id="desarrollo-web" style="border-top: 1px solid var(--border-subtle);">
       <div class="container">
@@ -359,7 +365,7 @@
     </section>
 
     <!-- ==========================================================================
-         Section 7: Limitless Possibilities (Showcase & Proyectos)
+         Sección 5: Proyectos
          ========================================================================== -->
     <section class="section showcase-section" id="proyectos">
       <div class="container">
@@ -375,7 +381,7 @@
         <!-- Filter Tabs & Gallery Grid -->
         <div class="gallery-controls-wrapper animate-on-scroll">
           <div class="category-filter-nav" id="project-filters">
-            <button class="filter-tab-btn active" data-filter="all">Todos (8)</button>
+            <button class="filter-tab-btn active" data-filter="all" aria-pressed="true">Todos (8)</button>
             <button class="filter-tab-btn" data-filter="ai-dev">IA &amp; Automatización (1)</button>
             <button class="filter-tab-btn" data-filter="wordpress">WordPress &amp; Proyectos Web (6)</button>
             <button class="filter-tab-btn" data-filter="frontend">Front-End &amp; UI (1)</button>
@@ -390,14 +396,14 @@
                data-cat-label="Skills &amp; Automatización"
                data-desc="&lt;p&gt;&lt;strong&gt;Contexto y Objetivo:&lt;/strong&gt; Adaptar asistentes de inteligencia artificial generalistas para convertirlos en herramientas altamente especializadas para tareas técnicas, control de calidad y automatización de procesos repetitivos.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Qué desarrollé:&lt;/strong&gt; Diseño de instrucciones especializadas, definición de contextos de proyecto, creación de procedimientos paso a paso y estandarización de flujos de trabajo asistidos por IA en Claude Code y ChatGPT.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Valor Aportado:&lt;/strong&gt; Mayor consistencia y rapidez en la ejecución de tareas de desarrollo web, análisis de código y documentación técnica.&lt;/p&gt;"
                data-tech="Claude Code, ChatGPT Skills, Context Engineering, Prompt Architecture, Markdown, JSON"
-               data-image="img/proyecto_skills.jpg"
+               data-image="img/proyecto_skills.webp"
                data-live="https://github.com/ArielG19">
             <div class="card-thumb-wrap">
               <span class="card-floating-tag"><i class="fas fa-bolt"></i> Skills &amp; Automatización</span>
-              <img src="img/proyecto_skills.jpg" alt="Skills Personalizadas y Flujos de Automatización con IA" class="card-thumb-img">
+              <img src="img/proyecto_skills.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Skills Personalizadas y Flujos de Automatización con IA" class="card-thumb-img">
               <div class="card-hover-mask">
                 <button class="btn-quick-preview btn-preview"><i class="fas fa-eye"></i> Detalle</button>
-                <a href="https://github.com/ArielG19" target="_blank" rel="noopener noreferrer" class="btn-quick-visit"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/ArielG19" target="_blank" rel="noopener noreferrer" class="btn-quick-visit" aria-label="Ver en GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="card-body-wrap">
@@ -419,10 +425,10 @@
                data-cat-label="WordPress / Tema y Plugin a Medida"
                data-desc="&lt;p&gt;&lt;strong&gt;Proyecto:&lt;/strong&gt; Web de Audytax, firma de auditoría de subvenciones, con página para la Región de Murcia y formulario de solicitud de presupuesto.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Qué desarrollé:&lt;/strong&gt; Tema y plugin de WordPress a medida.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Cómo:&lt;/strong&gt; Desarrollado con Claude a través de mi conector MCP personalizado.&lt;/p&gt;"
                data-tech="WordPress, Tema a medida, Plugin a medida, PHP, Claude, Conector MCP"
-               data-image="img/audytax.jpg">
+               data-image="img/audytax.webp">
             <div class="card-thumb-wrap">
               <span class="card-floating-tag"><i class="fas fa-network-wired"></i> Claude + MCP</span>
-              <img src="img/audytax.jpg" alt="Audytax - Auditoría de subvenciones en Murcia" class="card-thumb-img">
+              <img src="img/audytax.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Audytax - Auditoría de subvenciones en Murcia" class="card-thumb-img">
               <div class="card-hover-mask">
                 <button class="btn-quick-preview btn-preview"><i class="fas fa-eye"></i> Detalle</button>
               </div>
@@ -446,9 +452,9 @@
                data-cat-label="WordPress / Plugin a Medida"
                data-desc="&lt;p&gt;&lt;strong&gt;Proyecto:&lt;/strong&gt; Web de Infernuko Zatak desarrollada en WordPress y Elementor.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Qué desarrollé:&lt;/strong&gt; Plugin a medida que añade tipos de contenido propios para publicar drops y fichas de artistas.&lt;/p&gt;"
                data-tech="WordPress, Elementor, Plugin a medida, PHP, Custom Post Types"
-               data-image="img/infernukozatak.jpg">
+               data-image="img/infernukozatak.webp">
             <div class="card-thumb-wrap">
-              <img src="img/infernukozatak.jpg" alt="Infernuko Zatak - Laster" class="card-thumb-img">
+              <img src="img/infernukozatak.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Infernuko Zatak - Laster" class="card-thumb-img">
               <div class="card-hover-mask">
                 <button class="btn-quick-preview btn-preview"><i class="fas fa-eye"></i> Detalle</button>
               </div>
@@ -471,9 +477,9 @@
                data-cat-label="WordPress / Agencia Digital"
                data-desc="Desarrollo y maquetación web completa para iHodei, agencia de marketing digital en Bilbao. Construida con WordPress y Elementor, maquetación responsive Mobile First, integración de video background en el hero banner, animaciones SVG y optimización SEO On-Page."
                data-tech="WordPress, Elementor, SASS/CSS3, SEO, JavaScript"
-               data-image="img/ihodei.jpg">
+               data-image="img/ihodei.webp">
             <div class="card-thumb-wrap">
-              <img src="img/ihodei.jpg" alt="iHodei - Agencia de Marketing Digital" class="card-thumb-img">
+              <img src="img/ihodei.webp" width="1400" height="788" loading="lazy" decoding="async" alt="iHodei - Agencia de Marketing Digital" class="card-thumb-img">
               <div class="card-hover-mask">
                 <button class="btn-quick-preview btn-preview"><i class="fas fa-eye"></i> Detalle</button>
               </div>
@@ -496,9 +502,9 @@
                data-cat-label="WordPress / Arquitectura"
                data-desc="Diseño y desarrollo web corporativo para el estudio de arquitectura José Luis Breva. Maquetación estructurada con WordPress, navegación personalizada, galerías de proyectos de alto impacto visual y optimización responsive para dispositivos móviles."
                data-tech="WordPress, Elementor, CSS3/SASS, UI/UX, Responsive"
-               data-image="img/joseluisbreva.jpg">
+               data-image="img/joseluisbreva.webp">
             <div class="card-thumb-wrap">
-              <img src="img/joseluisbreva.jpg" alt="José Luis Breva - Arquitectura" class="card-thumb-img">
+              <img src="img/joseluisbreva.webp" width="1400" height="787" loading="lazy" decoding="async" alt="José Luis Breva - Arquitectura" class="card-thumb-img">
               <div class="card-hover-mask">
                 <button class="btn-quick-preview btn-preview"><i class="fas fa-eye"></i> Detalle</button>
               </div>
@@ -521,9 +527,9 @@
                data-cat-label="WordPress / Finanzas"
                data-desc="Desarrollo web corporativo para la firma de inversión Zenthia Capital. Implementación en WordPress con widgets personalizados, maquetación de servicios financieros, interfaz elegante y diseño responsive."
                data-tech="WordPress, Elementor, Custom Widgets, CSS3, Responsive"
-               data-image="img/zenthiacapital.png">
+               data-image="img/zenthiacapital.webp">
             <div class="card-thumb-wrap">
-              <img src="img/zenthiacapital.png" alt="Zenthia Capital - Inversión & Finanzas" class="card-thumb-img">
+              <img src="img/zenthiacapital.webp" width="1400" height="672" loading="lazy" decoding="async" alt="Zenthia Capital - Inversión & Finanzas" class="card-thumb-img">
               <div class="card-hover-mask">
                 <button class="btn-quick-preview btn-preview"><i class="fas fa-eye"></i> Detalle</button>
               </div>
@@ -548,7 +554,7 @@
                data-tech="WordPress, Elementor, Booking Engine, CSS3, Responsive"
                data-image="img/sopelabeachhome.webp">
             <div class="card-thumb-wrap">
-              <img src="img/sopelabeachhome.webp" alt="Sopela Beach Home - Alquiler Vacacional" class="card-thumb-img">
+              <img src="img/sopelabeachhome.webp" width="1400" height="933" loading="lazy" decoding="async" alt="Sopela Beach Home - Alquiler Vacacional" class="card-thumb-img">
               <div class="card-hover-mask">
                 <button class="btn-quick-preview btn-preview"><i class="fas fa-eye"></i> Detalle</button>
               </div>
@@ -571,13 +577,13 @@
                data-cat-label="Angular / Front-End"
                data-desc="Desarrollo y maquetación de componentes web en Angular para marcas líderes del Grupo MásMóvil (Yoigo, Virgin Telco, Guuk). Enfoque Mobile First Design, optimización de velocidad de carga y componentes interactivos modulares."
                data-tech="Angular, TypeScript, SASS, Mobile First, UI Architecture"
-               data-image="img/workspace_setup.png"
+               data-image="img/workspace_setup.webp"
                data-live="https://github.com/ArielG19">
             <div class="card-thumb-wrap">
-              <img src="img/workspace_setup.png" alt="MásMóvil y Yoigo Angular UI" class="card-thumb-img">
+              <img src="img/workspace_setup.webp" width="1024" height="1024" loading="lazy" decoding="async" alt="MásMóvil y Yoigo Angular UI" class="card-thumb-img">
               <div class="card-hover-mask">
                 <button class="btn-quick-preview btn-preview"><i class="fas fa-eye"></i> Detalle</button>
-                <a href="https://github.com/ArielG19" target="_blank" rel="noopener noreferrer" class="btn-quick-visit"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/ArielG19" target="_blank" rel="noopener noreferrer" class="btn-quick-visit" aria-label="Ver en GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="card-body-wrap">
@@ -597,7 +603,7 @@
     </section>
 
     <!-- ==========================================================================
-         Section 5: Voices of the Future (Trayectoria & Experiencia)
+         Sección 6: Trayectoria & Experiencia
          ========================================================================== -->
     <section class="section timeline-section" id="trayectoria">
       <div class="container">
@@ -729,12 +735,12 @@
     </section>
 
     <!-- ==========================================================================
-         Section 9: Banner Panorámico CTA
+         Sección 7: Banner CTA
          ========================================================================== -->
     <section class="section banner-cta-section">
       <div class="container">
         <div class="panoramic-cta-box animate-on-scroll">
-          <img src="img/cta_dev.jpg" alt="Desarrollo Web y Soluciones con IA en Bilbao" class="cta-banner-bg-img">
+          <img src="img/cta_dev.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Desarrollo Web y Soluciones con IA en Bilbao" class="cta-banner-bg-img">
           <div class="cta-banner-overlay"></div>
           
           <div class="cta-banner-content">
@@ -768,7 +774,7 @@
     </section>
 
     <!-- ==========================================================================
-         Section 10: Contacto Directo (Nuevas Oportunidades & Proyectos)
+         Sección 8: Contacto
          ========================================================================== -->
     <section class="section contact-section" id="contacto">
       <div class="container">
@@ -796,8 +802,8 @@
                   <span class="method-label">Correo Electrónico</span>
                   <div class="email-copy-wrap">
                     <span class="method-value" id="email-text">perez10ariel@<wbr>gmail.com</span>
-                    <button class="copy-action-btn" id="copy-email-btn" data-email="perez10ariel@gmail.com" title="Copiar correo">
-                      <i class="far fa-copy"></i>
+                    <button class="copy-action-btn" id="copy-email-btn" data-email="perez10ariel@gmail.com" title="Copiar correo" aria-label="Copiar correo">
+                      <i class="far fa-copy" aria-hidden="true"></i>
                     </button>
                   </div>
                 </div>
@@ -878,7 +884,7 @@
   <div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-window">
       <button class="modal-close-btn" id="modal-close" aria-label="Cerrar ventana">
-        <i class="fas fa-times"></i>
+        <i class="fas fa-times" aria-hidden="true"></i>
       </button>
 
       <div class="modal-hero-cover">
@@ -889,7 +895,7 @@
       <div class="modal-body-content">
         <span class="modal-cat-tag" id="modal-category">Categoría</span>
         <h3 class="modal-title-text" id="modal-title">Título del Proyecto</h3>
-        <p class="modal-desc-text" id="modal-desc">Descripción completa del proyecto.</p>
+        <div class="modal-desc-text" id="modal-desc">Descripción completa del proyecto.</div>
 
         <div class="modal-tech-section">
           <span class="modal-tech-label">Tecnologías Utilizadas:</span>
@@ -907,14 +913,14 @@
   </div>
 
   <!-- Toast Notification Alert -->
-  <div class="cyber-toast" id="toast" role="alert" aria-live="polite">
-    <i class="fas fa-check-circle" style="color: #38bdf8;"></i>
+  <div class="cyber-toast" id="toast" role="status" aria-live="polite">
+    <i class="fas fa-check-circle" style="color: #38bdf8;" aria-hidden="true"></i>
     <span class="toast-text" id="toast-message">Mensaje de notificación</span>
   </div>
 
   <!-- Floating Back to Top Button -->
   <button class="back-to-top-btn" id="back-to-top" aria-label="Volver arriba" title="Volver arriba">
-    <i class="fas fa-arrow-up"></i>
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
   </button>
 
   <!-- ==========================================================================
@@ -940,11 +946,11 @@
             Desarrollador web en Bilbao. Trabajo con WordPress, React y Astro, y construyo conectores MCP, Skills y automatizaciones con Claude Code, ChatGPT y Google Antigravity.
           </p>
           <div class="footer-social-icons">
-            <a href="https://github.com/ArielG19" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="GitHub">
-              <i class="fab fa-github"></i>
+            <a href="https://github.com/ArielG19" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="GitHub" aria-label="GitHub">
+              <i class="fab fa-github" aria-hidden="true"></i>
             </a>
-            <a href="mailto:perez10ariel@gmail.com" class="footer-social-btn" title="Email">
-              <i class="fas fa-envelope"></i>
+            <a href="mailto:perez10ariel@gmail.com" class="footer-social-btn" title="Email" aria-label="Enviar email">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
             </a>
           </div>
         </div>
@@ -1010,6 +1016,6 @@
   </footer>
 
   <!-- Modular Interactive JS -->
-  <script src="js/app.js?v=6"></script>
+  <script src="js/app.js?v=7"></script>
 </body>
 </html>

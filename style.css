@@ -442,11 +442,6 @@ button, input, textarea {
   margin-bottom: 1.8rem;
 }
 
-.eyebrow-num {
-  font-weight: 700;
-  color: var(--accent-cyan);
-}
-
 .eyebrow-line {
   display: inline-block;
   width: 32px;
@@ -503,29 +498,6 @@ button, input, textarea {
   transition: all var(--trans-smooth);
 }
 
-.btn-pill-dark {
-  background: #0b0f17;
-  color: #ffffff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-}
-
-.btn-pill-dark:hover {
-  transform: translateY(-3px);
-  background: #1e293b;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
-}
-
-.btn-pill-ghost {
-  background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border-subtle);
-}
-
-.btn-pill-ghost:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--accent-cyan);
-}
-
 .btn-pill-white {
   background: #ffffff;
   color: #0b0f17;
@@ -554,53 +526,6 @@ button, input, textarea {
 .btn-sm {
   padding: 0.55rem 1.2rem;
   font-size: 0.84rem;
-}
-
-/* Metric Angular Connector */
-.hero-metric-connector {
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-bottom: 2.5rem;
-}
-
-.connector-line-wrapper {
-  width: 100%;
-  max-width: 260px;
-  height: 25px;
-}
-
-.connector-svg {
-  width: 100%;
-  height: 100%;
-}
-
-.metric-pill-badge {
-  display: flex;
-  flex-direction: column;
-  padding: 0.4rem 0.95rem;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
-}
-
-[data-theme="light"] .metric-pill-badge {
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.metric-val {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--text-primary);
-  line-height: 1.1;
-}
-
-.metric-lbl {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 /* Right Visual in Hero */
@@ -765,146 +690,6 @@ button, input, textarea {
   display: flex;
   align-items: center;
   gap: 1.2rem;
-}
-
-/* ==========================================================================
-   Section 3: Our Services (Modern 3-Column Glassmorphism Cards)
-   ========================================================================== */
-.services-section {
-  background: var(--bg-primary);
-  border-top: 1px solid var(--border-subtle);
-}
-
-.services-nav-controls {
-  display: flex;
-  gap: 0.6rem;
-}
-
-.nav-circle-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--trans-fast);
-}
-
-.nav-circle-btn:hover {
-  background: var(--accent-cyan);
-  color: #08090d;
-  border-color: var(--accent-cyan);
-}
-
-.services-modern-grid {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  padding: 0.5rem 0.2rem 1.5rem 0.2rem;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.services-modern-grid::-webkit-scrollbar {
-  display: none;
-}
-
-.service-cyber-card {
-  position: relative;
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 calc(33.333% - 1.35rem);
-  min-width: 320px;
-  scroll-snap-align: start;
-  transition: all var(--trans-smooth);
-}
-
-.service-cyber-card:hover {
-  transform: translateY(-8px);
-  background: var(--bg-card-hover);
-  border-color: var(--border-hover);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(56, 189, 248, 0.1);
-}
-
-.service-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-
-.service-icon-circle {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  color: var(--accent-cyan);
-  transition: all var(--trans-smooth);
-}
-
-.service-cyber-card:hover .service-icon-circle {
-  background: var(--accent-cyan);
-  color: #08090d;
-  transform: scale(1.08);
-}
-
-.service-card-num {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.service-card-title {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-  line-height: 1.25;
-}
-
-.service-card-desc {
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-  margin-bottom: 2rem;
-  flex-grow: 1;
-}
-
-.service-card-footer {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 1.2rem;
-}
-
-.service-learn-more {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  transition: gap var(--trans-fast), color var(--trans-fast);
-}
-
-.service-learn-more:hover {
-  color: var(--accent-cyan);
-  gap: 0.8rem;
 }
 
 /* ==========================================================================
@@ -1180,37 +965,6 @@ button, input, textarea {
   color: var(--text-secondary);
   line-height: 1.75;
   margin-bottom: 3rem;
-}
-
-.timeline-stats-box {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
-}
-
-.stat-bubble {
-  padding: 1.4rem 1.2rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  text-align: center;
-}
-
-.stat-number-count {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  line-height: 1.1;
-  margin-bottom: 0.35rem;
-}
-
-.stat-label-text {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
 
 /* Right Floating Experience Cards */
@@ -1760,36 +1514,6 @@ button, input, textarea {
 .modal-desc-text strong {
   color: var(--text-primary);
   font-weight: 600;
-}
-
-.modal-feature-list {
-  list-style: none;
-  margin: 1.2rem 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.modal-feature-list li {
-  position: relative;
-  padding-left: 1.6rem;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-}
-
-.modal-feature-list li::before {
-  content: '✦';
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--accent-cyan);
-  font-size: 0.85rem;
-}
-
-.modal-feature-list li strong {
-  color: var(--text-primary);
 }
 
 .modal-tech-section {
@@ -2363,10 +2087,6 @@ html, body {
     justify-content: center;
   }
 
-  .hero-metric-connector {
-    justify-content: center;
-  }
-
   .hero-right-visual {
     order: -1;
   }
@@ -2395,10 +2115,6 @@ html, body {
     margin: 0 auto;
   }
 
-  .services-modern-grid {
-    padding-bottom: 1.2rem;
-  }
-
   .projects-cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2406,10 +2122,6 @@ html, body {
   .timeline-cyber-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
-  }
-
-  .timeline-stats-box {
-    max-width: 500px;
   }
 
   .contact-dual-grid {
@@ -2487,16 +2199,6 @@ html, body {
     justify-content: center;
   }
 
-  .hero-metric-connector {
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1.8rem;
-  }
-
-  .connector-line-wrapper {
-    display: none;
-  }
-
   /* Sobre Mí */
   .frontier-title {
     font-size: clamp(1.35rem, 5.8vw, 1.85rem);
@@ -2522,16 +2224,10 @@ html, body {
     justify-content: center;
   }
 
-  /* Services Carousel Mobile */
+  /* Section headings mobile */
   .section-heading-editorial {
     font-size: clamp(1.35rem, 5.8vw, 1.85rem);
     word-break: keep-all;
-  }
-
-  .service-cyber-card {
-    flex: 0 0 88%;
-    min-width: 260px;
-    padding: 1.8rem 1.4rem;
   }
 
   /* Projects Showcase Mobile */
@@ -2544,15 +2240,13 @@ html, body {
     grid-template-columns: 1fr;
   }
 
-  .category-filter-nav,
-  .projects-filter-bar {
+  .category-filter-nav {
     flex-wrap: wrap;
     gap: 0.4rem;
     justify-content: center;
   }
 
-  .filter-tab-btn,
-  .filter-pill-btn {
+  .filter-tab-btn {
     font-size: 0.78rem;
     padding: 0.4rem 0.85rem;
   }
@@ -2568,27 +2262,6 @@ html, body {
   .timeline-intro-text {
     font-size: 0.94rem;
     line-height: 1.65;
-  }
-
-  .timeline-stats-box {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.4rem;
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  .stat-bubble {
-    padding: 0.85rem 0.25rem;
-  }
-
-  .stat-number-count {
-    font-size: 1.35rem;
-  }
-
-  .stat-label-text {
-    font-size: 0.62rem;
-    line-height: 1.18;
-    letter-spacing: 0;
   }
 
   .timeline-floating-card {
@@ -2682,20 +2355,43 @@ html, body {
     white-space: normal;
   }
 
-  .stat-bubble {
-    padding: 0.75rem 0.2rem;
-  }
-
-  .stat-number-count {
-    font-size: 1.25rem;
-  }
-
-  .stat-label-text {
-    font-size: 0.58rem;
-  }
-
   .timeline-floating-card {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   Accessibility: keyboard focus, hover-only controls & reduced motion
+   ========================================================================== */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+}
+
+/* Project quick actions must also appear for keyboard users */
+.project-cyber-card:focus-within .card-hover-mask {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
   }
 }

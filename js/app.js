@@ -1,20 +1,17 @@
 /**
- * Rubén Pérez Portfolio — NeoVision Interactive Engine
- * Modular Vanilla ES6+ (GitHub Pages Compatible)
+ * Rubén Pérez Portfolio — Interactive Engine
+ * Vanilla ES6+ (GitHub Pages Compatible)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeSwitcher();
   initNavigation();
   initScrollAnimations();
-  initStatsCounter();
-  initServicesCarousel();
   initProjectFilter();
   initProjectModal();
   initCopyEmail();
   initContactForm();
   initBackToTop();
-  initCardTilt();
   initCopyrightYear();
 });
 
@@ -40,34 +37,67 @@ function initThemeSwitcher() {
 
   function updateThemeIcon(theme) {
     if (!themeIcon) return;
-    if (theme === 'dark') {
-      themeIcon.className = 'fas fa-moon';
-      themeToggleBtn.setAttribute('title', 'Cambiar a modo claro');
-    } else {
-      themeIcon.className = 'fas fa-sun';
-      themeToggleBtn.setAttribute('title', 'Cambiar a modo oscuro');
-    }
+    const label = theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
+    themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    themeToggleBtn.setAttribute('title', label);
+    themeToggleBtn.setAttribute('aria-label', label);
   }
 }
 
 /* ==========================================================================
    2. Header & Navigation (Scroll States, Active Links & Mobile Drawer)
+   Smooth anchor scrolling is handled natively by CSS (scroll-behavior +
+   scroll-padding-top), so no JS is needed for it.
    ========================================================================== */
 function initNavigation() {
   const navbar = document.getElementById('navbar');
   const mobileToggle = document.getElementById('mobile-toggle');
   const navMenu = document.getElementById('nav-menu');
   const links = document.querySelectorAll('.nav-link');
+  const backToTopBtn = document.getElementById('back-to-top');
 
-  // Sticky header background shift on scroll
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+  // Cache section → link pairs once instead of querying the DOM on every scroll
+  const sectionLinks = Array.from(document.querySelectorAll('section[id]'))
+    .map(section => ({
+      section,
+      link: document.querySelector(`.nav-link[href="#${section.id}"]`)
+    }))
+    .filter(item => item.link);
+
+  let activeLink = document.querySelector('.nav-link.active');
+  let ticking = false;
+
+  function onScrollFrame() {
+    const y = window.scrollY;
+    navbar.classList.toggle('scrolled', y > 40);
+    if (backToTopBtn) backToTopBtn.classList.toggle('visible', y > 450);
+
+    const probe = y + 160;
+    for (const { section, link } of sectionLinks) {
+      if (probe >= section.offsetTop && probe < section.offsetTop + section.offsetHeight) {
+        if (link !== activeLink) {
+          if (activeLink) {
+            activeLink.classList.remove('active');
+            activeLink.removeAttribute('aria-current');
+          }
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'true');
+          activeLink = link;
+        }
+        break;
+      }
     }
-    highlightActiveNavLink();
-  });
+    ticking = false;
+  }
+
+  // One rAF-throttled scroll handler for header, active link and back-to-top
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(onScrollFrame);
+    }
+  }, { passive: true });
+  onScrollFrame();
 
   // Mobile menu toggle
   if (mobileToggle && navMenu) {
@@ -76,7 +106,9 @@ function initNavigation() {
       document.documentElement.classList.toggle('menu-open', open);
       mobileToggle.setAttribute('aria-expanded', open);
       mobileToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-      mobileToggle.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      mobileToggle.innerHTML = open
+        ? '<i class="fas fa-times" aria-hidden="true"></i>'
+        : '<i class="fas fa-bars" aria-hidden="true"></i>';
     };
 
     mobileToggle.addEventListener('click', () => {
@@ -108,38 +140,6 @@ function initNavigation() {
       if (e.matches) setMenuOpen(false);
     });
   }
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      const targetElem = document.querySelector(targetId);
-      if (targetElem) {
-        e.preventDefault();
-        targetElem.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
-}
-
-function highlightActiveNavLink() {
-  const sections = document.querySelectorAll('section[id]');
-  const scrollPosition = window.scrollY + 160;
-
-  sections.forEach(section => {
-    const top = section.offsetTop;
-    const height = section.offsetHeight;
-    const id = section.getAttribute('id');
-    const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
-
-    if (navLink) {
-      if (scrollPosition >= top && scrollPosition < top + height) {
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-        navLink.classList.add('active');
-      }
-    }
-  });
 }
 
 /* ==========================================================================
@@ -169,69 +169,28 @@ function initScrollAnimations() {
 }
 
 /* ==========================================================================
-   4. Stats Counter Animation
-   ========================================================================== */
-function initStatsCounter() {
-  const statNumbers = document.querySelectorAll('.stat-number-count');
-  let hasAnimated = false;
-
-  function runCounters() {
-    statNumbers.forEach(stat => {
-      const target = parseInt(stat.getAttribute('data-target'), 10) || 0;
-      const suffix = stat.getAttribute('data-suffix') || '';
-      const duration = 1600;
-      const startTime = performance.now();
-
-      function updateCounter(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        // Ease out quad
-        const easeProgress = 1 - (1 - progress) * (1 - progress);
-        const currentCount = Math.floor(easeProgress * target);
-
-        stat.textContent = `${currentCount}${suffix}`;
-
-        if (progress < 1) {
-          requestAnimationFrame(updateCounter);
-        } else {
-          stat.textContent = `${target}${suffix}`;
-        }
-      }
-
-      requestAnimationFrame(updateCounter);
-    });
-  }
-
-  if ('IntersectionObserver' in window && statNumbers.length > 0) {
-    const statsSection = statNumbers[0].closest('section') || statNumbers[0];
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !hasAnimated) {
-          hasAnimated = true;
-          runCounters();
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    observer.observe(statsSection);
-  }
-}
-
-/* ==========================================================================
-   5. Projects Filtering
+   4. Projects Filtering (counts are computed from the cards themselves)
    ========================================================================== */
 function initProjectFilter() {
   const filterBtns = document.querySelectorAll('.filter-tab-btn');
   const projectCards = document.querySelectorAll('.project-cyber-card');
 
   filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+    const filterValue = btn.getAttribute('data-filter');
+    const count = filterValue === 'all'
+      ? projectCards.length
+      : Array.from(projectCards).filter(c => c.getAttribute('data-category') === filterValue).length;
+    const label = btn.textContent.replace(/\s*\(\d+\)\s*$/, '').trim();
+    btn.textContent = `${label} (${count})`;
+    btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
 
-      const filterValue = btn.getAttribute('data-filter');
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
 
       projectCards.forEach(card => {
         const cardCategory = card.getAttribute('data-category');
@@ -250,7 +209,7 @@ function initProjectFilter() {
 }
 
 /* ==========================================================================
-   6. Project Lightbox Modal
+   5. Project Lightbox Modal (with focus management)
    ========================================================================== */
 function initProjectModal() {
   const modal = document.getElementById('project-modal');
@@ -264,11 +223,16 @@ function initProjectModal() {
 
   if (!modal) return;
 
+  let lastFocused = null;
+  // While closed the dialog is only transparent, so `inert` keeps it out of the Tab order
+  modal.inert = true;
+
   function openModal(data) {
     modalTitle.textContent = data.title || 'Proyecto';
     modalCat.textContent = data.category || '';
+    // data-desc comes from our own static markup (trusted), it may contain <p>/<strong>
     modalDesc.innerHTML = data.desc || '';
-    modalImg.src = data.image || 'img/workspace_setup.png';
+    modalImg.src = data.image || 'img/workspace_setup.webp';
     modalImg.alt = data.title || 'Detalle del Proyecto';
 
     if (modalLiveLink) {
@@ -277,8 +241,8 @@ function initProjectModal() {
         modalLiveLink.style.display = 'inline-flex';
         const isGithub = data.live.includes('github.com');
         modalLiveLink.innerHTML = isGithub
-          ? '<span>Ver en GitHub</span> <i class="fab fa-github"></i>'
-          : '<span>Visitar Sitio Web</span> <i class="fas fa-external-link-alt"></i>';
+          ? '<span>Ver en GitHub</span> <i class="fab fa-github" aria-hidden="true"></i>'
+          : '<span>Visitar Sitio Web</span> <i class="fas fa-external-link-alt" aria-hidden="true"></i>';
       } else {
         modalLiveLink.style.display = 'none';
       }
@@ -287,8 +251,7 @@ function initProjectModal() {
     if (modalTech) {
       modalTech.innerHTML = '';
       if (data.tech) {
-        const techs = data.tech.split(',').map(t => t.trim());
-        techs.forEach(t => {
+        data.tech.split(',').map(t => t.trim()).forEach(t => {
           const span = document.createElement('span');
           span.textContent = t;
           modalTech.appendChild(span);
@@ -296,33 +259,53 @@ function initProjectModal() {
       }
     }
 
+    lastFocused = document.activeElement;
+    modal.inert = false;
     modal.setAttribute('aria-hidden', 'false');
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    if (modalClose) modalClose.focus();
   }
 
   function closeModal() {
     modal.setAttribute('aria-hidden', 'true');
+    modal.inert = true;
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    lastFocused = null;
   }
 
-  // Bind click on preview buttons
+  // Keep keyboard focus inside the dialog while it is open
+  function trapFocus(e) {
+    const focusables = Array.from(
+      modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+    ).filter(el => el.offsetParent !== null);
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
   document.querySelectorAll('.btn-preview').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       const parentCard = btn.closest('.project-cyber-card') || btn;
-      
-      const data = {
+
+      openModal({
         title: parentCard.getAttribute('data-title'),
         category: parentCard.getAttribute('data-cat-label') || parentCard.getAttribute('data-category'),
         desc: parentCard.getAttribute('data-desc'),
         tech: parentCard.getAttribute('data-tech'),
         image: parentCard.getAttribute('data-image'),
         live: parentCard.getAttribute('data-live')
-      };
-
-      openModal(data);
+      });
     });
   });
 
@@ -331,20 +314,18 @@ function initProjectModal() {
   }
 
   modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
+    if (e.target === modal) closeModal();
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      closeModal();
-    }
+    if (!modal.classList.contains('active')) return;
+    if (e.key === 'Escape') closeModal();
+    else if (e.key === 'Tab') trapFocus(e);
   });
 }
 
 /* ==========================================================================
-   7. Copy Email & Toast System
+   6. Copy Email & Toast System
    ========================================================================== */
 function initCopyEmail() {
   const copyBtn = document.getElementById('copy-email-btn');
@@ -360,6 +341,8 @@ function initCopyEmail() {
   });
 }
 
+let toastTimer = null;
+
 function showToast(message) {
   const toast = document.getElementById('toast');
   const toastMsg = document.getElementById('toast-message');
@@ -368,13 +351,15 @@ function showToast(message) {
   toastMsg.textContent = message;
   toast.classList.add('show');
 
-  setTimeout(() => {
+  // Restart the timer so a second toast isn't hidden early by the first one
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
     toast.classList.remove('show');
   }, 3200);
 }
 
 /* ==========================================================================
-   8. Contact Form
+   7. Contact Form (opens the visitor's mail client)
    ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('contact-form');
@@ -396,116 +381,20 @@ function initContactForm() {
 }
 
 /* ==========================================================================
-   9. Floating Back to Top Button
+   8. Floating Back to Top Button (visibility handled in initNavigation)
    ========================================================================== */
 function initBackToTop() {
   const backToTopBtn = document.getElementById('back-to-top');
   if (!backToTopBtn) return;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 450) {
-      backToTopBtn.classList.add('visible');
-    } else {
-      backToTopBtn.classList.remove('visible');
-    }
-  });
-
   backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
   });
 }
 
 /* ==========================================================================
-   10. Interactive 3D Card Tilt Effect
-   ========================================================================== */
-function initCardTilt() {
-  const tiltElements = document.querySelectorAll('[data-tilt]');
-  if (window.innerWidth < 992) return; // Disable on touch devices
-
-  tiltElements.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = ((y - centerY) / centerY) * -6;
-      const rotateY = ((x - centerX) / centerX) * 6;
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
-    });
-  });
-}
-
-/* ==========================================================================
-   11. Services Horizontal Carousel Controls & Auto-Slide
-   ========================================================================== */
-function initServicesCarousel() {
-  const prevBtn = document.getElementById('srv-prev');
-  const nextBtn = document.getElementById('srv-next');
-  const track = document.getElementById('services-track');
-
-  if (!track || !prevBtn || !nextBtn) return;
-
-  function getScrollAmount() {
-    const firstCard = track.querySelector('.service-cyber-card');
-    return firstCard ? firstCard.offsetWidth + 32 : 360;
-  }
-
-  function scrollNext() {
-    const scrollAmount = getScrollAmount();
-    const maxScrollLeft = track.scrollWidth - track.clientWidth;
-    if (track.scrollLeft >= maxScrollLeft - 25) {
-      track.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  }
-
-  function scrollPrev() {
-    const scrollAmount = getScrollAmount();
-    if (track.scrollLeft <= 25) {
-      track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
-    } else {
-      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    }
-  }
-
-  nextBtn.addEventListener('click', () => {
-    scrollNext();
-    resetAutoSlide();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    scrollPrev();
-    resetAutoSlide();
-  });
-
-  // Auto-desplazamiento suave cada 3.8 segundos
-  let autoSlideTimer = setInterval(scrollNext, 3800);
-
-  function resetAutoSlide() {
-    clearInterval(autoSlideTimer);
-    autoSlideTimer = setInterval(scrollNext, 3800);
-  }
-
-  // Pausar auto-desplazamiento al pasar el ratón o tocar
-  track.addEventListener('mouseenter', () => clearInterval(autoSlideTimer));
-  track.addEventListener('mouseleave', () => resetAutoSlide());
-  track.addEventListener('touchstart', () => clearInterval(autoSlideTimer), { passive: true });
-  track.addEventListener('touchend', () => resetAutoSlide(), { passive: true });
-}
-
-/* ==========================================================================
-   12. Dynamic Copyright Year
+   9. Dynamic Copyright Year
    ========================================================================== */
 function initCopyrightYear() {
   const yearEl = document.getElementById('copyright-year');
@@ -513,4 +402,3 @@ function initCopyrightYear() {
     yearEl.textContent = new Date().getFullYear();
   }
 }
-
