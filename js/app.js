@@ -26,17 +26,14 @@ function initThemeSwitcher() {
   const themeIcon = document.getElementById('theme-icon');
   if (!themeToggleBtn) return;
 
-  const savedTheme = localStorage.getItem('ruben_portfolio_theme');
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  let currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-
-  document.documentElement.setAttribute('data-theme', currentTheme);
+  // The theme is already applied by the inline script in <head> (before first paint)
+  let currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
   updateThemeIcon(currentTheme);
 
   themeToggleBtn.addEventListener('click', () => {
     currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', currentTheme);
-    localStorage.setItem('ruben_portfolio_theme', currentTheme);
+    try { localStorage.setItem('ruben_portfolio_theme', currentTheme); } catch (e) {}
     updateThemeIcon(currentTheme);
     showToast(currentTheme === 'dark' ? 'Modo oscuro activado' : 'Modo claro activado');
   });

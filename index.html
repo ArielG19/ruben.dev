@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Apply the saved/system theme before first paint to avoid a dark/light flash on reload -->
+  <script>
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem('ruben_portfolio_theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   
   <!-- SEO & Open Graph Meta Tags -->
   <title>Rubén Pérez | Desarrollador Web &amp; AI Maker en Bilbao</title>
@@ -998,6 +1010,6 @@
   </footer>
 
   <!-- Modular Interactive JS -->
-  <script src="js/app.js?v=5"></script>
+  <script src="js/app.js?v=6"></script>
 </body>
 </html>
