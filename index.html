@@ -381,16 +381,45 @@
         <!-- Filter Tabs & Gallery Grid -->
         <div class="gallery-controls-wrapper animate-on-scroll">
           <div class="category-filter-nav" id="project-filters">
-            <button class="filter-tab-btn active" data-filter="all" aria-pressed="true">Todos (8)</button>
-            <button class="filter-tab-btn" data-filter="ai-dev">IA &amp; Automatización (1)</button>
+            <button class="filter-tab-btn active" data-filter="all" aria-pressed="true">Todos (9)</button>
+            <button class="filter-tab-btn" data-filter="ai-dev">IA &amp; Automatización (2)</button>
             <button class="filter-tab-btn" data-filter="wordpress">WordPress &amp; Proyectos Web (6)</button>
             <button class="filter-tab-btn" data-filter="frontend">Front-End &amp; UI (1)</button>
           </div>
         </div>
 
         <div class="projects-cards-grid" id="projects-grid">
-          
-          <!-- Project Card 2: Skills Personalizadas y Flujos de Automatización -->
+
+          <!-- Project Card: WA Automator (WhatsApp + Gemini) — el más reciente -->
+          <div class="project-cyber-card animate-on-scroll" data-category="ai-dev"
+               data-title="WA Automator — WhatsApp + Gemini"
+               data-cat-label="IA &amp; Automatización / Node.js"
+               data-desc="&lt;p&gt;&lt;strong&gt;Proyecto:&lt;/strong&gt; Panel web que conecta WhatsApp con Gemini para no perder nada importante de los chats.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Qué hace:&lt;/strong&gt; Resume las novedades de los chats con el motivo (esperan respuesta, plazo, cita…), extrae las tareas con urgencia y fecha límite sin duplicados, envía recordatorios por WhatsApp y tiene un modo ocupado en el que la IA responde por ti según el motivo y te avisa si algo es urgente. También se controla con comandos desde tu propio chat: &lt;code&gt;/resumen&lt;/code&gt;, &lt;code&gt;/tareas&lt;/code&gt;, &lt;code&gt;/ocupado&lt;/code&gt;…&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Cómo:&lt;/strong&gt; Node.js con Express y Socket.IO, whatsapp-web.js y la API de Gemini. Guarda los datos en MySQL o, si no hay, en un archivo JSON. El panel está protegido con contraseña, se adapta a móvil y se despliega en Hostinger.&lt;/p&gt;"
+               data-tech="Node.js, Express, Socket.IO, whatsapp-web.js, Gemini API, MySQL, Hostinger"
+               data-image="img/proyecto_whatsapp.webp"
+               data-live="https://github.com/ArielG19/whatsapp-automation">
+            <div class="card-thumb-wrap">
+              <span class="card-floating-tag"><i class="fas fa-bolt" aria-hidden="true"></i> Más reciente</span>
+              <img src="img/proyecto_whatsapp.webp" width="1280" height="800" loading="lazy" decoding="async" alt="WA Automator: comandos de WhatsApp y flujo con Gemini para resumir chats y extraer tareas" class="card-thumb-img">
+              <div class="card-hover-mask">
+                <button class="btn-quick-preview btn-preview"><i class="fas fa-eye"></i> Detalle</button>
+                <a href="https://github.com/ArielG19/whatsapp-automation" target="_blank" rel="noopener noreferrer" class="btn-quick-visit" aria-label="Ver en GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div class="card-body-wrap">
+              <span class="card-cat-tag">IA &amp; Automatización / Node.js</span>
+              <h3 class="card-heading">WA Automator — WhatsApp + Gemini</h3>
+              <p class="card-summary">Panel que conecta WhatsApp con Gemini: resume chats, extrae tareas, envía recordatorios y responde por ti en modo ocupado.</p>
+              <div class="card-badges-row">
+                <span class="pill-mini">Node.js</span>
+                <span class="pill-mini">Gemini</span>
+                <span class="pill-mini">WhatsApp</span>
+                <span class="pill-mini">MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card: Skills Personalizadas y Flujos de Automatización -->
           <div class="project-cyber-card animate-on-scroll" data-category="ai-dev"
                data-title="Skills Personalizadas &amp; Flujos de Automatización"
                data-cat-label="Skills &amp; Automatización"
