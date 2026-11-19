@@ -425,12 +425,18 @@ button, input, textarea {
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  /* minmax(0, …) stops the headline from widening its column and squeezing the image */
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
   gap: 3.5rem;
   align-items: center;
 }
 
 /* Hero Left Content */
+.hero-left-content {
+  /* Lets the headline size itself to this column (cqi units) */
+  container-type: inline-size;
+}
+
 .hero-eyebrow {
   display: flex;
   align-items: center;
@@ -451,7 +457,8 @@ button, input, textarea {
 
 .hero-headline {
   font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 4.4vw, 4rem);
+  /* Syne is very wide: "DESARROLLADOR" is ~15em, so 6.5cqi keeps it inside the column */
+  font-size: min(clamp(2.8rem, 4.4vw, 4rem), 6.5cqi);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -459,15 +466,9 @@ button, input, textarea {
   margin-bottom: 2.2rem;
 }
 
+/* Each line may wrap between words ("DESARROLLADOR / WEB") instead of overflowing */
 .hl-line {
   display: block;
-  white-space: nowrap;
-}
-
-@media (max-width: 480px) {
-  .hl-line {
-    white-space: normal;
-  }
 }
 
 .hero-headline .font-accent {
