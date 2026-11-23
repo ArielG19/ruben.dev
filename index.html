@@ -381,8 +381,8 @@
         <!-- Filter Tabs & Gallery Grid -->
         <div class="gallery-controls-wrapper animate-on-scroll">
           <div class="category-filter-nav" id="project-filters">
-            <button class="filter-tab-btn active" data-filter="all" aria-pressed="true">Todos (9)</button>
-            <button class="filter-tab-btn" data-filter="ai-dev">IA &amp; Automatización (2)</button>
+            <button class="filter-tab-btn active" data-filter="all" aria-pressed="true">Todos (10)</button>
+            <button class="filter-tab-btn" data-filter="ai-dev">IA &amp; Automatización (3)</button>
             <button class="filter-tab-btn" data-filter="wordpress">WordPress &amp; Proyectos Web (6)</button>
             <button class="filter-tab-btn" data-filter="frontend">Front-End &amp; UI (1)</button>
           </div>
@@ -394,15 +394,16 @@
           <div class="project-cyber-card animate-on-scroll" data-category="ai-dev"
                data-title="WA Automator — WhatsApp + Gemini"
                data-cat-label="IA &amp; Automatización / Node.js"
-               data-desc="&lt;p&gt;&lt;strong&gt;Proyecto:&lt;/strong&gt; Panel web que conecta WhatsApp con Gemini para no perder nada importante de los chats.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Qué hace:&lt;/strong&gt; Resume las novedades de los chats con el motivo (esperan respuesta, plazo, cita…), extrae las tareas con urgencia y fecha límite sin duplicados, envía recordatorios por WhatsApp y tiene un modo ocupado en el que la IA responde por ti según el motivo y te avisa si algo es urgente. También se controla con comandos desde tu propio chat: &lt;code&gt;/resumen&lt;/code&gt;, &lt;code&gt;/tareas&lt;/code&gt;, &lt;code&gt;/ocupado&lt;/code&gt;…&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Cómo:&lt;/strong&gt; Node.js con Express y Socket.IO, whatsapp-web.js y la API de Gemini. Guarda los datos en MySQL o, si no hay, en un archivo JSON. El panel está protegido con contraseña, se adapta a móvil y se despliega en Hostinger.&lt;/p&gt;"
-               data-tech="Node.js, Express, Socket.IO, whatsapp-web.js, Gemini API, MySQL, Hostinger"
+               data-desc="&lt;p&gt;&lt;strong&gt;Proyecto:&lt;/strong&gt; Aplicación personal que conecta WhatsApp con Gemini y convierte las conversaciones en resúmenes útiles, tareas organizadas y recordatorios automáticos.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Qué hace:&lt;/strong&gt; Resume los chats más importantes con el motivo (esperan tu respuesta, hay un plazo, una cita o un pago), detecta las tareas con urgencia y fecha límite sin duplicados, envía cada mañana un resumen por WhatsApp y tiene un modo ocupado en el que la IA responde por ti y te avisa si algo es urgente. También se controla con comandos desde tu propio chat: &lt;code&gt;/resumen&lt;/code&gt;, &lt;code&gt;/tareas&lt;/code&gt;, &lt;code&gt;/ocupado 2h&lt;/code&gt;…&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Cómo:&lt;/strong&gt; Node.js con Express y Socket.IO, whatsapp-web.js y Gemini Flash. Solo analiza los mensajes nuevos de cada chat, guarda los datos en MySQL y tiene un panel privado con contraseña, adaptado a móvil y desplegado en Hostinger.&lt;/p&gt;"
+               data-tech="Node.js, Express, Socket.IO, whatsapp-web.js, Gemini Flash, MySQL, Hostinger"
                data-image="img/proyecto_whatsapp.webp"
-               data-live="https://github.com/ArielG19/whatsapp-automation">
+               data-live="https://whatsapp.ia-automator.com/">
             <div class="card-thumb-wrap">
               <span class="card-floating-tag"><i class="fas fa-bolt" aria-hidden="true"></i> Más reciente</span>
-              <img src="img/proyecto_whatsapp.webp" width="1280" height="800" loading="lazy" decoding="async" alt="WA Automator: comandos de WhatsApp y flujo con Gemini para resumir chats y extraer tareas" class="card-thumb-img">
+              <img src="img/proyecto_whatsapp.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Web de WA Automator con la vista previa del panel: chats recientes, resumen de chats y tareas" class="card-thumb-img">
               <div class="card-hover-mask">
                 <button class="btn-quick-preview btn-preview"><i class="fas fa-eye"></i> Detalle</button>
+                <a href="https://whatsapp.ia-automator.com/" target="_blank" rel="noopener noreferrer" class="btn-quick-visit" aria-label="Visitar la web de WA Automator"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
                 <a href="https://github.com/ArielG19/whatsapp-automation" target="_blank" rel="noopener noreferrer" class="btn-quick-visit" aria-label="Ver en GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
               </div>
             </div>
@@ -415,6 +416,35 @@
                 <span class="pill-mini">Gemini</span>
                 <span class="pill-mini">WhatsApp</span>
                 <span class="pill-mini">MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card: MCP Control (hub de conectores MCP para Claude) -->
+          <div class="project-cyber-card animate-on-scroll" data-category="ai-dev"
+               data-title="MCP Control — Conectores MCP para Claude"
+               data-cat-label="IA &amp; Conectores MCP / Node.js"
+               data-desc="&lt;p&gt;&lt;strong&gt;Proyecto:&lt;/strong&gt; Hub privado de conectores MCP que permite a Claude trabajar directamente con Toggl Track, Hostinger, Google Analytics y Search Console, tl;dv, PageSpeed Insights y el correo: consultar datos reales, analizarlos y actuar desde una sola conversación.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Qué hace:&lt;/strong&gt; 6 servicios y 133 herramientas para Claude. Por ejemplo: resumir las horas del equipo por proyecto, ver qué dominios caducan y no se renuevan solos, comparar visitas entre meses, sacar los compromisos de una reunión, detectar qué lastra la carga móvil de una web u organizar un buzón de correo.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Cómo:&lt;/strong&gt; Node.js y Model Context Protocol. Desde un panel privado se crea cada conector con sus credenciales (varias cuentas por conector) y se obtiene una URL secreta que se añade a Claude en Ajustes → Conectores. Las claves se quedan en el servidor y las acciones irreversibles, como enviar un correo, piden confirmación.&lt;/p&gt;"
+               data-tech="Node.js, Model Context Protocol, Claude, Toggl Track, Hostinger API, Google Analytics 4, Search Console, tl;dv, PageSpeed Insights"
+               data-image="img/proyecto_conectores.webp"
+               data-live="https://conectores.ia-automator.com/">
+            <div class="card-thumb-wrap">
+              <span class="card-floating-tag"><i class="fas fa-network-wired" aria-hidden="true"></i> 133 herramientas</span>
+              <img src="img/proyecto_conectores.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Vista previa de MCP Control: conversación con Claude y lista de conectores activos" class="card-thumb-img">
+              <div class="card-hover-mask">
+                <button class="btn-quick-preview btn-preview"><i class="fas fa-eye"></i> Detalle</button>
+                <a href="https://conectores.ia-automator.com/" target="_blank" rel="noopener noreferrer" class="btn-quick-visit" aria-label="Visitar la web de MCP Control"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div class="card-body-wrap">
+              <span class="card-cat-tag">IA &amp; Conectores MCP / Node.js</span>
+              <h3 class="card-heading">MCP Control — Conectores MCP para Claude</h3>
+              <p class="card-summary">Hub de conectores MCP con el que Claude consulta y actúa sobre Toggl, Hostinger, Google Analytics, tl;dv, PageSpeed y el correo.</p>
+              <div class="card-badges-row">
+                <span class="pill-mini">MCP</span>
+                <span class="pill-mini">Claude</span>
+                <span class="pill-mini">Node.js</span>
+                <span class="pill-mini">APIs</span>
               </div>
             </div>
           </div>
