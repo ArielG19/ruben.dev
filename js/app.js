@@ -333,7 +333,7 @@ function initCopyEmail() {
   if (!copyBtn) return;
 
   copyBtn.addEventListener('click', () => {
-    const email = copyBtn.getAttribute('data-email') || 'perez10ariel@gmail.com';
+    const email = copyBtn.getAttribute('data-email') || 'info@ia-automator.com';
     navigator.clipboard.writeText(email).then(() => {
       showToast('¡Correo copiado al portapapeles!');
     }).catch(() => {
@@ -374,7 +374,7 @@ function initContactForm() {
 
     const subject = encodeURIComponent(`Nuevo mensaje de contacto: ${name}`);
     const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`);
-    window.location.href = `mailto:perez10ariel@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@ia-automator.com?subject=${subject}&body=${body}`;
 
     showToast(`¡Gracias ${name}! Abriendo tu cliente de correo...`);
     form.reset();

@@ -13,14 +13,16 @@
         theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
       }
       document.documentElement.setAttribute('data-theme', theme);
+      // Scroll animations only hide content when JS is running
+      document.documentElement.classList.add('js');
     })();
   </script>
 
   <!-- SEO & Open Graph -->
   <title>Rubén Pérez | Desarrollador Web &amp; AI Maker en Bilbao</title>
-  <meta name="description" content="Portafolio de Rubén Pérez, desarrollador web en Bilbao: WordPress (temas y plugins a medida), React y Astro, desarrollo con Claude Code, ChatGPT y Google Antigravity, y conectores MCP que integran asistentes de IA con servicios externos.">
-  <meta name="keywords" content="Rubén Pérez, Desarrollador Web, AI Maker, Conectores MCP, Model Context Protocol, Claude Code, ChatGPT, Antigravity, Automatizaciones IA, Skills personalizadas, WordPress, React, Astro, Bilbao">
+  <meta name="description" content="Rubén Pérez, desarrollador web en Bilbao: webs en WordPress, React y Astro, conectores MCP para Claude y automatizaciones con IA. Proyectos y contacto.">
   <meta name="author" content="Rubén Pérez">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#1A2C30">
   <link rel="canonical" href="https://arielg19.github.io/ruben.dev/">
 
@@ -29,15 +31,43 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://arielg19.github.io/ruben.dev/">
   <meta property="og:title" content="Rubén Pérez | Desarrollador Web &amp; AI Maker">
-  <meta property="og:description" content="Desarrollo webs y aplicaciones, y construyo integraciones y automatizaciones con IA para resolver tareas reales.">
-  <meta property="og:image" content="https://arielg19.github.io/ruben.dev/img/hero_dev.jpg">
-  <meta property="og:image:alt" content="Entorno de desarrollo web de Rubén Pérez">
+  <meta property="og:description" content="Webs en WordPress, React y Astro, conectores MCP para Claude y automatizaciones con IA.">
+  <meta property="og:image" content="https://arielg19.github.io/ruben.dev/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Rubén Pérez, desarrollador web y AI Maker en Bilbao">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="Rubén Pérez">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Rubén Pérez | Desarrollador Web &amp; AI Maker">
-  <meta name="twitter:description" content="Desarrollo webs y aplicaciones, y construyo integraciones y automatizaciones con IA para resolver tareas reales.">
-  <meta name="twitter:image" content="https://arielg19.github.io/ruben.dev/img/hero_dev.jpg">
+  <meta name="twitter:description" content="Webs en WordPress, React y Astro, conectores MCP para Claude y automatizaciones con IA.">
+  <meta name="twitter:image" content="https://arielg19.github.io/ruben.dev/img/og-image.jpg">
+
+  <!-- Structured data (schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://arielg19.github.io/ruben.dev/",
+    "name": "Rubén Pérez | Desarrollador Web & AI Maker en Bilbao",
+    "inLanguage": "es",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Rubén Pérez",
+      "jobTitle": "Desarrollador web & AI Maker",
+      "url": "https://arielg19.github.io/ruben.dev/",
+      "email": "mailto:info@ia-automator.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bilbao",
+        "postalCode": "48004",
+        "addressCountry": "ES"
+      },
+      "sameAs": ["https://github.com/ArielG19"],
+      "knowsAbout": ["Desarrollo web", "WordPress", "React", "Astro", "Angular", "Laravel", "Node.js", "Model Context Protocol", "Conectores MCP", "Claude Code", "Automatización con IA"]
+    }
+  }
+  </script>
 
   <!-- Inter Tight: one tight grotesk for the whole editorial look -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +75,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=22">
+  <link rel="stylesheet" href="style.css?v=23">
 </head>
 <body>
 
@@ -74,7 +104,7 @@
         <a href="https://github.com/ArielG19" target="_blank" rel="noopener noreferrer" class="icon-btn icon-btn--hide-sm" aria-label="GitHub" title="GitHub">
           <i class="fab fa-github" aria-hidden="true"></i>
         </a>
-        <a href="mailto:perez10ariel@gmail.com" class="icon-btn icon-btn--hide-sm" aria-label="Enviar email" title="Email">
+        <a href="mailto:info@ia-automator.com" class="icon-btn icon-btn--hide-sm" aria-label="Enviar email" title="Email">
           <i class="fas fa-envelope" aria-hidden="true"></i>
         </a>
         <button class="icon-btn" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
@@ -105,17 +135,16 @@
 
       <div class="hero-inner">
         <div class="hero-copy">
-          <div class="hero-title-row">
-            <span class="hero-kicker"><span>Rubén Pérez</span><span>Bilbao, España</span></span>
-            <h1 class="hero-title">Desarrollador web <br>&amp; AI Maker</h1>
-          </div>
+          <h1 class="hero-title-row">
+            <span class="hero-kicker"><span>Rubén Pérez</span> <span>Bilbao, España</span></span>
+            <span class="hero-title">Desarrollador web <br>&amp; AI Maker</span>
+          </h1>
           <p class="hero-lead">Desarrollo webs y aplicaciones, y construyo integraciones y automatizaciones con IA para resolver tareas reales.</p>
           <div class="hero-actions">
             <a href="#proyectos" class="pill-btn pill-btn--light">
               <span>Ver proyectos</span>
               <span class="pill-btn__icon"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
             </a>
-            <a href="#contacto" class="ghost-link">Contacto <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           </div>
 
           <div class="hero-stats">
@@ -161,7 +190,6 @@
       <div class="container">
         <div class="section-top animate-on-scroll">
           <span class="tag-pill">Sobre mí</span>
-          <span class="brand-mini"><span class="brand-mark brand-mark--xs" aria-hidden="true">RP</span>Rubén Pérez</span>
         </div>
 
         <h2 class="display-title about-title animate-on-scroll">
@@ -176,17 +204,11 @@
 
           <div class="about-content">
             <p class="about-lead animate-on-scroll">
-              Soy Rubén Pérez, desarrollador web con experiencia en proyectos para agencias y empresas. Hoy me centro en aplicar la inteligencia artificial al desarrollo de software, la automatización y las herramientas a medida.
+              Soy desarrollador web y hoy me centro en aplicar la inteligencia artificial al desarrollo de software, la automatización y las herramientas a medida.
             </p>
 
             <div class="about-sub animate-on-scroll">
-              <p>Me gusta experimentar con tecnologías nuevas y convertirlas en herramientas que se usen de verdad: integraciones, automatizaciones y software útil para el día a día de los equipos.</p>
-              <div class="avatar-stack avatar-stack--dark" aria-hidden="true">
-                <span><i class="fab fa-wordpress-simple"></i></span>
-                <span><i class="fab fa-react"></i></span>
-                <span><i class="fab fa-node-js"></i></span>
-                <span class="avatar-stack__more">IA</span>
-              </div>
+              <p>Me gusta experimentar con tecnologías nuevas y convertirlas en herramientas que se usen de verdad en el día a día de los equipos.</p>
             </div>
 
             <div class="about-cards">
@@ -213,7 +235,7 @@
                 <div class="info-card__overlay">
                   <strong class="info-num">IA</strong>
                   <span class="info-label">en cada proyecto</span>
-                  <p class="info-note">Claude Code, ChatGPT y Google Antigravity</p>
+                  <p class="info-note">Del análisis del código al despliegue</p>
                 </div>
               </div>
             </div>
@@ -330,7 +352,7 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="tag-pill animate-on-scroll">Proyectos</span>
+            <span class="tag-pill animate-on-scroll">Portfolio</span>
             <h2 class="display-title animate-on-scroll">Proyectos <br><span class="accent">&amp; soluciones reales</span></h2>
           </div>
           <p class="section-head__text animate-on-scroll">Una selección de webs corporativas, plugins y temas a medida, herramientas con IA y componentes front-end.</p>
@@ -626,21 +648,6 @@
             <span class="tag-pill animate-on-scroll">Trayectoria</span>
             <h2 class="display-title animate-on-scroll">Experiencia <br><span class="accent">profesional</span></h2>
             <p class="career-text animate-on-scroll">Un recorrido colaborando con agencias de marketing digital, consultoras tecnológicas y entornos corporativos en España. Combino el desarrollo web con la mentalidad maker para construir soluciones e integraciones con IA que mejoran flujos de trabajo reales.</p>
-
-            <ul class="cred-list animate-on-scroll">
-              <li class="cred-item">
-                <span class="cred-icon"><i class="fas fa-location-dot" aria-hidden="true"></i></span>
-                <div><strong>Bilbao, España</strong><span>Presencial y en remoto</span></div>
-              </li>
-              <li class="cred-item">
-                <span class="cred-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></span>
-                <div><strong>Experiencia en agencias</strong><span>Desarrollo web para agencias y consultoras</span></div>
-              </li>
-              <li class="cred-item">
-                <span class="cred-icon"><i class="fas fa-brain" aria-hidden="true"></i></span>
-                <div><strong>Desarrollo web + IA</strong><span>IA, MCP y automatización aplicadas</span></div>
-              </li>
-            </ul>
           </div>
 
           <ol class="timeline">
@@ -699,14 +706,13 @@
           </div>
           <div class="cta-panel__content">
             <span class="tag-pill tag-pill--light">Desarrollo web &amp; IA</span>
-            <h2 class="cta-title" id="cta-title">Transforma tus ideas <br>en soluciones reales</h2>
-            <p class="cta-text">Desarrollo webs, conectores MCP y automatizaciones con IA para agencias, empresas y equipos. Cuéntame qué necesitas y lo vemos juntos.</p>
+            <h2 class="cta-title" id="cta-title">Convirtamos tu idea <br>en algo que funcione</h2>
+            <p class="cta-text">Una web, un conector para tu asistente de IA o un proceso que quieres automatizar: cuéntamelo y lo vemos juntos.</p>
             <div class="cta-actions">
               <a href="#contacto" class="pill-btn pill-btn--light">
                 <span>Iniciar conversación</span>
                 <span class="pill-btn__icon"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
               </a>
-              <a href="mailto:perez10ariel@gmail.com" class="ghost-link ghost-link--light"><i class="fas fa-envelope" aria-hidden="true"></i> perez10ariel@gmail.com</a>
             </div>
           </div>
         </div>
@@ -732,7 +738,7 @@
               <span class="contact-avatar" aria-hidden="true">RP</span>
               <div>
                 <strong>Rubén Pérez</strong>
-                <span>Desarrollador web &amp; AI Maker · Bilbao</span>
+                <span>Desarrollador web &amp; AI Maker</span>
               </div>
             </div>
             <div class="contact-item">
@@ -740,8 +746,8 @@
               <div class="contact-item__body">
                 <span class="contact-label">Correo electrónico</span>
                 <div class="email-copy-wrap">
-                  <span class="contact-value" id="email-text">perez10ariel@<wbr>gmail.com</span>
-                  <button class="copy-action-btn" id="copy-email-btn" data-email="perez10ariel@gmail.com" title="Copiar correo" aria-label="Copiar correo">
+                  <span class="contact-value" id="email-text">info@<wbr>ia-automator.com</span>
+                  <button class="copy-action-btn" id="copy-email-btn" data-email="info@ia-automator.com" title="Copiar correo" aria-label="Copiar correo">
                     <i class="far fa-copy" aria-hidden="true"></i>
                   </button>
                 </div>
@@ -773,15 +779,15 @@
             <form id="contact-form" class="contact-form">
               <div class="field">
                 <label for="form-name">Nombre completo</label>
-                <input type="text" id="form-name" placeholder="Ej. Carlos García" autocomplete="name" required>
+                <input type="text" id="form-name" name="name" placeholder="Ej. Carlos García" autocomplete="name" required>
               </div>
               <div class="field">
                 <label for="form-email">Correo electrónico</label>
-                <input type="email" id="form-email" placeholder="ejemplo@empresa.com" autocomplete="email" required>
+                <input type="email" id="form-email" name="email" placeholder="ejemplo@empresa.com" autocomplete="email" required>
               </div>
               <div class="field">
                 <label for="form-message">Mensaje</label>
-                <textarea id="form-message" rows="4" placeholder="Describe tu proyecto, plazos o propuesta..." required></textarea>
+                <textarea id="form-message" name="message" rows="4" placeholder="Describe tu proyecto, plazos o propuesta..." required></textarea>
               </div>
               <button type="submit" class="pill-btn pill-btn--orange pill-btn--block" id="submit-btn">
                 <span>Enviar mensaje</span>
@@ -806,15 +812,15 @@
             <span class="brand-mark" aria-hidden="true">RP</span>
             <span class="brand-name">Rubén Pérez</span>
           </a>
-          <p>Desarrollador web en Bilbao. Trabajo con WordPress, React y Astro, y construyo conectores MCP, Skills y automatizaciones con Claude Code, ChatGPT y Google Antigravity.</p>
+          <p>Desarrollador web y AI Maker en Bilbao. Webs, conectores MCP y automatizaciones con IA.</p>
           <div class="footer-social">
             <a href="https://github.com/ArielG19" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-            <a href="mailto:perez10ariel@gmail.com" class="icon-btn" aria-label="Enviar email" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+            <a href="mailto:info@ia-automator.com" class="icon-btn" aria-label="Enviar email" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
           </div>
         </div>
 
-        <div class="footer-col">
-          <h4>Navegación</h4>
+        <nav class="footer-col" aria-label="Navegación del pie">
+          <h2 class="footer-title">Navegación</h2>
           <ul>
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -823,26 +829,7 @@
             <li><a href="#trayectoria">Trayectoria</a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Especialidades</h4>
-          <ul>
-            <li><a href="#servicios">Conectores MCP para Claude y ChatGPT</a></li>
-            <li><a href="#servicios">Desarrollo con Claude Code y ChatGPT</a></li>
-            <li><a href="#servicios">Automatizaciones con IA</a></li>
-            <li><a href="#servicios">WordPress, React y Astro</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contacto</h4>
-          <ul>
-            <li><a href="mailto:perez10ariel@gmail.com">perez10ariel@gmail.com</a></li>
-            <li><span>48004 Bilbao, España</span></li>
-          </ul>
-          <span class="footer-status"><span class="status-dot" aria-hidden="true"></span>Disponible para nuevas oportunidades</span>
-        </div>
+        </nav>
       </div>
 
       <div class="footer-bottom">
@@ -867,7 +854,7 @@
       </div>
       <div class="modal-body-content">
         <span class="modal-cat-tag" id="modal-category">Categoría</span>
-        <h3 class="modal-title-text" id="modal-title">Título del proyecto</h3>
+        <h2 class="modal-title-text" id="modal-title">Título del proyecto</h2>
         <div class="modal-desc-text" id="modal-desc">Descripción completa del proyecto.</div>
         <div class="modal-tech-section">
           <span class="modal-tech-label">Tecnologías</span>
@@ -892,6 +879,6 @@
     <i class="fas fa-arrow-up" aria-hidden="true"></i>
   </button>
 
-  <script src="js/app.js?v=8"></script>
+  <script src="js/app.js?v=9"></script>
 </body>
 </html>
