@@ -136,7 +136,8 @@ function initNavigation() {
     });
 
     // Reset when resizing back to the desktop layout
-    window.matchMedia('(min-width: 1280px)').addEventListener('change', (e) => {
+    // Must match the CSS breakpoint where the pill nav turns into a dropdown (1100px)
+    window.matchMedia('(min-width: 1101px)').addEventListener('change', (e) => {
       if (e.matches) setMenuOpen(false);
     });
   }
