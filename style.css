@@ -594,6 +594,11 @@ html.menu-open .site-header .icon-btn:hover {
   pointer-events: none;
 }
 
+.hero-watermark::before,
+.footer-watermark::before {
+  content: attr(data-text);
+}
+
 .hero-watermark {
   position: absolute;
   left: -0.04em;
@@ -1400,6 +1405,7 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .card-badges-row {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -1855,18 +1861,13 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .footer-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.footer-brand p {
-  max-width: 340px;
-  margin: 16px 0 18px;
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--text-2);
-}
 
 .footer-social {
   display: flex;
@@ -1884,31 +1885,9 @@ html.menu-open .site-header .icon-btn:hover {
   color: #fff;
 }
 
-.footer-title {
-  margin-bottom: 16px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-3);
-}
 
-.footer-col ul {
-  display: grid;
-  gap: 10px;
-}
 
-.footer-col a,
-.footer-col li span {
-  font-size: 14px;
-  color: var(--text-2);
-  overflow-wrap: anywhere;
-  transition: color 0.3s var(--ease);
-}
 
-.footer-col a:hover {
-  color: var(--accent);
-}
 
 
 .footer-bottom {
@@ -1916,7 +1895,7 @@ html.menu-open .site-header .icon-btn:hover {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 56px;
+  margin-top: 32px;
   padding: 22px 0;
   border-top: 1px solid var(--line);
   font-size: 13px;
@@ -2244,9 +2223,6 @@ html.menu-open .site-header .icon-btn:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .footer-grid {
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  }
 }
 
 /* Tablets */
@@ -2554,14 +2530,7 @@ html.menu-open .site-header .icon-btn:hover {
     gap: 32px 20px;
   }
 
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
 
-  .footer-bottom {
-    flex-direction: column;
-    margin-top: 40px;
-  }
 
   .modal-overlay {
     padding: 10px;
