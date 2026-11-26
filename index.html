@@ -21,10 +21,10 @@
   <meta name="description" content="Portafolio de Rubén Pérez, desarrollador web en Bilbao: WordPress (temas y plugins a medida), React y Astro, desarrollo con Claude Code, ChatGPT y Google Antigravity, y conectores MCP que integran asistentes de IA con servicios externos.">
   <meta name="keywords" content="Rubén Pérez, Desarrollador Web, AI Maker, Conectores MCP, Model Context Protocol, Claude Code, ChatGPT, Antigravity, Automatizaciones IA, Skills personalizadas, WordPress, React, Astro, Bilbao">
   <meta name="author" content="Rubén Pérez">
-  <meta name="theme-color" content="#ff5418">
+  <meta name="theme-color" content="#1A2C30">
   <link rel="canonical" href="https://arielg19.github.io/ruben.dev/">
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='28' fill='%23ff5418'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' fill='%23fff' font-family='Arial,sans-serif' font-weight='700' font-size='44' letter-spacing='-2'%3ERP%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='28' fill='%23E4201B'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' fill='%23fff' font-family='Arial,sans-serif' font-weight='700' font-size='44' letter-spacing='-2'%3ERP%3C/text%3E%3C/svg%3E">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://arielg19.github.io/ruben.dev/">
@@ -45,8 +45,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="preload" as="image" href="img/ruben_portrait.webp" type="image/webp">
-  <link rel="stylesheet" href="style.css?v=20">
+  <link rel="stylesheet" href="style.css?v=21">
 </head>
 <body>
 
@@ -97,8 +96,11 @@
     <section class="hero" id="inicio">
       <span class="hero-watermark" aria-hidden="true">RUBÉN</span>
 
-      <div class="hero-visual" aria-hidden="true">
-        <img src="img/ruben_portrait.webp" width="800" height="999" fetchpriority="high" alt="" class="hero-portrait">
+      <!-- Abstract grainy art in the palette colours (no photo) -->
+      <div class="hero-art" aria-hidden="true">
+        <span class="glow-ring"></span>
+        <span class="flare flare--1"></span>
+        <span class="flare flare--2"></span>
       </div>
 
       <div class="hero-inner">
@@ -149,7 +151,7 @@
               <span class="brand-mark brand-mark--sm" aria-hidden="true">RP</span>
               <span class="profile-status"><span class="status-dot" aria-hidden="true"></span>Disponible para proyectos</span>
             </div>
-            <img src="img/ruben_avatar.webp" width="480" height="480" alt="Rubén Pérez" class="profile-photo">
+            <div class="profile-photo" aria-hidden="true"><span class="glow-ring glow-ring--sm"></span><span class="profile-initials">RP</span></div>
             <p class="profile-mail">perez10ariel@gmail.com</p>
             <p class="profile-role">Desarrollador web &amp; AI Maker</p>
             <p class="profile-note">Webs, conectores MCP y automatizaciones con IA</p>
@@ -179,7 +181,7 @@
 
         <div class="about-grid">
           <figure class="about-photo animate-on-scroll">
-            <img src="img/about_orange.webp" width="896" height="1200" loading="lazy" decoding="async" alt="Puesto de trabajo de desarrollo web con varias pantallas">
+            <img src="img/about_photo.webp" width="896" height="1200" loading="lazy" decoding="async" alt="Puesto de trabajo de desarrollo web con varias pantallas">
           </figure>
 
           <div class="about-content">
@@ -217,7 +219,7 @@
               </div>
 
               <div class="info-card info-card--photo animate-on-scroll">
-                <img src="img/workspace_orange.webp" width="896" height="1200" loading="lazy" decoding="async" alt="">
+                <img src="img/workspace_photo.webp" width="896" height="1200" loading="lazy" decoding="async" alt="">
                 <div class="info-card__overlay">
                   <strong class="info-num">IA</strong>
                   <span class="info-label">en cada proyecto</span>
@@ -281,7 +283,7 @@
 
           <div class="services-spacer" aria-hidden="true"></div>
 
-          <article class="service-card service-card--cream animate-on-scroll">
+          <article class="service-card service-card--lagoon animate-on-scroll">
             <div class="service-card__top">
               <h3>Automatización IA</h3>
               <a href="#proyectos" class="arrow-btn" aria-label="Ver proyectos de automatización"><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
@@ -289,7 +291,7 @@
             <p>Flujos que conectan WhatsApp, correo y datos con IA: resúmenes, tareas y recordatorios automáticos.</p>
           </article>
 
-          <article class="service-card service-card--orange animate-on-scroll">
+          <article class="service-card service-card--red animate-on-scroll">
             <div class="service-card__top">
               <h3>Skills para IA</h3>
               <a href="#proyectos" class="arrow-btn" aria-label="Ver el proyecto de skills"><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
@@ -701,7 +703,10 @@
     <section class="section cta-section" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta-panel animate-on-scroll">
-          <img src="img/cta_orange.webp" width="1376" height="768" loading="lazy" decoding="async" alt="" class="cta-panel__img">
+          <div class="cta-panel__art" aria-hidden="true">
+            <span class="glow-ring"></span>
+            <span class="flare flare--1"></span>
+          </div>
           <div class="cta-panel__content">
             <span class="tag-pill tag-pill--light">Desarrollo web &amp; IA</span>
             <h2 class="cta-title" id="cta-title">Transforma tus ideas <br>en soluciones reales</h2>
@@ -734,7 +739,7 @@
         <div class="contact-grid">
           <div class="contact-info animate-on-scroll">
             <div class="contact-person">
-              <img src="img/ruben_avatar.webp" width="480" height="480" loading="lazy" decoding="async" alt="Rubén Pérez">
+              <span class="contact-avatar" aria-hidden="true">RP</span>
               <div>
                 <strong>Rubén Pérez</strong>
                 <span>Desarrollador web &amp; AI Maker · Bilbao</span>

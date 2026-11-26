@@ -1,18 +1,33 @@
 /* ==========================================================================
    Rubén Pérez — Portfolio
-   Editorial orange / warm-dark design system
+   Editorial design system on the palette:
+   Burnt Orange #FE7E3C · Lust #E4201B · Copper #61413C ·
+   Blue Lagoon #0E6873 · Black Pearl #1A2C30
    ========================================================================== */
 
 /* --- Tokens ------------------------------------------------------------- */
 :root {
-  --orange: #ff5418;
-  --orange-strong: #ef4a10;
-  --orange-deep: #c6360b;
-  --orange-soft: rgba(255, 84, 24, 0.14);
-  --cream: #fbf4ea;
-  --cream-ink: #1b100a;
-  --cream-muted: #7a685c;
+  /* Palette */
+  --orange: #fe7e3c;          /* Burnt Orange */
+  --orange-strong: #f2692a;
+  --red: #e4201b;             /* Lust */
+  --red-strong: #c41a15;
+  --copper: #61413c;          /* Copper */
+  --lagoon: #0e6873;          /* Blue Lagoon */
+  --lagoon-strong: #0b555e;
+  --pearl: #1a2c30;           /* Black Pearl */
+
+  /* Roles */
+  --primary: var(--red);      /* filled buttons and badges, white text on top */
+  --primary-strong: var(--red-strong);
+  --orange-soft: rgba(254, 126, 60, 0.14);
+  --cream: #f8efe6;
+  --cream-ink: var(--pearl);
+  --cream-muted: var(--copper);
   --green: #22c55e;
+
+  /* Grain texture (SVG noise) used on the abstract art */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
   --font: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
 
@@ -29,46 +44,48 @@
   --overlap: 36px;
 }
 
-/* Dark (default, as in the reference) */
+/* Dark (default): Black Pearl surfaces */
 :root,
 [data-theme="dark"] {
-  --page: #0b0604;
-  --frame: #150c08;
-  --surface: #1f130d;
-  --surface-2: #2b1a11;
-  --line: rgba(255, 220, 196, 0.12);
-  --line-strong: rgba(255, 220, 196, 0.26);
-  --text: #f8efe7;
-  --text-2: rgba(248, 239, 231, 0.7);
-  --text-3: rgba(248, 239, 231, 0.46);
+  --page: #0b1517;
+  --frame: #132226;
+  --surface: #1a2c30;
+  --surface-2: #233a3f;
+  --line: rgba(214, 236, 236, 0.11);
+  --line-strong: rgba(214, 236, 236, 0.24);
+  --text: #f6efe8;
+  --text-2: rgba(246, 239, 232, 0.72);
+  --text-3: rgba(246, 239, 232, 0.48);
+  --accent: var(--orange);    /* accent text on dark: Burnt Orange */
   --card: var(--cream);
   --card-ink: var(--cream-ink);
   --card-muted: var(--cream-muted);
   --card-line: transparent;
-  --bg-image-opacity: 0.55;
-  --frame-border: rgba(255, 110, 50, 0.32);
-  --header-glass: rgba(21, 12, 8, 0.78);
+  --bg-art-opacity: 0.6;
+  --frame-border: rgba(254, 126, 60, 0.28);
+  --header-glass: rgba(19, 34, 38, 0.8);
   color-scheme: dark;
 }
 
-/* Light: cream canvas, same orange */
+/* Light: warm paper canvas, same palette */
 [data-theme="light"] {
-  --page: #e6d8c7;
-  --frame: #faf5ee;
+  --page: #e7ddd2;
+  --frame: #faf6f0;
   --surface: #ffffff;
-  --surface-2: #f1e7da;
-  --line: rgba(70, 35, 12, 0.12);
-  --line-strong: rgba(70, 35, 12, 0.24);
-  --text: #1b100a;
-  --text-2: rgba(27, 16, 10, 0.7);
-  --text-3: rgba(27, 16, 10, 0.5);
+  --surface-2: #f0e7dd;
+  --line: rgba(26, 44, 48, 0.12);
+  --line-strong: rgba(26, 44, 48, 0.24);
+  --text: #1a2c30;
+  --text-2: rgba(26, 44, 48, 0.74);
+  --text-3: rgba(26, 44, 48, 0.52);
+  --accent: var(--red);       /* Burnt Orange is too light on paper: Lust for text */
   --card: #ffffff;
-  --card-ink: #1b100a;
-  --card-muted: #75645a;
-  --card-line: rgba(70, 35, 12, 0.1);
-  --bg-image-opacity: 0.2;
-  --frame-border: rgba(255, 84, 24, 0.28);
-  --header-glass: rgba(250, 245, 238, 0.86);
+  --card-ink: #1a2c30;
+  --card-muted: #61413c;
+  --card-line: rgba(26, 44, 48, 0.1);
+  --bg-art-opacity: 0.28;
+  --frame-border: rgba(228, 32, 27, 0.22);
+  --header-glass: rgba(250, 246, 240, 0.86);
   color-scheme: light;
 }
 
@@ -105,9 +122,13 @@ body::before {
   position: fixed;
   inset: -60px;
   z-index: 0;
-  background: url('img/ruben_bg.webp') center / cover no-repeat;
-  filter: blur(40px) saturate(1.15);
-  opacity: var(--bg-image-opacity);
+  background:
+    radial-gradient(40% 35% at 12% 18%, rgba(254, 126, 60, 0.55), transparent 70%),
+    radial-gradient(45% 40% at 88% 30%, rgba(14, 104, 115, 0.7), transparent 70%),
+    radial-gradient(40% 40% at 80% 85%, rgba(228, 32, 27, 0.45), transparent 70%),
+    radial-gradient(45% 45% at 15% 90%, rgba(14, 104, 115, 0.45), transparent 70%);
+  filter: blur(40px);
+  opacity: var(--bg-art-opacity);
   pointer-events: none;
 }
 
@@ -169,7 +190,7 @@ button {
 
 /* --- Shared atoms --------------------------------------------------------- */
 .accent {
-  color: var(--orange);
+  color: var(--accent);
 }
 
 .brand {
@@ -187,7 +208,7 @@ button {
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
   font-size: 13px;
   font-weight: 600;
@@ -228,7 +249,7 @@ button {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--orange);
+  background: var(--primary);
 }
 
 .tag-pill--light {
@@ -313,7 +334,7 @@ button {
 
 .pill-btn--light .pill-btn__icon {
   background: #fff;
-  color: var(--orange);
+  color: var(--red);
 }
 
 .pill-btn--light:hover {
@@ -322,22 +343,22 @@ button {
 }
 
 .pill-btn--light:hover .pill-btn__icon {
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
 }
 
 .pill-btn--orange {
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
 }
 
 .pill-btn--orange .pill-btn__icon {
   background: #fff;
-  color: var(--orange);
+  color: var(--red);
 }
 
 .pill-btn--orange:hover {
-  background: var(--orange-strong);
+  background: var(--primary-strong);
 }
 
 .pill-btn--outline {
@@ -351,11 +372,11 @@ button {
 }
 
 .pill-btn--outline:hover {
-  border-color: var(--orange);
+  border-color: var(--primary);
 }
 
 .pill-btn--outline:hover .pill-btn__icon {
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -406,7 +427,7 @@ button {
   height: 40px;
   border-radius: 50%;
   background: #fff;
-  color: var(--orange);
+  color: var(--red);
   font-size: 15px;
   border: 1px solid transparent;
   flex: none;
@@ -447,10 +468,10 @@ button {
   height: 36px;
   border-radius: 50%;
   margin-left: -10px;
-  background: #2a1209;
+  background: var(--pearl);
   color: #fff;
   font-size: 14px;
-  border: 2px solid #f0500f;
+  border: 2px solid rgba(255, 255, 255, 0.85);
 }
 
 .avatar-stack span:first-child {
@@ -467,7 +488,7 @@ button {
 }
 
 .avatar-stack--dark .avatar-stack__more {
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
   font-size: 13px;
   font-weight: 600;
@@ -507,7 +528,7 @@ button {
 
 .site-header .brand-mark {
   background: #fff;
-  color: var(--orange);
+  color: var(--red);
 }
 
 .site-header.scrolled,
@@ -530,7 +551,7 @@ html.menu-open .site-header .header-inner {
 
 .site-header.scrolled .brand-mark,
 html.menu-open .site-header .brand-mark {
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -581,7 +602,7 @@ html.menu-open .site-header .icon-btn {
 
 .site-header.scrolled .icon-btn:hover,
 html.menu-open .site-header .icon-btn:hover {
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -598,9 +619,26 @@ html.menu-open .site-header .icon-btn:hover {
   color: #fff;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 60% 70% at 62% 30%, rgba(255, 150, 90, 0.55), transparent 70%),
-    radial-gradient(ellipse 50% 60% at 0% 100%, rgba(120, 25, 4, 0.55), transparent 70%),
-    linear-gradient(118deg, #ff6326 0%, #f4501a 38%, #d43c0e 70%, #8c2306 100%);
+    radial-gradient(ellipse 38% 55% at 70% 42%, rgba(228, 32, 27, 0.85), transparent 70%),
+    radial-gradient(ellipse 55% 40% at 55% 8%, rgba(254, 126, 60, 0.75), transparent 70%),
+    radial-gradient(ellipse 45% 50% at 100% 100%, rgba(254, 126, 60, 0.7), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 18% 75%, rgba(14, 104, 115, 0.85), transparent 70%),
+    radial-gradient(ellipse 40% 45% at 0% 10%, rgba(14, 104, 115, 0.55), transparent 70%),
+    linear-gradient(160deg, #1a2c30 0%, #132226 55%, #1a2c30 100%);
+}
+
+/* Film grain over the hero, as in the palette artwork */
+.hero::after,
+.cta-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: var(--grain);
+  background-size: 160px 160px;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  pointer-events: none;
 }
 
 .hero-watermark {
@@ -613,36 +651,72 @@ html.menu-open .site-header .icon-btn:hover {
   line-height: 0.75;
   letter-spacing: -0.07em;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.16);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.07);
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
 }
 
-.hero-visual {
+.hero-art {
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 300px;
+  right: 220px;
   z-index: 1;
-  width: min(44%, 560px);
+  width: min(48%, 620px);
   pointer-events: none;
 }
 
-.hero-portrait {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 12%;
-  mix-blend-mode: multiply;
-  -webkit-mask-image:
-    linear-gradient(90deg, transparent 0%, #000 26%, #000 80%, transparent 100%),
-    linear-gradient(0deg, transparent 0%, #000 22%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(90deg, transparent 0%, #000 26%, #000 80%, transparent 100%),
-    linear-gradient(0deg, transparent 0%, #000 22%);
-  mask-composite: intersect;
+/* Blurred glowing ring (Burnt Orange -> Lust), the "eye" of the palette artwork */
+.glow-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 78%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg) scaleY(0.82);
+  background: radial-gradient(circle, transparent 36%, rgba(254, 126, 60, 0.95) 46%, rgba(228, 32, 27, 0.95) 54%, rgba(14, 104, 115, 0.35) 63%, transparent 70%);
+  filter: blur(18px);
+  animation: ring-drift 14s ease-in-out infinite alternate;
+}
+
+.glow-ring::after {
+  content: '';
+  position: absolute;
+  inset: 30%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(254, 126, 60, 0.55), transparent 70%);
+  filter: blur(10px);
+}
+
+.flare {
+  position: absolute;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, transparent, rgba(254, 126, 60, 0.95), rgba(228, 32, 27, 0.9), transparent);
+  filter: blur(6px);
+  transform-origin: center;
+}
+
+.flare--1 {
+  top: 14%;
+  left: -30%;
+  width: 120%;
+  transform: rotate(-8deg);
+}
+
+.flare--2 {
+  bottom: 18%;
+  right: -40%;
+  width: 90%;
+  transform: rotate(14deg);
+  opacity: 0.7;
+}
+
+@keyframes ring-drift {
+  from { transform: translate(-50%, -50%) rotate(-18deg) scaleY(0.82); }
+  to { transform: translate(-48%, -52%) rotate(-6deg) scaleY(0.9); }
 }
 
 .hero-inner {
@@ -727,8 +801,8 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .stat-card--glass {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
@@ -779,7 +853,7 @@ html.menu-open .site-header .icon-btn:hover {
   background: var(--cream);
   color: var(--cream-ink);
   text-align: center;
-  box-shadow: 0 30px 60px -24px rgba(70, 15, 0, 0.6);
+  box-shadow: 0 30px 60px -24px rgba(5, 15, 17, 0.7);
 }
 
 .profile-top {
@@ -802,12 +876,42 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .profile-photo {
+  position: relative;
+  display: grid;
+  place-items: center;
   width: 100%;
   aspect-ratio: 1 / 0.92;
-  object-fit: cover;
-  object-position: 50% 30%;
   margin: 12px 0 14px;
+  overflow: hidden;
   border-radius: 16px;
+  background:
+    radial-gradient(60% 60% at 80% 20%, rgba(254, 126, 60, 0.7), transparent 70%),
+    radial-gradient(60% 60% at 15% 90%, rgba(14, 104, 115, 0.9), transparent 70%),
+    var(--pearl);
+}
+
+.profile-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain);
+  background-size: 160px 160px;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+}
+
+.glow-ring--sm {
+  width: 92%;
+  filter: blur(10px);
+}
+
+.profile-initials {
+  position: relative;
+  z-index: 1;
+  font-size: 3.4rem;
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  color: #fff;
 }
 
 .profile-mail {
@@ -1010,7 +1114,7 @@ html.menu-open .site-header .icon-btn:hover {
   position: relative;
   margin-top: auto;
   padding: 60px 20px 20px;
-  background: linear-gradient(180deg, transparent, rgba(18, 7, 2, 0.88));
+  background: linear-gradient(180deg, transparent, rgba(11, 21, 23, 0.9));
 }
 
 .info-card__overlay .info-note {
@@ -1095,16 +1199,44 @@ html.menu-open .site-header .icon-btn:hover {
 
 .service-card--orange {
   background: var(--orange);
-  color: #fff;
+  color: var(--pearl);
 }
 
 .service-card--orange p {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(26, 44, 48, 0.82);
 }
 
 .service-card--orange .arrow-btn {
+  background: var(--pearl);
+  color: #fff;
+}
+
+.service-card--lagoon {
+  background: var(--lagoon);
+  color: #fff;
+}
+
+.service-card--lagoon p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.service-card--lagoon .arrow-btn {
   background: #fff;
-  color: var(--orange);
+  color: var(--lagoon);
+}
+
+.service-card--red {
+  background: var(--red);
+  color: #fff;
+}
+
+.service-card--red p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.service-card--red .arrow-btn {
+  background: #fff;
+  color: var(--red);
 }
 
 .service-card:hover .arrow-btn i {
@@ -1188,7 +1320,7 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .chip-list li:hover {
-  border-color: var(--orange);
+  border-color: var(--primary);
   color: var(--text);
 }
 
@@ -1240,8 +1372,8 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .filter-tab-btn.active {
-  background: var(--orange);
-  border-color: var(--orange);
+  background: var(--primary);
+  border-color: var(--primary);
   color: #fff;
 }
 
@@ -1300,7 +1432,7 @@ html.menu-open .site-header .icon-btn:hover {
   gap: 6px;
   padding: 5px 11px;
   border-radius: var(--radius-full);
-  background: rgba(20, 10, 5, 0.74);
+  background: rgba(19, 34, 38, 0.78);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: #fff;
@@ -1320,7 +1452,7 @@ html.menu-open .site-header .icon-btn:hover {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: rgba(24, 9, 3, 0.55);
+  background: rgba(19, 34, 38, 0.6);
   opacity: 0;
   transition: opacity 0.35s var(--ease);
 }
@@ -1344,7 +1476,7 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .btn-quick-preview:hover {
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -1354,14 +1486,14 @@ html.menu-open .site-header .icon-btn:hover {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
   font-size: 14px;
   transition: background-color 0.3s var(--ease);
 }
 
 .btn-quick-visit:hover {
-  background: var(--orange-deep);
+  background: var(--primary-strong);
 }
 
 .card-body-wrap {
@@ -1375,7 +1507,7 @@ html.menu-open .site-header .icon-btn:hover {
   margin-bottom: 8px;
   font-size: 12px;
   font-weight: 500;
-  color: var(--orange-strong);
+  color: var(--red);
 }
 
 .card-heading {
@@ -1402,7 +1534,7 @@ html.menu-open .site-header .icon-btn:hover {
 
 .pill-mini {
   padding: 4px 10px;
-  border: 1px solid rgba(27, 16, 10, 0.12);
+  border: 1px solid rgba(26, 44, 48, 0.14);
   border-radius: var(--radius-full);
   font-size: 12px;
   color: var(--card-muted);
@@ -1458,7 +1590,7 @@ html.menu-open .site-header .icon-btn:hover {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: var(--orange);
+  background: var(--lagoon);
   color: #fff;
   flex: none;
 }
@@ -1530,7 +1662,7 @@ html.menu-open .site-header .icon-btn:hover {
   margin: 6px 0 12px;
   font-size: 14.5px;
   font-weight: 500;
-  color: var(--orange);
+  color: var(--accent);
 }
 
 .job-desc {
@@ -1555,7 +1687,7 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .job-card--current {
-  background: var(--orange);
+  background: var(--lagoon);
   border-color: transparent;
   color: #fff;
 }
@@ -1567,7 +1699,7 @@ html.menu-open .site-header .icon-btn:hover {
 
 .job-card--current .job-icon {
   background: #fff;
-  color: var(--orange);
+  color: var(--lagoon);
 }
 
 .job-card--current .job-company span {
@@ -1575,7 +1707,7 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .job-card--current .job-role {
-  color: #fff;
+  color: #ffd9c4;
 }
 
 .job-card--current .job-desc {
@@ -1600,29 +1732,27 @@ html.menu-open .site-header .icon-btn:hover {
   min-height: 480px;
   overflow: hidden;
   border-radius: var(--radius-xl);
-  background: var(--orange);
   color: #fff;
+  background:
+    radial-gradient(ellipse 45% 70% at 85% 40%, rgba(228, 32, 27, 0.8), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 70% 100%, rgba(254, 126, 60, 0.7), transparent 70%),
+    radial-gradient(ellipse 50% 70% at 10% 20%, rgba(14, 104, 115, 0.9), transparent 70%),
+    var(--pearl);
 }
 
-.cta-panel__img {
+.cta-panel__art {
   position: absolute;
-  inset: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  mix-blend-mode: multiply;
-}
-
-.cta-panel::after {
-  content: '';
-  position: absolute;
-  inset: 0;
+  top: -10%;
+  bottom: -10%;
+  right: -4%;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(255, 84, 24, 0.96) 0%, rgba(255, 84, 24, 0.78) 42%, rgba(255, 84, 24, 0.05) 100%);
+  width: 55%;
+  pointer-events: none;
 }
 
 .cta-panel__content {
+  position: relative;
+  z-index: 2;
   max-width: 660px;
   padding: 56px;
 }
@@ -1678,15 +1808,23 @@ html.menu-open .site-header .icon-btn:hover {
   gap: 14px;
   padding: 8px 8px 14px;
   margin-bottom: 4px;
-  border-bottom: 1px solid rgba(27, 16, 10, 0.1);
+  border-bottom: 1px solid rgba(26, 44, 48, 0.1);
 }
 
-.contact-person img {
+.contact-avatar {
+  display: grid;
+  place-items: center;
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  object-fit: cover;
   flex: none;
+  background:
+    radial-gradient(70% 70% at 80% 20%, rgba(254, 126, 60, 0.9), transparent 70%),
+    var(--lagoon);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
 }
 
 .contact-person strong {
@@ -1707,7 +1845,7 @@ html.menu-open .site-header .icon-btn:hover {
   gap: 14px;
   padding: 14px;
   border-radius: var(--radius-md);
-  background: rgba(27, 16, 10, 0.045);
+  background: rgba(26, 44, 48, 0.05);
 }
 
 .contact-icon {
@@ -1716,7 +1854,7 @@ html.menu-open .site-header .icon-btn:hover {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
   flex: none;
 }
@@ -1749,7 +1887,7 @@ html.menu-open .site-header .icon-btn:hover {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid rgba(27, 16, 10, 0.16);
+  border: 1px solid rgba(26, 44, 48, 0.18);
   color: var(--card-ink);
   font-size: 13px;
   flex: none;
@@ -1757,8 +1895,8 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .copy-action-btn:hover {
-  background: var(--orange);
-  border-color: var(--orange);
+  background: var(--primary);
+  border-color: var(--primary);
   color: #fff;
 }
 
@@ -1772,11 +1910,11 @@ html.menu-open .site-header .icon-btn:hover {
 
 .contact-link i {
   font-size: 11px;
-  color: var(--orange);
+  color: var(--red);
 }
 
 .contact-link:hover {
-  color: var(--orange-strong);
+  color: var(--red);
 }
 
 .availability {
@@ -1786,7 +1924,7 @@ html.menu-open .site-header .icon-btn:hover {
   margin-top: auto;
   padding: 18px;
   border-radius: var(--radius-md);
-  background: var(--cream-ink);
+  background: var(--copper);
   color: #fff;
 }
 
@@ -1857,8 +1995,8 @@ html.menu-open .site-header .icon-btn:hover {
 
 .field input:focus,
 .field textarea:focus {
-  border-color: var(--orange);
-  box-shadow: 0 0 0 4px rgba(255, 84, 24, 0.16);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(254, 126, 60, 0.2);
 }
 
 .contact-form .pill-btn {
@@ -1900,7 +2038,7 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .footer-social .icon-btn:hover {
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -1927,7 +2065,7 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .footer-col a:hover {
-  color: var(--orange);
+  color: var(--accent);
 }
 
 .footer-status {
@@ -1979,7 +2117,7 @@ html.menu-open .site-header .icon-btn:hover {
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: rgba(10, 5, 3, 0.72);
+  background: rgba(8, 16, 18, 0.74);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   opacity: 0;
@@ -2027,7 +2165,7 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .modal-close-btn:hover {
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -2051,7 +2189,7 @@ html.menu-open .site-header .icon-btn:hover {
 .modal-cat-tag {
   font-size: 12.5px;
   font-weight: 500;
-  color: var(--orange);
+  color: var(--accent);
 }
 
 .modal-title-text {
@@ -2141,7 +2279,7 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .toast i {
-  color: var(--orange);
+  color: var(--red);
 }
 
 .toast.show {
@@ -2158,9 +2296,9 @@ html.menu-open .site-header .icon-btn:hover {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--orange);
+  background: var(--primary);
   color: #fff;
-  box-shadow: 0 16px 30px -12px rgba(255, 84, 24, 0.6);
+  box-shadow: 0 16px 30px -12px rgba(228, 32, 27, 0.55);
   opacity: 0;
   pointer-events: none;
   transform: translateY(12px);
@@ -2174,7 +2312,7 @@ html.menu-open .site-header .icon-btn:hover {
 }
 
 .back-to-top:hover {
-  background: var(--orange-strong);
+  background: var(--primary-strong);
 }
 
 /* --- Scroll reveal ---------------------------------------------------------- */
@@ -2232,7 +2370,7 @@ html.menu-open .site-header .icon-btn:hover {
   }
 
   .nav-link:hover {
-    color: var(--orange);
+    color: var(--accent);
   }
 
   /* Narrower hero: the portrait sits behind the text, so tone it down */
@@ -2348,6 +2486,10 @@ html.menu-open .site-header .icon-btn:hover {
     max-width: none;
   }
 
+  .profile-initials {
+    font-size: 1.35rem;
+  }
+
   .profile-card .pill-btn {
     grid-column: 1 / -1;
     margin-top: 16px;
@@ -2389,8 +2531,9 @@ html.menu-open .site-header .icon-btn:hover {
     grid-template-columns: 1fr;
   }
 
-  .cta-panel::after {
-    background: linear-gradient(90deg, rgba(255, 84, 24, 0.96) 0%, rgba(255, 84, 24, 0.82) 60%, rgba(255, 84, 24, 0.4) 100%);
+  .cta-panel__art {
+    width: 80%;
+    opacity: 0.7;
   }
 }
 
@@ -2590,8 +2733,13 @@ html.menu-open .site-header .icon-btn:hover {
     padding: 36px 22px;
   }
 
-  .cta-panel::after {
-    background: linear-gradient(180deg, rgba(255, 84, 24, 0.9) 0%, rgba(255, 84, 24, 0.88) 100%);
+  .cta-panel__art {
+    top: auto;
+    bottom: -30%;
+    right: -30%;
+    width: 120%;
+    height: 80%;
+    opacity: 0.55;
   }
 
   .cta-actions {
@@ -2651,14 +2799,15 @@ html.menu-open .site-header .icon-btn:hover {
 a:focus-visible,
 button:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
 .hero a:focus-visible,
 .hero button:focus-visible,
 .cta-panel a:focus-visible,
-.service-card--orange a:focus-visible,
+.service-card--lagoon a:focus-visible,
+.service-card--red a:focus-visible,
 .job-card--current a:focus-visible {
   outline-color: #fff;
 }
