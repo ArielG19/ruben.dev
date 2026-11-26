@@ -38,8 +38,6 @@
   --radius-full: 999px;
 
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --frame-gap: 20px;
-  --frame-max: 1360px;
   --gutter: 48px;
   --overlap: 36px;
 }
@@ -47,7 +45,6 @@
 /* Dark (default): Black Pearl surfaces */
 :root,
 [data-theme="dark"] {
-  --page: #0b1517;
   --frame: #132226;
   --surface: #1a2c30;
   --surface-2: #233a3f;
@@ -61,15 +58,12 @@
   --card-ink: var(--cream-ink);
   --card-muted: var(--cream-muted);
   --card-line: transparent;
-  --bg-art-opacity: 0.6;
-  --frame-border: rgba(254, 126, 60, 0.28);
   --header-glass: rgba(19, 34, 38, 0.8);
   color-scheme: dark;
 }
 
 /* Light: warm paper canvas, same palette */
 [data-theme="light"] {
-  --page: #e7ddd2;
   --frame: #faf6f0;
   --surface: #ffffff;
   --surface-2: #f0e7dd;
@@ -83,8 +77,6 @@
   --card-ink: #1a2c30;
   --card-muted: #61413c;
   --card-line: rgba(26, 44, 48, 0.1);
-  --bg-art-opacity: 0.28;
-  --frame-border: rgba(228, 32, 27, 0.22);
   --header-glass: rgba(250, 246, 240, 0.86);
   color-scheme: light;
 }
@@ -109,27 +101,11 @@ body {
   font-size: 16px;
   line-height: 1.55;
   color: var(--text);
-  background-color: var(--page);
+  background-color: var(--frame);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
-}
-
-/* Blurred orange portrait behind the frame, like the reference */
-body::before {
-  content: '';
-  position: fixed;
-  inset: -60px;
-  z-index: 0;
-  background:
-    radial-gradient(40% 35% at 12% 18%, rgba(254, 126, 60, 0.55), transparent 70%),
-    radial-gradient(45% 40% at 88% 30%, rgba(14, 104, 115, 0.7), transparent 70%),
-    radial-gradient(40% 40% at 80% 85%, rgba(228, 32, 27, 0.45), transparent 70%),
-    radial-gradient(45% 45% at 15% 90%, rgba(14, 104, 115, 0.45), transparent 70%);
-  filter: blur(40px);
-  opacity: var(--bg-art-opacity);
-  pointer-events: none;
 }
 
 img {
@@ -178,13 +154,10 @@ button {
 .frame {
   position: relative;
   z-index: 1;
-  width: min(calc(100% - 2 * var(--frame-gap)), var(--frame-max));
-  margin: var(--frame-gap) auto;
+  width: 100%;
   background: var(--frame);
-  border: 1px solid var(--frame-border);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: 0 40px 120px -40px rgba(0, 0, 0, 0.65);
+  /* clip (not hidden) so the sticky career column keeps working */
+  overflow-x: clip;
   transition: background-color 0.4s var(--ease);
 }
 
@@ -502,10 +475,10 @@ button {
   --h-active-bg: #fff;
   --h-active-ink: var(--cream-ink);
   position: fixed;
-  top: calc(var(--frame-gap) + 14px);
+  top: 14px;
   left: 50%;
   z-index: 1000;
-  width: min(calc(100% - 2 * var(--frame-gap) - 28px), calc(var(--frame-max) - 28px));
+  width: min(calc(100% - 28px), 1376px);
   transform: translateX(-50%);
 }
 
@@ -835,6 +808,22 @@ html.menu-open .site-header .icon-btn:hover {
   gap: 40px;
 }
 
+.hero-cta {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 8px;
+  justify-content: space-between;
+  padding: 7px 7px 7px 26px;
+  font-size: 17px;
+  box-shadow: 0 24px 50px -20px rgba(228, 32, 27, 0.7);
+}
+
+.hero-cta .pill-btn__icon {
+  width: 46px;
+  height: 46px;
+  font-size: 16px;
+}
+
 .hero-proof {
   display: flex;
   align-items: center;
@@ -842,96 +831,6 @@ html.menu-open .site-header .icon-btn:hover {
   font-size: 12px;
   line-height: 1.3;
   color: rgba(255, 255, 255, 0.9);
-}
-
-.profile-card {
-  width: 100%;
-  margin-top: auto;
-  margin-bottom: 8px;
-  padding: 14px;
-  border-radius: 24px;
-  background: var(--cream);
-  color: var(--cream-ink);
-  text-align: center;
-  box-shadow: 0 30px 60px -24px rgba(5, 15, 17, 0.7);
-}
-
-.profile-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.profile-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  background: #fff;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--cream-muted);
-}
-
-.profile-photo {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 100%;
-  aspect-ratio: 1 / 0.92;
-  margin: 12px 0 14px;
-  overflow: hidden;
-  border-radius: 16px;
-  background:
-    radial-gradient(60% 60% at 80% 20%, rgba(254, 126, 60, 0.7), transparent 70%),
-    radial-gradient(60% 60% at 15% 90%, rgba(14, 104, 115, 0.9), transparent 70%),
-    var(--pearl);
-}
-
-.profile-photo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: var(--grain);
-  background-size: 160px 160px;
-  opacity: 0.18;
-  mix-blend-mode: overlay;
-}
-
-.glow-ring--sm {
-  width: 92%;
-  filter: blur(10px);
-}
-
-.profile-initials {
-  position: relative;
-  z-index: 1;
-  font-size: 3.4rem;
-  font-weight: 500;
-  letter-spacing: -0.06em;
-  color: #fff;
-}
-
-.profile-mail {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  overflow-wrap: anywhere;
-}
-
-.profile-role {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.profile-note {
-  margin: 6px auto 16px;
-  max-width: 200px;
-  font-size: 12px;
-  line-height: 1.35;
-  color: var(--cream-muted);
 }
 
 /* --- About ---------------------------------------------------------------- */
@@ -2456,45 +2355,12 @@ html.menu-open .site-header .icon-btn:hover {
     display: none;
   }
 
-  /* Profile card becomes a compact horizontal card */
-  .profile-card {
-    display: grid;
-    grid-template-columns: 64px minmax(0, 1fr);
-    column-gap: 14px;
-    align-items: center;
-    max-width: 520px;
-    margin: 0;
-    text-align: left;
+  .hero-cta {
+    max-width: 420px;
+    margin-bottom: 0;
   }
 
-  .profile-top {
-    grid-column: 1 / -1;
-    margin-bottom: 14px;
-  }
-
-  .profile-photo {
-    grid-row: span 3;
-    width: 64px;
-    height: 64px;
-    margin: 0;
-    border-radius: 50%;
-    aspect-ratio: 1;
-  }
-
-  .profile-note {
-    margin: 2px 0 0;
-    max-width: none;
-  }
-
-  .profile-initials {
-    font-size: 1.35rem;
-  }
-
-  .profile-card .pill-btn {
-    grid-column: 1 / -1;
-    margin-top: 16px;
-  }
-
+  
   .about-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -2540,7 +2406,6 @@ html.menu-open .site-header .icon-btn:hover {
 /* Phones */
 @media (max-width: 640px) {
   :root {
-    --frame-gap: 8px;
     --gutter: 18px;
     --overlap: 26px;
     --radius-xl: 24px;
@@ -2567,8 +2432,8 @@ html.menu-open .site-header .icon-btn:hover {
   }
 
   .site-header {
-    top: calc(var(--frame-gap) + 8px);
-    width: calc(100% - 2 * var(--frame-gap) - 16px);
+    top: 8px;
+    width: calc(100% - 16px);
   }
 
   .header-inner {
